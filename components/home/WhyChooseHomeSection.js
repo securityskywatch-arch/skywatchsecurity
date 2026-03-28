@@ -75,7 +75,7 @@ function WhyChooseHomeSection() {
         {
           initial: { opacity: 0, y: 20 },
           whileInView: { opacity: 1, y: 0 },
-          viewport: { once: true, margin: "-60px" },
+          viewport: { once: true, margin: "0px", amount: "some" },
           transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
           className: "relative mx-auto aspect-[3/4] max-h-[min(70vh,28rem)] w-full max-w-md overflow-hidden rounded-2xl border border-sage/40 shadow-lift dark:border-sage/30 sm:max-h-[520px] sm:max-w-none lg:sticky lg:top-28 lg:mx-0",
           children: [
@@ -120,7 +120,7 @@ function WhyChooseHomeSection() {
             variants: container,
             initial: "hidden",
             whileInView: "visible",
-            viewport: { once: true, margin: "-40px", amount: 0.15 },
+            viewport: { once: true, margin: "0px", amount: "some" },
             children: points.map(({ Icon, title, text }) => /* @__PURE__ */ jsx(
               motion.li,
               {

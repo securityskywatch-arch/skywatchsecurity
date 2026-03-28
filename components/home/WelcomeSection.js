@@ -24,7 +24,7 @@ function WelcomeSection() {
           className: "min-w-0",
           initial: { opacity: 0, x: -28 },
           whileInView: { opacity: 1, x: 0 },
-          viewport: { once: true, margin: "-80px" },
+          viewport: { once: true, margin: "0px", amount: "some" },
           transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
           children: [
             /* @__PURE__ */ jsx("p", { className: "text-sm font-semibold uppercase tracking-[0.2em] text-accent", children: "Welcome" }),
@@ -62,7 +62,7 @@ function WelcomeSection() {
         {
           initial: { opacity: 0, scale: 0.96, y: 24 },
           whileInView: { opacity: 1, scale: 1, y: 0 },
-          viewport: { once: true, margin: "-80px" },
+          viewport: { once: true, margin: "0px", amount: "some" },
           transition: { duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] },
           className: "relative min-w-0",
           children: [
@@ -85,7 +85,7 @@ function WelcomeSection() {
                 className: "mt-4 w-full max-w-md rounded-xl border border-primary/40 bg-base/95 px-4 py-3 text-xs text-sage shadow-lg backdrop-blur-sm sm:absolute sm:bottom-0 sm:right-0 sm:mt-0 sm:max-w-[14rem] sm:translate-y-1/4 sm:text-sm",
                 initial: { opacity: 0, y: 12 },
                 whileInView: { opacity: 1, y: 0 },
-                viewport: { once: true },
+                viewport: { once: true, margin: "0px", amount: "some" },
                 transition: { delay: 0.35, duration: 0.5 },
                 children: [
                   /* @__PURE__ */ jsx("p", { className: "font-semibold text-accent", children: "Trusted coverage" }),

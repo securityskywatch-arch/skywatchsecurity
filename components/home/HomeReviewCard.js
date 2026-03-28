@@ -12,7 +12,7 @@ function HomeReviewCard({ review, staticEntry = false }) {
     {
       initial: staticEntry ? false : { opacity: 0, y: 28, scale: 0.98 },
       whileInView: staticEntry ? void 0 : { opacity: 1, y: 0, scale: 1 },
-      viewport: staticEntry ? void 0 : { once: true, margin: "-48px" },
+      viewport: staticEntry ? void 0 : { once: true, margin: "0px", amount: "some" },
       transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
       whileHover: { y: -4, transition: { duration: 0.2 } },
       className: "group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-sage/40 bg-gradient-to-br from-base/[0.03] via-secondary/80 to-base/[0.02] p-5 shadow-sm transition-shadow duration-300 hover:border-primary/45 hover:shadow-lift-gold dark:border-sage/30 dark:from-secondary/[0.04] dark:via-base/40 dark:to-base/30 dark:hover:border-primary/50 sm:p-6",

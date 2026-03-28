@@ -26,7 +26,8 @@ function StaggerSection({
       className,
       initial: "hidden",
       whileInView: "visible",
-      viewport: { once: true, margin: "-72px", amount: 0.2 },
+      // Loose viewport so tall sections still trigger on mobile / iOS (avoid stuck opacity: 0 on Vercel)
+      viewport: { once: true, margin: "0px", amount: "some" },
       variants: container,
       children
     }
@@ -47,9 +48,9 @@ function Reveal({
     motion.div,
     {
       className,
-      initial: { opacity: 0, y: 32 },
+      initial: { opacity: 0, y: 24 },
       whileInView: { opacity: 1, y: 0 },
-      viewport: { once: true, margin: "-48px" },
+      viewport: { once: true, margin: "0px", amount: "some" },
       transition: {
         duration: 0.65,
         delay,
