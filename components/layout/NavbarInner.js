@@ -78,20 +78,42 @@ function NavbarInner({ logoSrc }) {
         Link,
         {
           href: "/",
-          className: "relative z-[70] flex h-10 min-w-0 max-w-[calc(100%-6.5rem)] shrink items-center overflow-visible sm:max-w-none",
+          className:
+            "relative z-[70] flex min-w-0 max-w-[calc(100%-6.5rem)] shrink items-center gap-2.5 overflow-visible rounded-lg pr-1 outline-none ring-primary/0 transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-primary/50 sm:max-w-none sm:gap-3",
           onClick: () => setMobileOpen(false),
-          children: /* @__PURE__ */ jsx(
-            Image,
-            {
-              src: logoSrc,
-              alt: "SkyWatch Security",
-              width: 520,
-              height: 156,
-              className: "h-16 w-auto max-w-full object-contain object-left sm:h-[4.5rem] sm:max-w-[min(300px,calc(100vw-10.5rem))] md:h-20 md:max-w-[min(340px,calc(100vw-26rem))] lg:h-[5.25rem] lg:max-w-[min(360px,calc(100vw-27rem))]",
-              priority: true,
-              sizes: "(max-width: 640px) 200px, (max-width: 1024px) 300px, 380px"
-            }
-          )
+          "aria-label": "SkyWatch Security, home",
+          children: /* @__PURE__ */ jsxs(Fragment, {
+            children: [
+              /* @__PURE__ */ jsx(
+                Image,
+                {
+                  src: logoSrc,
+                  alt: "",
+                  width: 520,
+                  height: 156,
+                  className:
+                    "h-11 w-auto shrink-0 object-contain object-left sm:h-[3.25rem] md:h-16 lg:h-[4.25rem] lg:max-h-[4.5rem]",
+                  priority: true,
+                  sizes: "(max-width: 640px) 120px, (max-width: 1024px) 160px, 200px"
+                }
+              ),
+              /* @__PURE__ */ jsxs("span", {
+                className: "flex min-w-0 flex-col justify-center leading-none",
+                children: [
+                  /* @__PURE__ */ jsx("span", {
+                    className:
+                      "truncate text-[0.95rem] font-bold tracking-tight text-[#141414] dark:text-[#faf8f3] sm:text-lg md:text-xl lg:text-[1.35rem] lg:leading-tight",
+                    children: "SkyWatch"
+                  }),
+                  /* @__PURE__ */ jsx("span", {
+                    className:
+                      "mt-1 text-[0.5625rem] font-semibold uppercase tracking-[0.2em] text-primary dark:text-accent sm:text-[0.625rem] sm:tracking-[0.22em]",
+                    children: "Security"
+                  })
+                ]
+              })
+            ]
+          })
         }
       ),
       /* @__PURE__ */ jsxs(
