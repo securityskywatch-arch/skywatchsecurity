@@ -92,23 +92,31 @@ function NavbarInner({ logoSrc }) {
                   width: 520,
                   height: 156,
                   className:
-                    "h-11 w-auto shrink-0 object-contain object-left sm:h-[3.25rem] md:h-16 lg:h-[4.25rem] lg:max-h-[4.5rem]",
+                    "h-12 w-auto shrink-0 object-contain object-left sm:h-[3.25rem] md:h-16 lg:h-[4.25rem] lg:max-h-[4.5rem]",
                   priority: true,
-                  sizes: "(max-width: 640px) 120px, (max-width: 1024px) 160px, 200px"
+                  sizes: "(max-width: 640px) 140px, (max-width: 1024px) 160px, 200px"
                 }
               ),
               /* @__PURE__ */ jsxs("span", {
-                className: "flex min-w-0 flex-col justify-center leading-none",
+                className:
+                  "flex min-w-0 flex-col justify-center gap-0.5 leading-none sm:gap-1",
                 children: [
-                  /* @__PURE__ */ jsx("span", {
+                  /* @__PURE__ */ jsxs("span", {
                     className:
-                      "truncate text-[0.95rem] font-bold tracking-tight text-[#141414] dark:text-[#faf8f3] sm:text-lg md:text-xl lg:text-[1.35rem] lg:leading-tight",
-                    children: "SkyWatch"
+                      "truncate text-[0.95rem] font-black tracking-[-0.02em] text-[#141414] sm:text-lg md:text-xl lg:text-[1.35rem] lg:leading-[1.1] dark:text-[#faf8f3]",
+                    children: [
+                      "Sky",
+                      /* @__PURE__ */ jsx("span", {
+                        className:
+                          "text-primary dark:bg-gradient-to-r dark:from-[#fff4d4] dark:via-accent dark:to-primary dark:bg-clip-text dark:text-transparent",
+                        children: "Watch"
+                      })
+                    ]
                   }),
                   /* @__PURE__ */ jsx("span", {
                     className:
-                      "mt-1 text-[0.5625rem] font-semibold uppercase tracking-[0.2em] text-primary dark:text-accent sm:text-[0.625rem] sm:tracking-[0.22em]",
-                    children: "Security"
+                      "relative inline-block w-max max-w-full text-[0.625rem] font-bold uppercase leading-none tracking-[0.08em] text-primary after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:rounded-full after:bg-gradient-to-r after:from-primary/40 after:via-accent/80 after:to-primary/40 dark:text-accent dark:after:from-accent/30 dark:after:via-accent dark:after:to-primary/40 sm:text-[0.6875rem] sm:tracking-[0.1em]",
+                    children: "SECURITY"
                   })
                 ]
               })
