@@ -84,12 +84,12 @@ function NavbarInner({ logoSrc }) {
   const mobileRecruitmentLinks = /* @__PURE__ */ jsx("div", { className: "min-w-0", children: mobileDrawerLinkItems(recruitmentNavItems) });
   return /* @__PURE__ */ jsxs("header", { className: "sticky top-0 z-[60] overflow-visible border-b border-sage/30 bg-secondary text-[#1a1a1a] shadow-sm dark:border-sage/30 dark:bg-base dark:text-secondary", children: [
     /* @__PURE__ */ jsxs("div", { className: "header-container", children: [
-      /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsx("div", { className: "flex min-w-0 justify-self-start justify-start", children: /* @__PURE__ */ jsx(
         Link,
         {
           href: "/",
           className:
-            "relative z-[70] flex min-w-0 max-w-[calc(100%-6.5rem)] shrink items-center gap-2 overflow-visible rounded-lg pr-0 outline-none ring-primary/0 transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-primary/50 sm:max-w-none sm:gap-2.5 lg:shrink-0 lg:gap-3",
+            "relative z-[70] flex min-w-0 max-w-[calc(100%-6.5rem)] shrink items-center gap-2 overflow-visible rounded-lg pr-0 outline-none ring-primary/0 transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-primary/50 sm:max-w-none sm:gap-2.5 lg:max-w-none lg:shrink-0 lg:gap-3",
           onClick: closeMobile,
           "aria-label": "SkyWatch Security, home",
           children: /* @__PURE__ */ jsxs(Fragment, {
@@ -133,11 +133,11 @@ function NavbarInner({ logoSrc }) {
             ]
           })
         }
-      ),
+      ) }),
       /* @__PURE__ */ jsxs(
         "nav",
         {
-          className: "hidden min-w-0 flex-nowrap items-center justify-start gap-0.5 overflow-visible lg:flex xl:gap-1",
+          className: "hidden min-w-0 flex-nowrap items-center justify-center gap-0.5 overflow-visible lg:flex xl:gap-1",
           "aria-label": "Main",
           children: [
             /* @__PURE__ */ jsx(
@@ -193,7 +193,7 @@ function NavbarInner({ logoSrc }) {
           ]
         }
       ),
-      /* @__PURE__ */ jsxs("div", { className: "ml-auto flex shrink-0 items-center gap-1.5 lg:ml-0 lg:gap-2", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex shrink-0 items-center justify-end justify-self-end gap-1.5 lg:gap-2", children: [
         /* @__PURE__ */ jsx(ThemeToggle, {}),
         /* @__PURE__ */ jsx(
           Link,
