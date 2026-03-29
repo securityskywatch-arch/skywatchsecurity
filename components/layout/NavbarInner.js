@@ -20,14 +20,14 @@ function DesktopHoverDropdown({
   active,
   children
 }) {
-  return /* @__PURE__ */ jsxs("div", { className: "group relative z-0 hover:z-[120] focus-within:z-[120]", children: [
+  return /* @__PURE__ */ jsxs("div", { className: "group relative z-0 shrink-0 hover:z-[120] focus-within:z-[120]", children: [
     /* @__PURE__ */ jsxs(
       "button",
       {
         type: "button",
         tabIndex: 0,
         "aria-haspopup": "true",
-        className: `flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium outline-none transition ring-accent/0 focus-visible:ring-2 ${active ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
+        className: `flex shrink-0 items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-[0.8125rem] font-medium outline-none transition ring-accent/0 focus-visible:ring-2 xl:px-3 xl:text-sm ${active ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
         children: [
           label,
           /* @__PURE__ */ jsx(
@@ -83,13 +83,13 @@ function NavbarInner({ logoSrc }) {
   const mobileServiceLinks = /* @__PURE__ */ jsx("div", { className: "min-w-0", children: mobileDrawerLinkItems(serviceNavItems) });
   const mobileRecruitmentLinks = /* @__PURE__ */ jsx("div", { className: "min-w-0", children: mobileDrawerLinkItems(recruitmentNavItems) });
   return /* @__PURE__ */ jsxs("header", { className: "sticky top-0 z-[60] overflow-visible border-b border-sage/30 bg-secondary text-[#1a1a1a] shadow-sm dark:border-sage/30 dark:bg-base dark:text-secondary", children: [
-    /* @__PURE__ */ jsxs("div", { className: "page-container flex items-center justify-between gap-2 overflow-visible py-2 sm:gap-3 sm:py-3 lg:gap-4 lg:py-4", children: [
+    /* @__PURE__ */ jsxs("div", { className: "page-container flex flex-nowrap items-center justify-between gap-2 overflow-visible py-2 sm:gap-3 sm:py-3 lg:gap-3 lg:py-3 xl:gap-4 xl:py-4", children: [
       /* @__PURE__ */ jsx(
         Link,
         {
           href: "/",
           className:
-            "relative z-[70] flex min-w-0 max-w-[calc(100%-6.5rem)] shrink items-center gap-2.5 overflow-visible rounded-lg pr-1 outline-none ring-primary/0 transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-primary/50 sm:max-w-none sm:gap-3",
+            "relative z-[70] flex min-w-0 max-w-[calc(100%-6.5rem)] shrink items-center gap-2.5 overflow-visible rounded-lg pr-1 outline-none ring-primary/0 transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-primary/50 sm:max-w-none sm:gap-3 lg:shrink-0",
           onClick: closeMobile,
           "aria-label": "SkyWatch Security, home",
           children: /* @__PURE__ */ jsxs(Fragment, {
@@ -102,9 +102,9 @@ function NavbarInner({ logoSrc }) {
                   width: 520,
                   height: 156,
                   className:
-                    "h-8 w-auto shrink-0 object-contain object-left md:h-12 lg:h-14",
+                    "h-10 w-auto shrink-0 object-contain object-left md:h-14 lg:h-16",
                   priority: true,
-                  sizes: "(max-width: 768px) 96px, (max-width: 1024px) 140px, 180px"
+                  sizes: "(max-width: 768px) 120px, (max-width: 1024px) 168px, 200px"
                 }
               ),
               /* @__PURE__ */ jsxs("span", {
@@ -113,7 +113,7 @@ function NavbarInner({ logoSrc }) {
                 children: [
                   /* @__PURE__ */ jsxs("span", {
                     className:
-                      "truncate text-[0.95rem] font-black tracking-[-0.02em] text-[#141414] sm:text-lg md:text-xl lg:text-[1.35rem] lg:leading-[1.1] dark:text-[#faf8f3]",
+                      "truncate text-[1.02rem] font-black tracking-[-0.02em] text-[#141414] sm:text-lg md:text-[1.15rem] lg:text-[1.4rem] lg:leading-[1.1] xl:text-[1.45rem] dark:text-[#faf8f3]",
                     children: [
                       "Sky",
                       /* @__PURE__ */ jsx("span", {
@@ -137,14 +137,14 @@ function NavbarInner({ logoSrc }) {
       /* @__PURE__ */ jsxs(
         "nav",
         {
-          className: "hidden min-w-0 flex-1 items-center justify-center gap-0.5 overflow-visible lg:flex xl:gap-1",
+          className: "hidden min-w-0 flex-1 flex-nowrap items-center justify-center gap-0.5 overflow-visible lg:flex xl:gap-1",
           "aria-label": "Main",
           children: [
             /* @__PURE__ */ jsx(
               Link,
               {
                 href: "/",
-                className: `rounded-md px-3 py-2 text-sm font-medium transition ${pathname === "/" ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
+                className: `shrink-0 whitespace-nowrap rounded-md px-2 py-2 text-[0.8125rem] font-medium transition xl:px-3 xl:text-sm ${pathname === "/" ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
                 children: "Home"
               }
             ),
@@ -154,7 +154,7 @@ function NavbarInner({ logoSrc }) {
               Link,
               {
                 href: "/why-choose-us",
-                className: `rounded-md px-3 py-2 text-sm font-medium transition ${isActive("/why-choose-us") ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
+                className: `shrink-0 whitespace-nowrap rounded-md px-2 py-2 text-[0.8125rem] font-medium transition xl:px-3 xl:text-sm ${isActive("/why-choose-us") ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
                 children: "Why Choose Us"
               }
             ),
@@ -162,7 +162,7 @@ function NavbarInner({ logoSrc }) {
               Link,
               {
                 href: "/accreditation",
-                className: `rounded-md px-3 py-2 text-sm font-medium transition ${isActive("/accreditation") ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
+                className: `shrink-0 whitespace-nowrap rounded-md px-2 py-2 text-[0.8125rem] font-medium transition xl:px-3 xl:text-sm ${isActive("/accreditation") ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
                 children: "Accreditation"
               }
             ),
@@ -178,7 +178,7 @@ function NavbarInner({ logoSrc }) {
               Link,
               {
                 href: "/contact",
-                className: `rounded-md px-3 py-2 text-sm font-medium transition ${isActive("/contact") ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
+                className: `shrink-0 whitespace-nowrap rounded-md px-2 py-2 text-[0.8125rem] font-medium transition xl:px-3 xl:text-sm ${isActive("/contact") ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
                 children: "Contact"
               }
             ),
@@ -186,7 +186,7 @@ function NavbarInner({ logoSrc }) {
               Link,
               {
                 href: "/blog",
-                className: `rounded-md px-3 py-2 text-sm font-medium transition ${isActive("/blog") ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
+                className: `shrink-0 whitespace-nowrap rounded-md px-2 py-2 text-[0.8125rem] font-medium transition xl:px-3 xl:text-sm ${isActive("/blog") ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
                 children: "Blog"
               }
             )
@@ -199,7 +199,7 @@ function NavbarInner({ logoSrc }) {
           Link,
           {
             href: "/quote",
-            className: "hidden whitespace-nowrap rounded-md bg-primary px-3 py-2 text-sm font-semibold text-[#141414] shadow-sm transition hover:bg-accent hover:text-[#141414] lg:inline-flex",
+            className: "hidden shrink-0 whitespace-nowrap rounded-md bg-primary px-2.5 py-2 text-[0.8125rem] font-semibold text-[#141414] shadow-sm transition hover:bg-accent hover:text-[#141414] lg:inline-flex xl:px-3 xl:text-sm",
             children: "Request a Quote"
           }
         ),
