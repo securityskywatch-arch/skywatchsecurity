@@ -103,12 +103,12 @@ function NavbarInner({ logoSrc }) {
   const mobileRecruitmentLinks = /* @__PURE__ */ jsx("div", { className: "min-w-0", children: mobileDrawerLinkItems(recruitmentNavItems) });
   return /* @__PURE__ */ jsxs("header", { className: "sticky top-0 z-[60] overflow-visible border-b border-sage/30 bg-secondary/95 text-[#1a1a1a] shadow-sm backdrop-blur-md backdrop-saturate-150 dark:border-sage/30 dark:bg-base/95 dark:text-secondary", children: [
     /* @__PURE__ */ jsxs("div", { className: "header-container", children: [
-      /* @__PURE__ */ jsx("div", { className: "flex min-w-0 shrink-0 justify-start", children: /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsx("div", { className: "flex min-w-0 flex-1 justify-start lg:flex-none lg:shrink-0", children: /* @__PURE__ */ jsx(
         Link,
         {
           href: "/",
           className:
-            "relative z-[70] flex min-w-0 max-w-[calc(100%-6.5rem)] shrink items-center gap-2 overflow-visible rounded-lg pr-0 outline-none ring-primary/0 transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-primary/50 sm:max-w-none sm:gap-2.5 lg:max-w-none lg:shrink-0 lg:gap-3",
+            "relative z-[70] flex min-h-[44px] min-w-0 max-w-full items-center gap-2.5 overflow-visible rounded-lg pr-1 outline-none ring-primary/0 transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-primary/50 sm:gap-3 lg:max-w-none lg:gap-3",
           onClick: closeMobile,
           "aria-label": "SkyWatch Security, home",
           children: /* @__PURE__ */ jsxs(Fragment, {
@@ -121,18 +121,18 @@ function NavbarInner({ logoSrc }) {
                   width: 520,
                   height: 156,
                   className:
-                    "h-12 w-auto shrink-0 object-contain object-left md:h-[4rem] lg:h-[4.75rem]",
+                    "h-11 w-auto shrink-0 object-contain object-left sm:h-12 md:h-[4rem] lg:h-[4.75rem]",
                   priority: true,
-                  sizes: "(max-width: 768px) 140px, (max-width: 1024px) 192px, 240px"
+                  sizes: "(max-width: 768px) 128px, (max-width: 1024px) 192px, 240px"
                 }
               ),
               /* @__PURE__ */ jsxs("span", {
                 className:
-                  "flex min-w-0 flex-col justify-center gap-0.5 leading-none sm:gap-1",
+                  "flex min-w-0 flex-1 flex-col justify-center gap-0.5 leading-none lg:flex-none lg:gap-1",
                 children: [
                   /* @__PURE__ */ jsxs("span", {
                     className:
-                      "truncate text-[0.9375rem] font-black tracking-[-0.02em] text-[#141414] sm:text-base md:text-[1.05rem] lg:text-[1.15rem] lg:leading-[1.1] xl:text-[1.2rem] dark:text-[#faf8f3]",
+                      "min-w-0 truncate text-[1rem] font-black tracking-[-0.02em] text-[#141414] sm:text-base md:text-[1.05rem] lg:text-[1.15rem] lg:leading-[1.1] xl:text-[1.2rem] dark:text-[#faf8f3]",
                     children: [
                       "Sky",
                       /* @__PURE__ */ jsx("span", {
@@ -144,7 +144,7 @@ function NavbarInner({ logoSrc }) {
                   }),
                   /* @__PURE__ */ jsx("span", {
                     className:
-                      "relative inline-block w-max max-w-full text-[0.5625rem] font-bold uppercase leading-none tracking-[0.08em] text-primary after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:rounded-full after:bg-gradient-to-r after:from-primary/40 after:via-accent/80 after:to-primary/40 dark:text-accent dark:after:from-accent/30 dark:after:via-accent dark:after:to-primary/40 sm:text-[0.625rem] sm:tracking-[0.1em]",
+                      "relative inline-block w-max max-w-full truncate text-[0.625rem] font-bold uppercase leading-none tracking-[0.08em] text-primary after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:rounded-full after:bg-gradient-to-r after:from-primary/40 after:via-accent/80 after:to-primary/40 dark:text-accent dark:after:from-accent/30 dark:after:via-accent dark:after:to-primary/40 sm:text-[0.625rem] sm:tracking-[0.1em]",
                     children: "SECURITY"
                   })
                 ]
@@ -156,7 +156,7 @@ function NavbarInner({ logoSrc }) {
       /* @__PURE__ */ jsxs(
         "nav",
         {
-          className: "hidden min-w-0 shrink-0 flex-nowrap items-center justify-start gap-px overflow-visible lg:flex lg:gap-0.5 xl:gap-1",
+          className: "hidden min-w-0 shrink-0 flex-nowrap items-center justify-start gap-0.5 overflow-visible lg:flex lg:gap-1 xl:gap-1.5",
           "aria-label": "Main",
           children: [
             /* @__PURE__ */ jsx(
@@ -243,7 +243,7 @@ function NavbarInner({ logoSrc }) {
         {
           id: "mobile-nav",
           className:
-            "fixed bottom-0 left-0 right-0 top-[4.75rem] z-[55] max-h-[calc(100dvh-4.75rem)] overflow-y-auto overscroll-y-contain border-t border-sage/25 bg-secondary px-3 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-2 shadow-2xl dark:border-sage/25 dark:bg-base lg:hidden",
+            "fixed bottom-0 left-0 right-0 top-20 z-[55] max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-y-contain border-t border-sage/25 bg-secondary px-3 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-2 shadow-2xl dark:border-sage/25 dark:bg-base lg:hidden",
           children: [
             /* @__PURE__ */ jsxs("div", { className: "flex min-h-0 flex-col gap-0", children: [
               /* @__PURE__ */ jsx(
