@@ -16,13 +16,13 @@ function ContactPage() {
       /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "space-y-6 rounded-2xl border border-sage/40 bg-base/5 p-8 dark:border-sage/30 dark:bg-secondary/5", children: [
         /* @__PURE__ */ jsxs("div", { className: "flex gap-3", children: [
           /* @__PURE__ */ jsx(MapPin, { className: "mt-1 h-5 w-5 shrink-0 text-primary" }),
-          /* @__PURE__ */ jsxs("div", { children: [
-            /* @__PURE__ */ jsx("p", { className: "font-semibold text-base dark:text-secondary", children: "Address" }),
-            /* @__PURE__ */ jsx("p", { className: "mt-1 text-sm text-base/80 dark:text-sage", children: siteContact.addressLines.map((line, i) => /* @__PURE__ */ jsxs("span", { children: [
+          /* @__PURE__ */ jsx("p", {
+            className: "min-w-0 text-sm leading-relaxed text-base/80 dark:text-sage",
+            children: siteContact.addressLines.map((line, i) => /* @__PURE__ */ jsxs("span", { children: [
               i > 0 && /* @__PURE__ */ jsx("br", {}),
               line
-            ] }, line)) })
-          ] })
+            ] }, line))
+          })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "flex gap-3", children: [
           /* @__PURE__ */ jsx(Phone, { className: "mt-1 h-5 w-5 shrink-0 text-primary" }),
@@ -33,11 +33,7 @@ function ContactPage() {
               {
                 href: `tel:${siteContact.phone.tel}`,
                 className: "mt-1 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent",
-                children: [
-                  siteContact.phone.display,
-                  " ",
-                  /* @__PURE__ */ jsx("span", { className: "font-normal text-base/60 dark:text-sage", children: "(placeholder)" })
-                ]
+                children: siteContact.phone.display
               }
             )
           ] })

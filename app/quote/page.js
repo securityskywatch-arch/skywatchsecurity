@@ -20,8 +20,7 @@ function QuotePage() {
             children: siteContact.phone.display
           }
         ),
-        " ",
-        "(placeholder until your number is live)."
+        "."
       ] })
     ] }),
     /* @__PURE__ */ jsx(Reveal, { delay: 0.08, children: /* @__PURE__ */ jsxs(

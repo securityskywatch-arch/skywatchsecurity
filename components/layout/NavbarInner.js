@@ -73,7 +73,7 @@ function NavbarInner({ logoSrc }) {
   const serviceLinks = /* @__PURE__ */ jsx("div", { className: "grid sm:grid-cols-2", children: linkItems(serviceNavItems) });
   const recruitmentLinks = /* @__PURE__ */ jsx(Fragment, { children: linkItems(recruitmentNavItems) });
   return /* @__PURE__ */ jsxs("header", { className: "sticky top-0 z-[60] overflow-visible border-b border-sage/30 bg-secondary text-[#1a1a1a] shadow-sm dark:border-sage/30 dark:bg-base dark:text-secondary", children: [
-    /* @__PURE__ */ jsxs("div", { className: "mx-auto flex min-w-0 max-w-page items-center justify-between gap-2 overflow-visible px-3 py-3 sm:gap-3 sm:px-5 sm:py-4 lg:gap-4 lg:px-6 lg:py-5", children: [
+    /* @__PURE__ */ jsxs("div", { className: "mx-auto flex min-w-0 max-w-page items-center justify-between gap-2 overflow-visible px-3 py-2 sm:gap-3 sm:px-5 sm:py-3 lg:gap-4 lg:px-6 lg:py-4", children: [
       /* @__PURE__ */ jsx(
         Link,
         {
@@ -92,9 +92,9 @@ function NavbarInner({ logoSrc }) {
                   width: 520,
                   height: 156,
                   className:
-                    "h-12 w-auto shrink-0 object-contain object-left sm:h-[3.25rem] md:h-16 lg:h-[4.25rem] lg:max-h-[4.5rem]",
+                    "h-14 w-auto shrink-0 object-contain object-left sm:h-[3.75rem] md:h-[4.5rem] lg:h-[4.75rem] lg:max-h-[5rem]",
                   priority: true,
-                  sizes: "(max-width: 640px) 140px, (max-width: 1024px) 160px, 200px"
+                  sizes: "(max-width: 640px) 160px, (max-width: 1024px) 180px, 220px"
                 }
               ),
               /* @__PURE__ */ jsxs("span", {

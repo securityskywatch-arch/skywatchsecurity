@@ -16,27 +16,22 @@ function Footer() {
         /* @__PURE__ */ jsxs("ul", { className: "mt-4 space-y-3 text-sm text-[#4a4538] dark:text-sage", children: [
           /* @__PURE__ */ jsxs("li", { className: "flex items-start gap-2", children: [
             /* @__PURE__ */ jsx(MapPin, { className: "mt-0.5 h-4 w-4 shrink-0 text-primary" }),
-            /* @__PURE__ */ jsxs("span", { children: [
-              /* @__PURE__ */ jsx("span", { className: "font-semibold text-[#1a1a1a] dark:text-secondary/90", children: "Address" }),
-              /* @__PURE__ */ jsx("br", {}),
-              siteContact.addressLines.map((line, i) => /* @__PURE__ */ jsxs("span", { children: [
+            /* @__PURE__ */ jsx("span", {
+              className: "min-w-0 text-[#1a1a1a] dark:text-sage",
+              children: siteContact.addressLines.map((line, i) => /* @__PURE__ */ jsxs("span", { children: [
                 i > 0 && /* @__PURE__ */ jsx("br", {}),
                 line
               ] }, line))
-            ] })
+            })
           ] }),
           /* @__PURE__ */ jsxs("li", { className: "flex items-start gap-2", children: [
             /* @__PURE__ */ jsx(Phone, { className: "mt-0.5 h-4 w-4 shrink-0 text-primary" }),
-            /* @__PURE__ */ jsxs(
+            /* @__PURE__ */ jsx(
               "a",
               {
                 href: `tel:${siteContact.phone.tel}`,
                 className: "text-[#1a1a1a] transition hover:text-primary dark:text-sage dark:hover:text-accent",
-                children: [
-                  siteContact.phone.display,
-                  " ",
-                  /* @__PURE__ */ jsx("span", { className: "text-[#6b6355] dark:text-sage/85", children: "(placeholder)" })
-                ]
+                children: siteContact.phone.display
               }
             )
           ] }),
