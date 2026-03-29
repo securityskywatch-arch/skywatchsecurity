@@ -244,114 +244,116 @@ function NavbarInner({ logoSrc }) {
         {
           id: "mobile-nav",
           className:
-            "fixed bottom-0 left-0 right-0 top-[var(--header-h)] z-[160] flex max-h-[calc(100dvh-var(--header-h))] min-h-[min(55dvh,24rem)] flex-col overflow-y-auto overscroll-y-contain border-t border-sage/25 bg-secondary px-3 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-3 shadow-2xl dark:border-sage/25 dark:bg-base lg:hidden",
+            "fixed bottom-0 left-0 right-0 top-[var(--header-h)] z-[160] flex max-h-[calc(100dvh-var(--header-h))] min-h-[min(55dvh,24rem)] min-w-0 flex-col items-stretch overflow-y-auto overscroll-y-contain border-t border-sage/25 bg-secondary px-3 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-3 shadow-2xl dark:border-sage/25 dark:bg-base lg:hidden",
           children: [
-            /* @__PURE__ */ jsxs("div", { className: "flex min-h-0 flex-col gap-0", children: [
-              /* @__PURE__ */ jsx(
-                Link,
-                {
-                  href: "/",
-                  onClick: closeMobile,
-                  className: `rounded-md px-3 py-3 text-sm font-medium leading-relaxed ${pathname === "/" ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a] hover:bg-base/[0.06] dark:text-secondary dark:hover:bg-white/5"}`,
-                  children: "Home"
-                }
-              ),
-              [
-                {
-                  key: "about",
-                  label: "About Us",
-                  content: mobileAboutLinks
-                },
-                {
-                  key: "services",
-                  label: "Services",
-                  content: mobileServiceLinks
-                },
-                {
-                  key: "recruitment",
-                  label: "Recruitment",
-                  content: mobileRecruitmentLinks
-                }
-              ].map(({ key, label, content }) => {
-                const open = mobileAcc === key;
-                return /* @__PURE__ */ jsxs("div", { className: "border-b border-sage/30 py-1 dark:border-sage/25", children: [
-                  /* @__PURE__ */ jsxs(
-                    "button",
-                    {
-                      type: "button",
-                      className: "flex w-full items-center justify-between gap-2 rounded-md px-3 py-3 text-left text-sm font-medium leading-relaxed text-[#1a1a1a] dark:text-secondary",
-                      "aria-expanded": open,
-                      onClick: () => setMobileAcc(open ? null : key),
-                      children: [
-                        label,
-                        /* @__PURE__ */ jsx(
-                          ChevronDown,
-                          {
-                            className: `h-5 w-5 shrink-0 text-primary transition duration-200 ${open ? "rotate-180" : ""}`,
-                            "aria-hidden": true
-                          }
-                        )
-                      ]
-                    }
-                  ),
-                  open ? /* @__PURE__ */ jsx("div", { className: "border-t border-sage/20 bg-base/[0.04] dark:border-sage/15 dark:bg-base/50", children: content }) : null
-                ] }, key);
-              }),
-              /* @__PURE__ */ jsx(
-                Link,
-                {
-                  href: "/why-choose-us",
-                  onClick: closeMobile,
-                  className: "rounded-md px-3 py-3 text-sm font-medium leading-relaxed text-[#1a1a1a] hover:bg-base/[0.06] dark:text-secondary dark:hover:bg-white/5",
-                  children: "Why Choose Us"
-                }
-              ),
-              /* @__PURE__ */ jsx(
-                Link,
-                {
-                  href: "/accreditation",
-                  onClick: closeMobile,
-                  className: "rounded-md px-3 py-3 text-sm font-medium leading-relaxed text-[#1a1a1a] hover:bg-base/[0.06] dark:text-secondary dark:hover:bg-white/5",
-                  children: "Accreditation"
-                }
-              ),
-              /* @__PURE__ */ jsx(
-                Link,
-                {
-                  href: "/contact",
-                  onClick: closeMobile,
-                  className: "rounded-md px-3 py-3 text-sm font-medium leading-relaxed text-[#1a1a1a] hover:bg-base/[0.06] dark:text-secondary dark:hover:bg-white/5",
-                  children: "Contact"
-                }
-              ),
-              /* @__PURE__ */ jsx(
-                Link,
-                {
-                  href: "/blog",
-                  onClick: closeMobile,
-                  className: "rounded-md px-3 py-3 text-sm font-medium leading-relaxed text-[#1a1a1a] hover:bg-base/[0.06] dark:text-secondary dark:hover:bg-white/5",
-                  children: "Blog"
-                }
-              )
-            ] }),
             /* @__PURE__ */ jsx(
               Link,
               {
-                href: "/quote",
+                key: "mn-home",
+                href: "/",
                 onClick: closeMobile,
-                className: "mt-4 block w-full rounded-md bg-primary px-3 py-3 text-center text-sm font-semibold leading-relaxed text-[#141414]",
-                children: "Request a Quote"
+                className: `block w-full min-w-0 rounded-md px-3 py-3 text-left text-sm font-medium leading-relaxed touch-manipulation ${pathname === "/" ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a] hover:bg-base/[0.06] dark:text-secondary dark:hover:bg-white/5"}`,
+                children: "Home"
+              }
+            ),
+            ...[
+              {
+                key: "about",
+                label: "About Us",
+                content: mobileAboutLinks
+              },
+              {
+                key: "services",
+                label: "Services",
+                content: mobileServiceLinks
+              },
+              {
+                key: "recruitment",
+                label: "Recruitment",
+                content: mobileRecruitmentLinks
+              }
+            ].map(({ key, label, content }) => {
+              const open = mobileAcc === key;
+              return /* @__PURE__ */ jsxs("div", { className: "border-b border-sage/30 py-1 dark:border-sage/25", children: [
+                /* @__PURE__ */ jsxs(
+                  "button",
+                  {
+                    type: "button",
+                    className: "flex w-full items-center justify-between gap-2 rounded-md px-3 py-3 text-left text-sm font-medium leading-relaxed text-[#1a1a1a] dark:text-secondary",
+                    "aria-expanded": open,
+                    onClick: () => setMobileAcc(open ? null : key),
+                    children: [
+                      label,
+                      /* @__PURE__ */ jsx(
+                        ChevronDown,
+                        {
+                          className: `h-5 w-5 shrink-0 text-primary transition duration-200 ${open ? "rotate-180" : ""}`,
+                          "aria-hidden": true
+                        }
+                      )
+                    ]
+                  }
+                ),
+                open ? /* @__PURE__ */ jsx("div", { className: "border-t border-sage/20 bg-base/[0.04] dark:border-sage/15 dark:bg-base/50", children: content }) : null
+              ] }, key);
+            }),
+            /* @__PURE__ */ jsx(
+              Link,
+              {
+                key: "mn-why",
+                href: "/why-choose-us",
+                onClick: closeMobile,
+                className: "block w-full min-w-0 rounded-md px-3 py-3 text-left text-sm font-medium leading-relaxed touch-manipulation text-[#1a1a1a] hover:bg-base/[0.06] dark:text-secondary dark:hover:bg-white/5",
+                children: "Why Choose Us"
               }
             ),
             /* @__PURE__ */ jsx(
               Link,
               {
+                key: "mn-acc",
+                href: "/accreditation",
+                onClick: closeMobile,
+                className: "block w-full min-w-0 rounded-md px-3 py-3 text-left text-sm font-medium leading-relaxed touch-manipulation text-[#1a1a1a] hover:bg-base/[0.06] dark:text-secondary dark:hover:bg-white/5",
+                children: "Accreditation"
+              }
+            ),
+            /* @__PURE__ */ jsx("div", { className: "w-full shrink-0", key: "mn-contact", children: /* @__PURE__ */ jsx(
+              Link,
+              {
+                href: "/contact",
+                onClick: closeMobile,
+                className: "block w-full min-w-0 rounded-md px-3 py-3 text-left text-sm font-medium leading-relaxed touch-manipulation text-[#1a1a1a] hover:bg-base/[0.06] dark:text-secondary dark:hover:bg-white/5",
+                children: "Contact"
+              }
+            ) }),
+            /* @__PURE__ */ jsx("div", { className: "w-full shrink-0", key: "mn-blog", children: /* @__PURE__ */ jsx(
+              Link,
+              {
+                href: "/blog",
+                onClick: closeMobile,
+                className: "block w-full min-w-0 rounded-md px-3 py-3 text-left text-sm font-medium leading-relaxed touch-manipulation text-[#1a1a1a] hover:bg-base/[0.06] dark:text-secondary dark:hover:bg-white/5",
+                children: "Blog"
+              }
+            ) }),
+            /* @__PURE__ */ jsx("div", { className: "mt-3 w-full shrink-0 border-t border-sage/30 pt-4 dark:border-sage/25", role: "separator", "aria-hidden": true }),
+            /* @__PURE__ */ jsx("div", { className: "w-full shrink-0", key: "mn-quote", children: /* @__PURE__ */ jsx(
+              Link,
+              {
+                href: "/quote",
+                onClick: closeMobile,
+                className: "block w-full min-w-0 rounded-md bg-primary px-3 py-3 text-center text-sm font-semibold leading-relaxed text-[#141414] touch-manipulation",
+                children: "Request a Quote"
+              }
+            ) }),
+            /* @__PURE__ */ jsx("div", { className: "mt-2 w-full shrink-0", key: "mn-reviews", children: /* @__PURE__ */ jsx(
+              Link,
+              {
                 href: "/reviews",
                 onClick: closeMobile,
-                className: "mt-2 block w-full rounded-md border border-sage/40 px-3 py-3 text-center text-sm leading-relaxed text-[#4a4538] dark:text-sage",
+                className: "block w-full min-w-0 rounded-md border border-sage/40 px-3 py-3 text-center text-sm leading-relaxed text-[#4a4538] touch-manipulation dark:text-sage",
                 children: "Customer Reviews"
               }
-            )
+            ) })
           ]
         }
       )
