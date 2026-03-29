@@ -18,51 +18,69 @@ function DesktopHoverDropdown({
   label,
   wide,
   active,
-  children
+  children,
+  menuKey,
+  openMenu,
+  setOpenMenu
 }) {
-  return /* @__PURE__ */ jsxs("div", { className: "group relative z-0 shrink-0 hover:z-[120] focus-within:z-[120]", children: [
-    /* @__PURE__ */ jsxs(
-      "button",
-      {
-        type: "button",
-        tabIndex: 0,
-        "aria-haspopup": "true",
-        className: `flex shrink-0 items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-[0.8125rem] font-medium outline-none transition ring-accent/0 focus-visible:ring-2 xl:px-3 xl:text-sm ${active ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
-        children: [
-          label,
-          /* @__PURE__ */ jsx(
-            ChevronDown,
+  const isOpen = openMenu === menuKey;
+  return /* @__PURE__ */ jsxs("div", {
+    className: `relative z-0 shrink-0 ${isOpen ? "z-[120]" : ""}`,
+    onMouseEnter: () => setOpenMenu(menuKey),
+    onMouseLeave: () => setOpenMenu(null),
+    onBlur: (e) => {
+      if (!e.currentTarget.contains(e.relatedTarget)) {
+        setOpenMenu((current) => current === menuKey ? null : current);
+      }
+    },
+    children: [
+      /* @__PURE__ */ jsxs(
+        "button",
+        {
+          type: "button",
+          tabIndex: 0,
+          "aria-haspopup": "true",
+          "aria-expanded": isOpen,
+          className: `flex shrink-0 items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-[0.8125rem] font-medium outline-none transition ring-accent/0 focus-visible:ring-2 xl:px-3 xl:text-sm ${active ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
+          onFocus: () => setOpenMenu(menuKey),
+          children: [
+            label,
+            /* @__PURE__ */ jsx(
+              ChevronDown,
+              {
+                className: `h-4 w-4 shrink-0 transition duration-200 ${isOpen ? "rotate-180" : ""}`,
+                "aria-hidden": true
+              }
+            )
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "div",
+        {
+          className: `absolute left-0 top-full z-[110] pt-2 transition-[opacity,visibility] duration-200 ease-out ${isOpen ? "visible pointer-events-auto opacity-100" : "invisible pointer-events-none opacity-0"}`,
+          role: "menu",
+          children: /* @__PURE__ */ jsx(
+            "div",
             {
-              className: "h-4 w-4 shrink-0 transition duration-200 group-hover:rotate-180 group-focus-within:rotate-180",
-              "aria-hidden": true
+              className: `max-h-[min(72vh,480px)] overflow-y-auto overflow-x-hidden rounded-xl border border-sage/40 bg-white py-2 shadow-lg ring-1 ring-black/[0.04] dark:border-primary/45 dark:bg-[#121212] dark:shadow-lift-gold dark:ring-sage/15 ${wide ? "w-[min(36rem,calc(100vw-2rem))]" : "min-w-[17rem] max-w-[calc(100vw-2rem)]"}`,
+              children
             }
           )
-        ]
-      }
-    ),
-    /* @__PURE__ */ jsx(
-      "div",
-      {
-        className: "pointer-events-none invisible absolute left-0 top-full z-[110] pt-2 opacity-0 transition-[opacity,visibility] duration-200 ease-out group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:opacity-100",
-        role: "menu",
-        children: /* @__PURE__ */ jsx(
-          "div",
-          {
-            className: `max-h-[min(72vh,480px)] overflow-y-auto overflow-x-hidden rounded-xl border border-sage/40 bg-white py-2 shadow-lg ring-1 ring-black/[0.04] dark:border-primary/45 dark:bg-[#121212] dark:shadow-lift-gold dark:ring-sage/15 ${wide ? "w-[min(36rem,calc(100vw-2rem))]" : "min-w-[17rem] max-w-[calc(100vw-2rem)]"}`,
-            children
-          }
-        )
-      }
-    )
-  ] });
+        }
+      )
+    ]
+  });
 }
 function NavbarInner({ logoSrc }) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileAcc, setMobileAcc] = useState(null);
+  const [openDesktopMenu, setOpenDesktopMenu] = useState(null);
   useEffect(() => {
     setMobileOpen(false);
     setMobileAcc(null);
+    setOpenDesktopMenu(null);
   }, [pathname]);
   const isActive = (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`);
   /** Policies live under /about/policies; keep the About pill for the main about page only so the header state matches the page. */
@@ -73,23 +91,24 @@ function NavbarInner({ logoSrc }) {
     setMobileOpen(false);
     setMobileAcc(null);
   };
-  const linkItems = (items) => items.map(({ href, label }) => /* @__PURE__ */ jsx(Link, { href, role: "menuitem", className: dropdownLinkClass(), children: label }, href));
+  const closeDesktopMenus = () => setOpenDesktopMenu(null);
+  const desktopDropdownLinkItems = (items) => items.map(({ href, label }) => /* @__PURE__ */ jsx(Link, { href, role: "menuitem", className: dropdownLinkClass(), onClick: closeDesktopMenus, children: label }, href));
   const mobileDrawerLinkClass = "block w-full border-b border-sage/15 px-3 py-3 text-left text-sm font-medium leading-relaxed text-[#1a1a1a] transition hover:bg-base/[0.06] last:border-b-0 dark:border-sage/20 dark:text-secondary dark:hover:bg-white/5";
   const mobileDrawerLinkItems = (items) => items.map(({ href, label }) => /* @__PURE__ */ jsx(Link, { href, role: "menuitem", onClick: closeMobile, className: mobileDrawerLinkClass, children: label }, href));
-  const aboutLinks = /* @__PURE__ */ jsx("div", { className: "grid sm:grid-cols-2", children: linkItems(aboutNavItems) });
-  const serviceLinks = /* @__PURE__ */ jsx("div", { className: "grid sm:grid-cols-2", children: linkItems(serviceNavItems) });
-  const recruitmentLinks = /* @__PURE__ */ jsx(Fragment, { children: linkItems(recruitmentNavItems) });
+  const aboutLinks = /* @__PURE__ */ jsx("div", { className: "grid sm:grid-cols-2", children: desktopDropdownLinkItems(aboutNavItems) });
+  const serviceLinks = /* @__PURE__ */ jsx("div", { className: "grid sm:grid-cols-2", children: desktopDropdownLinkItems(serviceNavItems) });
+  const recruitmentLinks = /* @__PURE__ */ jsx(Fragment, { children: desktopDropdownLinkItems(recruitmentNavItems) });
   const mobileAboutLinks = /* @__PURE__ */ jsx("div", { className: "min-w-0", children: mobileDrawerLinkItems(aboutNavItems) });
   const mobileServiceLinks = /* @__PURE__ */ jsx("div", { className: "min-w-0", children: mobileDrawerLinkItems(serviceNavItems) });
   const mobileRecruitmentLinks = /* @__PURE__ */ jsx("div", { className: "min-w-0", children: mobileDrawerLinkItems(recruitmentNavItems) });
-  return /* @__PURE__ */ jsxs("header", { className: "sticky top-0 z-[60] overflow-visible border-b border-sage/30 bg-secondary text-[#1a1a1a] shadow-sm dark:border-sage/30 dark:bg-base dark:text-secondary", children: [
+  return /* @__PURE__ */ jsxs("header", { className: "sticky top-0 z-[60] overflow-visible border-b border-sage/30 bg-secondary/95 text-[#1a1a1a] shadow-sm backdrop-blur-md backdrop-saturate-150 dark:border-sage/30 dark:bg-base/95 dark:text-secondary", children: [
     /* @__PURE__ */ jsxs("div", { className: "header-container", children: [
-      /* @__PURE__ */ jsx("div", { className: "flex min-w-0 justify-self-start justify-start", children: /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsx("div", { className: "flex min-w-0 shrink-0 justify-start", children: /* @__PURE__ */ jsx(
         Link,
         {
           href: "/",
           className:
-            "relative z-[70] flex min-w-0 max-w-[calc(100%-6.5rem)] shrink items-center gap-2 overflow-visible rounded-lg pr-0 outline-none ring-primary/0 transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-primary/50 sm:max-w-none sm:gap-2.5 lg:max-w-none lg:shrink-0 lg:gap-3",
+            "relative z-[70] flex min-w-0 max-w-[calc(100%-6.5rem)] shrink items-center gap-1.5 overflow-visible rounded-lg pr-0 outline-none ring-primary/0 transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-primary/50 sm:max-w-none sm:gap-2 lg:max-w-none lg:shrink-0 lg:gap-2",
           onClick: closeMobile,
           "aria-label": "SkyWatch Security, home",
           children: /* @__PURE__ */ jsxs(Fragment, {
@@ -137,7 +156,7 @@ function NavbarInner({ logoSrc }) {
       /* @__PURE__ */ jsxs(
         "nav",
         {
-          className: "hidden min-w-0 flex-nowrap items-center justify-center gap-0.5 overflow-visible lg:flex xl:gap-1",
+          className: "hidden min-w-0 shrink-0 flex-nowrap items-center justify-start gap-px overflow-visible lg:flex lg:gap-0.5 xl:gap-1",
           "aria-label": "Main",
           children: [
             /* @__PURE__ */ jsx(
@@ -148,8 +167,8 @@ function NavbarInner({ logoSrc }) {
                 children: "Home"
               }
             ),
-            /* @__PURE__ */ jsx(DesktopHoverDropdown, { label: "About Us", wide: true, active: aboutActive, children: aboutLinks }),
-            /* @__PURE__ */ jsx(DesktopHoverDropdown, { label: "Services", wide: true, active: servicesActive, children: serviceLinks }),
+            /* @__PURE__ */ jsx(DesktopHoverDropdown, { label: "About Us", wide: true, active: aboutActive, menuKey: "about", openMenu: openDesktopMenu, setOpenMenu: setOpenDesktopMenu, children: aboutLinks }),
+            /* @__PURE__ */ jsx(DesktopHoverDropdown, { label: "Services", wide: true, active: servicesActive, menuKey: "services", openMenu: openDesktopMenu, setOpenMenu: setOpenDesktopMenu, children: serviceLinks }),
             /* @__PURE__ */ jsx(
               Link,
               {
@@ -166,14 +185,7 @@ function NavbarInner({ logoSrc }) {
                 children: "Accreditation"
               }
             ),
-            /* @__PURE__ */ jsx(
-              DesktopHoverDropdown,
-              {
-                label: "Recruitment",
-                active: recruitmentActive,
-                children: recruitmentLinks
-              }
-            ),
+            /* @__PURE__ */ jsx(DesktopHoverDropdown, { label: "Recruitment", active: recruitmentActive, menuKey: "recruitment", openMenu: openDesktopMenu, setOpenMenu: setOpenDesktopMenu, children: recruitmentLinks }),
             /* @__PURE__ */ jsx(
               Link,
               {
@@ -193,7 +205,7 @@ function NavbarInner({ logoSrc }) {
           ]
         }
       ),
-      /* @__PURE__ */ jsxs("div", { className: "flex shrink-0 items-center justify-end justify-self-end gap-1.5 lg:gap-2", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex shrink-0 items-center gap-1.5 lg:gap-1.5", children: [
         /* @__PURE__ */ jsx(ThemeToggle, {}),
         /* @__PURE__ */ jsx(
           Link,
