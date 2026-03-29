@@ -2,26 +2,28 @@
 import { jsx } from "react/jsx-runtime";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 const STORAGE_KEY = "skywatch_loader_shown";
 const DISPLAY_MS = 2000;
 
 export function SiteLoader({ logoSrc }) {
-  const [visible, setVisible] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const skipIntroRef = useRef(false);
 
-  useEffect(() => {
-    setMounted(true);
+  useLayoutEffect(() => {
     try {
       if (sessionStorage.getItem(STORAGE_KEY) === "1") {
+        skipIntroRef.current = true;
         setVisible(false);
-        return;
       }
     } catch {
-      /* private mode */
+      /* private mode — show intro */
     }
-    setVisible(true);
+  }, []);
+
+  useEffect(() => {
+    if (skipIntroRef.current) return;
     const t = window.setTimeout(() => {
       setVisible(false);
       try {
@@ -32,8 +34,6 @@ export function SiteLoader({ logoSrc }) {
     }, DISPLAY_MS);
     return () => window.clearTimeout(t);
   }, []);
-
-  if (!mounted) return null;
 
   return /* @__PURE__ */ jsx(AnimatePresence, {
     children: visible
