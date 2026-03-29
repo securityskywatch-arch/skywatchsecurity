@@ -5,7 +5,7 @@ import { BrandLogo } from "@/components/brand/BrandLogo";
 import { siteContact } from "@/lib/siteContact";
 function Footer() {
   return /* @__PURE__ */ jsxs("footer", { className: "border-t border-sage/30 bg-secondary text-base dark:border-sage/30 dark:bg-base dark:text-secondary", children: [
-    /* @__PURE__ */ jsxs("div", { className: "mx-auto grid min-w-0 max-w-page gap-10 px-4 py-12 pb-[max(3rem,env(safe-area-inset-bottom))] sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8", children: [
+    /* @__PURE__ */ jsxs("div", { className: "page-container grid min-w-0 gap-10 py-12 pb-[max(3rem,env(safe-area-inset-bottom))] sm:grid-cols-2 lg:grid-cols-4", children: [
       /* @__PURE__ */ jsxs("div", { className: "min-w-0 lg:col-span-1", children: [
         /* @__PURE__ */ jsx(BrandLogo, { href: "/", variant: "footer" }),
         /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-xs text-sm text-[#4a4538] dark:text-sage", children: "SIA-aligned guarding, patrols, and monitoring, delivered with discipline, discretion, and clear communication." }),

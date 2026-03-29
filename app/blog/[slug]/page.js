@@ -15,7 +15,7 @@ function generateMetadata({ params }) {
 function BlogPostPage({ params }) {
   const p = getPostBySlug(params.slug);
   if (!p) notFound();
-  return /* @__PURE__ */ jsx("main", { className: "flex-1 bg-secondary dark:bg-base", children: /* @__PURE__ */ jsxs("article", { className: "mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8", children: [
+  return /* @__PURE__ */ jsx("main", { className: "min-w-0 flex-1 overflow-x-hidden bg-secondary dark:bg-base", children: /* @__PURE__ */ jsxs("article", { className: "page-container py-14 page-align", children: [
     /* @__PURE__ */ jsx(
       Link,
       {
@@ -24,7 +24,7 @@ function BlogPostPage({ params }) {
         children: "\u2190 All articles"
       }
     ),
-    /* @__PURE__ */ jsxs("div", { className: "relative mt-6 aspect-[2/1] overflow-hidden rounded-2xl border border-sage/35 dark:border-sage/30", children: [
+    /* @__PURE__ */ jsxs("div", { className: "relative mx-auto mt-6 aspect-[2/1] max-w-4xl overflow-hidden rounded-2xl border border-sage/35 dark:border-sage/30 md:mx-0 md:max-w-none", children: [
       /* @__PURE__ */ jsx(
         Image,
         {
@@ -32,7 +32,7 @@ function BlogPostPage({ params }) {
           alt: "",
           fill: true,
           className: "object-cover",
-          sizes: "(max-width: 768px) 100vw, 768px",
+          sizes: "(max-width: 768px) 100vw, 1280px",
           priority: true
         }
       ),
@@ -48,9 +48,9 @@ function BlogPostPage({ params }) {
         }
       ),
       /* @__PURE__ */ jsx("h1", { className: "mt-3 text-3xl font-bold tracking-tight text-base dark:text-secondary sm:text-4xl", children: p.title }),
-      /* @__PURE__ */ jsx("p", { className: "mt-4 text-lg text-base/80 dark:text-sage", children: p.excerpt })
+      /* @__PURE__ */ jsx("p", { className: "mx-auto mt-4 max-w-3xl text-lg text-base/80 dark:text-sage md:mx-0", children: p.excerpt })
     ] }),
-    /* @__PURE__ */ jsx(Reveal, { delay: 0.08, children: /* @__PURE__ */ jsx("div", { className: "prose prose-neutral mt-10 max-w-none space-y-4 dark:prose-invert", children: p.body.map((para, i) => /* @__PURE__ */ jsx(
+    /* @__PURE__ */ jsx(Reveal, { delay: 0.08, children: /* @__PURE__ */ jsx("div", { className: "prose prose-neutral mx-auto mt-10 max-w-none space-y-4 text-left dark:prose-invert md:mx-0", children: p.body.map((para, i) => /* @__PURE__ */ jsx(
       "p",
       {
         className: "leading-relaxed text-base/85 dark:text-sage",

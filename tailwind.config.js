@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       maxWidth: {
-        /** Main content width: wider than old max-w-6xl for less empty gutter on large screens */
-        page: "90rem",
+        /** Aligned with max-w-7xl (80rem) for consistent professional width */
+        page: "80rem",
       },
       colors: {
         primary: "#C48100",

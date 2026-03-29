@@ -7,12 +7,12 @@ const metadata = {
   description: "Security insights, regional updates, and service guidance."
 };
 function BlogIndexPage() {
-  return /* @__PURE__ */ jsxs("main", { className: "flex-1 bg-secondary dark:bg-base", children: [
-    /* @__PURE__ */ jsx("section", { className: "border-b border-sage/30 bg-base px-4 py-12 text-secondary sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl", children: [
+  return /* @__PURE__ */ jsxs("main", { className: "min-w-0 flex-1 overflow-x-hidden bg-secondary dark:bg-base", children: [
+    /* @__PURE__ */ jsx("section", { className: "border-b border-sage/30 bg-base py-12 text-secondary", children: /* @__PURE__ */ jsxs("div", { className: "page-container page-align", children: [
       /* @__PURE__ */ jsx("h1", { className: "text-3xl font-bold tracking-tight sm:text-4xl", children: "News & articles" }),
-      /* @__PURE__ */ jsx("p", { className: "mt-3 text-sage", children: "Practical perspectives on guarding, retail, and corporate security." })
+      /* @__PURE__ */ jsx("p", { className: "mx-auto mt-3 max-w-3xl text-sage md:mx-0", children: "Practical perspectives on guarding, retail, and corporate security." })
     ] }) }),
-    /* @__PURE__ */ jsx(StaggerSection, { className: "mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx("ul", { className: "space-y-6", children: blogPosts.map((post) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsxs("article", { className: "rounded-2xl border border-sage/40 bg-base/5 p-6 dark:border-sage/30 dark:bg-secondary/5", children: [
+    /* @__PURE__ */ jsx(StaggerSection, { className: "page-container py-12 page-align", children: /* @__PURE__ */ jsx("ul", { className: "grid grid-cols-1 gap-6 text-left md:grid-cols-3", children: blogPosts.map((post) => /* @__PURE__ */ jsx(StaggerItem, { className: "h-full", children: /* @__PURE__ */ jsx("li", { className: "h-full", children: /* @__PURE__ */ jsxs("article", { className: "flex h-full flex-col rounded-2xl border border-sage/40 bg-base/5 p-6 dark:border-sage/30 dark:bg-secondary/5", children: [
       /* @__PURE__ */ jsx(
         "time",
         {
@@ -29,7 +29,7 @@ function BlogIndexPage() {
           children: post.title
         }
       ) }),
-      /* @__PURE__ */ jsx("p", { className: "mt-2 text-sm text-base/75 dark:text-sage", children: post.excerpt }),
+      /* @__PURE__ */ jsx("p", { className: "mt-2 flex-1 text-sm text-base/75 dark:text-sage", children: post.excerpt }),
       /* @__PURE__ */ jsx(
         Link,
         {

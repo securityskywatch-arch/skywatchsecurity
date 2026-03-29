@@ -36,7 +36,7 @@ function RootLayout({
   return /* @__PURE__ */ jsx("html", { lang: "en", suppressHydrationWarning: true, children: /* @__PURE__ */ jsx(
     "body",
     {
-      className: `${geistSans.variable} ${geistMono.variable} min-h-screen min-w-0 font-sans antialiased overflow-x-clip`,
+      className: `${geistSans.variable} ${geistMono.variable} min-h-screen min-w-0 font-sans antialiased overflow-x-hidden`,
       children: /* @__PURE__ */ jsx(ThemeContextProvider, { children: /* @__PURE__ */ jsx(AppShell, { children }) })
     }
   ) });
