@@ -13,6 +13,7 @@ import { reviews } from "@/lib/reviews";
 import { getServiceBySlug } from "@/lib/services";
 const featuredSlugs = [
   "manned-security-guards",
+  "dog-handling",
   "corporate-security",
   "concierge-security",
   "door-supervision",

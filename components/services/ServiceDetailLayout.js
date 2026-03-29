@@ -25,7 +25,7 @@ function ServiceDetailLayout({ service, content }) {
                 href: "/quote",
                 className: "inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-bold text-base shadow-lg transition hover:bg-accent",
                 children: [
-                  "Request a quote",
+                  content.primaryCtaLabel ?? "Request a quote",
                   /* @__PURE__ */ jsx(ArrowRight, { className: "h-4 w-4" })
                 ]
               }
