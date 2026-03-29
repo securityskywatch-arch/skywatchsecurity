@@ -22,7 +22,7 @@ const points = [
   {
     Icon: Users,
     title: "Customer-first officers",
-    text: "Teams briefed to your brand, hazards, and access systems\u2014not generic presence."
+    text: "Teams briefed to your brand, hazards, and access systems, not generic presence."
   },
   {
     Icon: BadgeCheck,
@@ -83,7 +83,7 @@ function WhyChooseHomeSection() {
               Image,
               {
                 src: homeImages.whyChoose,
-                alt: "SkyWatch Security \u2014 professional guarding and client-focused service",
+                alt: "SkyWatch Security: professional guarding and client-focused service",
                 fill: true,
                 className: "object-cover",
                 sizes: "(max-width: 1024px) 100vw, 40vw"
@@ -92,7 +92,7 @@ function WhyChooseHomeSection() {
             /* @__PURE__ */ jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-base/70 via-base/20 to-transparent dark:from-base/80" }),
             /* @__PURE__ */ jsxs("div", { className: "absolute bottom-0 left-0 right-0 p-4 sm:p-6", children: [
               /* @__PURE__ */ jsx("p", { className: "text-xs font-semibold uppercase tracking-wider text-accent sm:text-sm", children: "Why choose us" }),
-              /* @__PURE__ */ jsx("p", { className: "mt-1 text-base font-bold leading-snug text-secondary sm:mt-2 sm:text-lg", children: "Measured by your satisfaction\u2014not ours." })
+              /* @__PURE__ */ jsx("p", { className: "mt-1 text-base font-bold leading-snug text-secondary sm:mt-2 sm:text-lg", children: "Measured by your satisfaction, not ours." })
             ] })
           ]
         }
@@ -108,7 +108,7 @@ function WhyChooseHomeSection() {
             children: [
               /* @__PURE__ */ jsx("p", { className: "text-xs font-semibold uppercase tracking-[0.18em] text-[#5c3d06] dark:text-accent sm:text-sm sm:tracking-[0.2em]", children: "Why SkyWatch" }),
               /* @__PURE__ */ jsx("h2", { className: "mt-3 break-words text-[1.65rem] font-bold leading-tight tracking-tight text-base dark:text-secondary sm:text-3xl md:text-4xl", children: "Why choose SkyWatch Security?" }),
-              /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-2xl leading-relaxed text-base/80 dark:text-sage", children: "Our reputation rests on safety, trust, and loyalty\u2014delivered through dependable service and officers you are comfortable putting in front of customers and colleagues." }),
+              /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-2xl leading-relaxed text-base/80 dark:text-sage", children: "Our reputation rests on safety, trust, and loyalty, delivered through dependable service and officers you are comfortable putting in front of customers and colleagues." }),
               /* @__PURE__ */ jsx("blockquote", { className: "mt-6 break-words border-l-4 border-primary pl-5 font-medium italic text-base/90 dark:text-secondary/90", children: "\u201COur success is measured only by the satisfaction of our clients.\u201D" })
             ]
           }

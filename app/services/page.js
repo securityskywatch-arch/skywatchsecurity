@@ -13,13 +13,13 @@ import { ServiceCard } from "@/components/services/ServiceCard";
 import { services } from "@/lib/services";
 const metadata = {
   title: "Security Services",
-  description: "Manned guarding, concierge, door supervision, CCTV, patrols, construction, retail, events, key holding, and close protection\u2014UK-wide security packages."
+  description: "Manned guarding, concierge, door supervision, CCTV, patrols, construction, retail, events, key holding, and close protection, UK-wide security packages."
 };
 const highlights = [
   {
     Icon: Shield,
     title: "SIA-licensed disciplines",
-    text: "Guarding, door supervision, and key-holding aligned to professional UK practice\u2014not informal \u201Csecurity presence\u201D."
+    text: "Guarding, door supervision, and key-holding aligned to professional UK practice, not informal \u201Csecurity presence\u201D."
   },
   {
     Icon: Clock,
@@ -34,7 +34,7 @@ const highlights = [
   {
     Icon: MapPin,
     title: "Regional deployment",
-    text: "South East, South West, and Central England\u2014with travel and response models matched to your portfolio."
+    text: "South East, South West, and Central England, with travel and response models matched to your portfolio."
   }
 ];
 function ServicesPage() {
@@ -56,8 +56,8 @@ function ServicesPage() {
             /* @__PURE__ */ jsx(Sparkles, { className: "h-4 w-4" }),
             "Full service catalogue"
           ] }),
-          /* @__PURE__ */ jsx("h1", { className: "mt-4 text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl", children: "Security services shaped around your risk\u2014not a generic guard package." }),
-          /* @__PURE__ */ jsx("p", { className: "mt-6 max-w-2xl text-lg leading-relaxed text-sage", children: "Explore manned guarding, concierge reception, door supervision, construction site cover, education campus support, industrial and warehouse loss prevention, retail, events, patrols, CCTV monitoring, alarm response, key holding, and close protection\u2014each delivered with assignment instructions your teams can audit." }),
+          /* @__PURE__ */ jsx("h1", { className: "mt-4 text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl", children: "Security services shaped around your risk, not a generic guard package." }),
+          /* @__PURE__ */ jsx("p", { className: "mt-6 max-w-2xl text-lg leading-relaxed text-sage", children: "Explore manned guarding, concierge reception, door supervision, construction site cover, education campus support, industrial and warehouse loss prevention, retail, events, patrols, CCTV monitoring, alarm response, key holding, and close protection, each delivered with assignment instructions your teams can audit." }),
           /* @__PURE__ */ jsxs("div", { className: "mt-10 flex flex-wrap gap-4", children: [
             /* @__PURE__ */ jsxs(
               Link,
@@ -118,7 +118,7 @@ function ServicesPage() {
       /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between", children: [
         /* @__PURE__ */ jsxs("div", { children: [
           /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold text-base dark:text-secondary sm:text-3xl", children: "Every service, one click away" }),
-          /* @__PURE__ */ jsx("p", { className: "mt-2 max-w-xl text-sm text-base/75 dark:text-sage", children: "Cards lift on hover\u2014each page explains scope, typical deliverables, and what good looks like on site." })
+          /* @__PURE__ */ jsx("p", { className: "mt-2 max-w-xl text-sm text-base/75 dark:text-sage", children: "Cards lift on hover. Each page explains scope, typical deliverables, and what good looks like on site." })
         ] }),
         /* @__PURE__ */ jsx(
           Link,

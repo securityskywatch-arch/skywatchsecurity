@@ -9,7 +9,7 @@ const items = [
   {
     Icon: Shield,
     title: "Safe Contractor",
-    body: "Health and safety practices designed to meet recognised contractor scheme expectations\u2014giving clients confidence in how we work on site."
+    body: "Health and safety practices designed to meet recognised contractor scheme expectations, giving clients confidence in how we work on site."
   },
   {
     Icon: Building2,
@@ -19,7 +19,7 @@ const items = [
   {
     Icon: BadgeCheck,
     title: "ISO 9001\u2013minded quality",
-    body: "Documented processes for service delivery, review, and improvement\u2014so standards don\u2019t depend on individual heroics."
+    body: "Documented processes for service delivery, review, and improvement, so standards don\u2019t depend on individual heroics."
   },
   {
     Icon: HardHat,

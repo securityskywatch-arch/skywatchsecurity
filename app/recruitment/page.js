@@ -18,7 +18,7 @@ const steps = [
   {
     step: "01",
     title: "Apply",
-    text: "Share your licence details, availability, and preferred regions. We respond with realistic next steps\u2014not automated silence."
+    text: "Share your licence details, availability, and preferred regions. We respond with realistic next steps, not automated silence."
   },
   {
     step: "02",
@@ -40,17 +40,17 @@ const benefits = [
   {
     Icon: ShieldCheck,
     title: "Licensed work, done properly",
-    text: "Posts matched to your licence category\u2014no informal \u201Cjust stand here\u201D deployments that put you or the client at risk."
+    text: "Posts matched to your licence category, no informal \u201Cjust stand here\u201D deployments that put you or the client at risk."
   },
   {
     Icon: GraduationCap,
     title: "Training pathways",
-    text: "Door, retail, education, and event contexts each need different skills\u2014we invest in role-specific briefings."
+    text: "Door, retail, education, and event contexts each need different skills. We invest in role-specific briefings."
   },
   {
     Icon: HeartPulse,
     title: "Welfare-aware rosters",
-    text: "Lone working, night shifts, and travel time are planned with human limits in mind\u2014not spreadsheet optimism."
+    text: "Lone working, night shifts, and travel time are planned with human limits in mind, not spreadsheet optimism."
   },
   {
     Icon: Award,
@@ -74,7 +74,7 @@ function RecruitmentPage() {
       /* @__PURE__ */ jsx("div", { className: "relative mx-auto max-w-page", children: /* @__PURE__ */ jsxs("div", { className: "grid gap-10 lg:grid-cols-2 lg:items-center", children: [
         /* @__PURE__ */ jsxs(Reveal, { children: [
           /* @__PURE__ */ jsx("p", { className: "text-sm font-semibold uppercase tracking-[0.2em] text-accent", children: "Careers" }),
-          /* @__PURE__ */ jsx("h1", { className: "mt-4 text-4xl font-bold tracking-tight sm:text-5xl", children: "Build a security career with standards\u2014not shortcuts." }),
+          /* @__PURE__ */ jsx("h1", { className: "mt-4 text-4xl font-bold tracking-tight sm:text-5xl", children: "Build a security career with standards, not shortcuts." }),
           /* @__PURE__ */ jsx("p", { className: "mt-6 text-lg leading-relaxed text-sage", children: "We recruit professional SIA licence-holders who want clear instructions, respectful management, and sites where their judgement matters. Whether you\u2019re experienced or returning to the industry, we\u2019ll be honest about fit, hours, and expectations." })
         ] }),
         /* @__PURE__ */ jsx(Reveal, { delay: 0.08, children: /* @__PURE__ */ jsxs("div", { className: "grid gap-4 sm:grid-cols-2", children: [
@@ -115,7 +115,7 @@ function RecruitmentPage() {
     ] }),
     /* @__PURE__ */ jsx("section", { className: "mx-auto max-w-page px-4 py-16 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs(Reveal, { children: [
       /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold text-base dark:text-secondary sm:text-3xl", children: "Equality, diversity & inclusion" }),
-      /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-3xl leading-relaxed text-base/80 dark:text-sage", children: "We are committed to fair recruitment and respectful workplaces. Selection is based on competence, licence suitability, and business need\u2014never unlawful discrimination. If you need reasonable adjustments during application or interview, tell us and we will work with you pragmatically." })
+      /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-3xl leading-relaxed text-base/80 dark:text-sage", children: "We are committed to fair recruitment and respectful workplaces. Selection is based on competence, licence suitability, and business need, never unlawful discrimination. If you need reasonable adjustments during application or interview, tell us and we will work with you pragmatically." })
     ] }) }),
     /* @__PURE__ */ jsx(StaggerSection, { className: "border-y border-sage/20 bg-base/[0.04] px-4 py-16 dark:border-sage/25 dark:bg-secondary/[0.06] sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-page", children: [
       /* @__PURE__ */ jsxs(StaggerItem, { children: [
@@ -140,7 +140,7 @@ function RecruitmentPage() {
     ] }),
     /* @__PURE__ */ jsx("section", { className: "px-4 pb-20 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/15 to-transparent px-8 py-10 text-center", children: [
       /* @__PURE__ */ jsx("h2", { className: "text-xl font-bold text-base dark:text-secondary", children: "Ready to explore roles?" }),
-      /* @__PURE__ */ jsx("p", { className: "mt-2 text-sm text-base/75 dark:text-sage", children: "Vacancies change weekly\u2014start with live roles or leave a general application." }),
+      /* @__PURE__ */ jsx("p", { className: "mt-2 text-sm text-base/75 dark:text-sage", children: "Vacancies change weekly, start with live roles or leave a general application." }),
       /* @__PURE__ */ jsxs("div", { className: "mt-6 flex flex-wrap justify-center gap-3", children: [
         /* @__PURE__ */ jsx(
           Link,

@@ -86,7 +86,7 @@ function Hero() {
                   className:
                     "mt-4 text-base leading-relaxed text-base/75 sm:mt-5 sm:max-w-[34rem] sm:text-[1.0625rem] sm:leading-relaxed lg:max-w-none lg:text-[1.085rem] xl:pr-4 dark:text-[#c4bfb4]",
                   children:
-                    "SIA-aligned guarding, patrols, key holding, and monitoring—with officers who represent your brand with calm authority.",
+                    "SIA-aligned guarding, patrols, key holding, and monitoring with officers who represent your brand with calm authority.",
                 }),
                 /* @__PURE__ */ jsx("p", {
                   className:
@@ -211,7 +211,7 @@ function Hero() {
                                 className:
                                   "mt-0.5 text-xs leading-snug text-base/65 sm:text-[13px] dark:text-sage",
                                 children:
-                                  "Tell us what you need—we’ll reply with next steps.",
+                                  "Tell us what you need. We’ll reply with next steps.",
                               }),
                             ],
                           }),

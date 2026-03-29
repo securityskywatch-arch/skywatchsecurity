@@ -5,7 +5,7 @@ import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-
 import { policies } from "@/lib/policies";
 const metadata = {
   title: "Company policies",
-  description: "Corporate policies covering safety, compliance, ethics, data protection, and governance\u2014structured like leading UK security providers."
+  description: "Corporate policies covering safety, compliance, ethics, data protection, and governance, structured like leading UK security providers."
 };
 function PoliciesIndexPage() {
   return /* @__PURE__ */ jsxs("main", { className: "flex-1 bg-secondary dark:bg-base", children: [
@@ -18,7 +18,7 @@ function PoliciesIndexPage() {
         /* @__PURE__ */ jsx("li", { className: "font-medium text-secondary", children: "Policies" })
       ] }) }),
       /* @__PURE__ */ jsx("h1", { className: "mt-8 text-3xl font-bold tracking-tight sm:text-4xl", children: "Company policies" }),
-      /* @__PURE__ */ jsx("p", { className: "mt-3 text-sage", children: "Governance, safety, ethics, equality, data protection, and operational standards\u2014documented so clients, insurers, and auditors can see how we work." }),
+      /* @__PURE__ */ jsx("p", { className: "mt-3 text-sage", children: "Governance, safety, ethics, equality, data protection, and operational standards, documented so clients, insurers, and auditors can see how we work." }),
       /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsx("p", { className: "mt-4 text-sm leading-relaxed text-sage/90", children: "Select a policy below for full text. These mirror the breadth of documentation you would expect from an established UK security contractor: from health and safety to modern slavery, whistleblowing, and anti-bribery." }) })
     ] }) }),
     /* @__PURE__ */ jsx(StaggerSection, { className: "mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx("ul", { className: "space-y-3", children: policies.map((p) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsxs(

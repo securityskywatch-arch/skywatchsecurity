@@ -3,7 +3,7 @@ import { Reveal } from "@/components/motion/scroll-reveal";
 import { siteContact } from "@/lib/siteContact";
 const metadata = {
   title: "Request a Quote",
-  description: "Tell us about your site, hours, and risks\u2014we will respond with a tailored guarding or monitoring proposal."
+  description: "Tell us about your site, hours, and risks. We will respond with a tailored guarding or monitoring proposal."
 };
 function QuotePage() {
   return /* @__PURE__ */ jsx("main", { className: "flex-1 bg-secondary px-4 py-16 dark:bg-base sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-2xl", children: [
@@ -149,7 +149,7 @@ function QuotePage() {
               children: "Submit enquiry"
             }
           ),
-          /* @__PURE__ */ jsx("p", { className: "text-xs text-base/60 dark:text-sage", children: "This demo form does not post to a server\u2014wire your API route or form provider when you go live." })
+          /* @__PURE__ */ jsx("p", { className: "text-xs text-base/60 dark:text-sage", children: "This demo form does not post to a server, wire your API route or form provider when you go live." })
         ]
       }
     ) })

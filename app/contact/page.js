@@ -4,7 +4,7 @@ import { Reveal } from "@/components/motion/scroll-reveal";
 import { siteContact } from "@/lib/siteContact";
 const metadata = {
   title: "Contact Us",
-  description: "Address, phone, and email for SkyWatch Security\u2014professional guarding across England."
+  description: "Address, phone, and email for SkyWatch Security, professional guarding across England."
 };
 function ContactPage() {
   return /* @__PURE__ */ jsxs("main", { className: "flex-1 bg-secondary dark:bg-base", children: [

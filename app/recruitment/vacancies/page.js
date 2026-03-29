@@ -8,28 +8,28 @@ const metadata = {
 };
 const vacancies = [
   {
-    title: "SIA Door Supervisor \u2014 High Wycombe",
+    title: "SIA Door Supervisor, High Wycombe",
     type: "Part-time & full-time",
     ref: "DS-HW-01",
     rate: "Discussed at interview",
     detail: "Late retail and hospitality-adjacent venues. Strong de-escalation and entry policy experience preferred."
   },
   {
-    title: "Security Officer \u2014 Reading business park",
+    title: "Security Officer, Reading business park",
     type: "Full-time nights",
     ref: "SO-RD-04",
     rate: "Nights premium applies",
     detail: "Access control, patrols, and contractor supervision. Clean driving licence useful but not essential."
   },
   {
-    title: "Mobile Patrol Driver \u2014 South East",
+    title: "Mobile Patrol Driver, South East",
     type: "Full-time (valid UK licence)",
     ref: "MP-SE-02",
     rate: "Mileage policy in handbook",
     detail: "Randomised routes, void visits, lock-ups. Van or pool vehicle depending on contract."
   },
   {
-    title: "Corporate Concierge \u2014 London W1",
+    title: "Corporate Concierge, London W1",
     type: "Rotating shifts",
     ref: "CC-LN-03",
     rate: "Central London weighting",
@@ -48,7 +48,7 @@ function VacanciesPage() {
         }
       ),
       /* @__PURE__ */ jsx("h1", { className: "mt-4 text-3xl font-bold tracking-tight sm:text-5xl", children: "Current vacancies" }),
-      /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-2xl text-lg text-sage", children: "Sample roles illustrating how we advertise\u2014swap for your live ATS, spreadsheet, or HR system feed. Each card is designed for quick scanning on mobile and desktop." })
+      /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-2xl text-lg text-sage", children: "Sample roles illustrating how we advertise. Swap for your live ATS, spreadsheet, or HR system feed. Each card is designed for quick scanning on mobile and desktop." })
     ] }) }),
     /* @__PURE__ */ jsxs("div", { className: "mx-auto grid max-w-page gap-10 px-4 py-12 lg:grid-cols-[1fr_280px] sm:px-6 lg:px-8 lg:py-16", children: [
       /* @__PURE__ */ jsx("div", { className: "space-y-5", children: vacancies.map((v, i) => /* @__PURE__ */ jsx(Reveal, { delay: i * 0.05, children: /* @__PURE__ */ jsxs("article", { className: "rounded-2xl border border-sage/40 bg-base/5 p-6 transition hover:border-primary/45 hover:shadow-md dark:border-sage/30 dark:bg-secondary/5 sm:p-8", children: [
@@ -98,7 +98,7 @@ function VacanciesPage() {
           ] }),
           /* @__PURE__ */ jsxs("li", { className: "flex gap-2", children: [
             /* @__PURE__ */ jsx(Clock, { className: "mt-0.5 h-4 w-4 shrink-0 text-primary" }),
-            "Right to work in the UK\u2014documents requested at screening."
+            "Right to work in the UK, documents requested at screening."
           ] }),
           /* @__PURE__ */ jsxs("li", { className: "flex gap-2", children: [
             /* @__PURE__ */ jsx(Clock, { className: "mt-0.5 h-4 w-4 shrink-0 text-primary" }),

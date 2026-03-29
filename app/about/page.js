@@ -25,7 +25,7 @@ const pillars = [
   {
     Icon: ClipboardCheck,
     title: "Quality you can evidence",
-    text: "Structured handovers, supervision visits, and client feedback loops\u2014so standards don\u2019t depend on one heroic shift."
+    text: "Structured handovers, supervision visits, and client feedback loops, so standards don\u2019t depend on one heroic shift."
   },
   {
     Icon: HeartHandshake,
@@ -35,7 +35,7 @@ const pillars = [
   {
     Icon: Building2,
     title: "Built for complex estates",
-    text: "Corporate HQs, retail, education, construction, and void property portfolios\u2014with flexible cover for peaks and projects."
+    text: "Corporate HQs, retail, education, construction, and void property portfolios, with flexible cover for peaks and projects."
   }
 ];
 const stats = [
@@ -47,7 +47,7 @@ const stats = [
 const aboutFaqs = [
   {
     q: "What types of security does SkyWatch provide?",
-    a: "We deliver manned guarding, door supervision, concierge-style reception, patrols (foot and mobile), CCTV coordination, alarm response and key holding, construction and industrial site cover, retail, education campus support, events, and close protection\u2014scoped with clear assignment instructions."
+    a: "We deliver manned guarding, door supervision, concierge-style reception, patrols (foot and mobile), CCTV coordination, alarm response and key holding, construction and industrial site cover, retail, education campus support, events, and close protection, scoped with clear assignment instructions."
   },
   {
     q: "Are your officers SIA-licensed?",
@@ -55,7 +55,7 @@ const aboutFaqs = [
   },
   {
     q: "How do you maintain service quality over time?",
-    a: "Through structured handovers, supervision visits, documented policies, and client feedback\u2014not dependence on a single strong shift team. See Our standards and individual policy pages for governance detail."
+    a: "Through structured handovers, supervision visits, documented policies, and client feedback, not dependence on a single strong shift team. See Our standards and individual policy pages for governance detail."
   },
   {
     q: "Can you cover multiple regions?",
@@ -83,7 +83,7 @@ function AboutPage() {
         ] }) }),
         /* @__PURE__ */ jsxs(Reveal, { children: [
           /* @__PURE__ */ jsx("p", { className: "mt-8 text-sm font-semibold uppercase tracking-[0.2em] text-accent", children: "About SkyWatch Security" }),
-          /* @__PURE__ */ jsx("h1", { className: "mt-4 max-w-4xl text-4xl font-bold tracking-tight text-balance sm:text-5xl", children: "Protection that protects your reputation\u2014not just your perimeter." }),
+          /* @__PURE__ */ jsx("h1", { className: "mt-4 max-w-4xl text-4xl font-bold tracking-tight text-balance sm:text-5xl", children: "Protection that protects your reputation, not just your perimeter." }),
           /* @__PURE__ */ jsx("p", { className: "mt-6 max-w-2xl text-lg leading-relaxed text-sage", children: "We are a customer-focused security provider delivering manned guarding, door supervision, key holding, patrols, concierge-style reception cover, and monitoring support. Our teams are briefed to protect the integrity of your sites while reinforcing the professional image you expect at the front line." })
         ] }),
         /* @__PURE__ */ jsx("div", { className: "mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4", children: stats.map((s) => /* @__PURE__ */ jsx(Reveal, { delay: 0.05, children: /* @__PURE__ */ jsxs("div", { className: "rounded-xl border border-sage/35 bg-white/5 px-5 py-4 backdrop-blur-sm", children: [
@@ -97,7 +97,7 @@ function AboutPage() {
         /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold tracking-tight text-base dark:text-secondary sm:text-3xl", children: "Who we are" }),
         /* @__PURE__ */ jsxs("div", { className: "mt-6 space-y-4 leading-relaxed text-base/85 dark:text-sage", children: [
           /* @__PURE__ */ jsx("p", { children: "SkyWatch Security supports organisations that need dependable cover without drama: punctual officers, clear escalation paths, and management visibility when something doesn\u2019t go to plan." }),
-          /* @__PURE__ */ jsx("p", { children: "We invest in inductions that reflect your hazards, your customer profile, and your access-control technology\u2014so teams aren\u2019t learning your building on the public\u2019s time." }),
+          /* @__PURE__ */ jsx("p", { children: "We invest in inductions that reflect your hazards, your customer profile, and your access-control technology, so teams aren\u2019t learning your building on the public\u2019s time." }),
           /* @__PURE__ */ jsx("p", { children: "From locking and unlocking programmes to alarm response, event cover, and remote monitoring coordination, we assemble affordable packages that scale with your footprint." })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "mt-8 flex flex-wrap gap-4", children: [
@@ -146,7 +146,7 @@ function AboutPage() {
     /* @__PURE__ */ jsx(StaggerSection, { className: "border-y border-sage/20 bg-base/[0.04] px-4 py-16 dark:border-sage/25 dark:bg-secondary/[0.06] sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-page", children: [
       /* @__PURE__ */ jsxs(StaggerItem, { children: [
         /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold text-base dark:text-secondary sm:text-3xl", children: "Security services we provide" }),
-        /* @__PURE__ */ jsx("p", { className: "mt-2 max-w-2xl text-sm text-base/75 dark:text-sage", children: "Each service has its own page with scope, typical deliverables, risks, and FAQs\u2014similar to how leading UK providers structure their catalogue." })
+        /* @__PURE__ */ jsx("p", { className: "mt-2 max-w-2xl text-sm text-base/75 dark:text-sage", children: "Each service has its own page with scope, typical deliverables, risks, and FAQs, similar to how leading UK providers structure their catalogue." })
       ] }),
       /* @__PURE__ */ jsx("ul", { className: "mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3", children: serviceNavItems.map((item) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsxs(
         Link,
@@ -177,7 +177,7 @@ function AboutPage() {
           /* @__PURE__ */ jsx("div", { className: "flex h-12 w-12 items-center justify-center rounded-xl border border-primary/40 text-primary", children: /* @__PURE__ */ jsx(MapPin, { className: "h-6 w-6", "aria-hidden": true }) }),
           /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold text-base dark:text-secondary", children: "Areas we serve" })
         ] }),
-        /* @__PURE__ */ jsx("p", { className: "mt-4 leading-relaxed text-base/85 dark:text-sage", children: "We support clients across England with a practical focus on the South East, South West, and Central regions\u2014planning travel, response, and bench depth so cover stays credible as your footprint grows." }),
+        /* @__PURE__ */ jsx("p", { className: "mt-4 leading-relaxed text-base/85 dark:text-sage", children: "We support clients across England with a practical focus on the South East, South West, and Central regions, planning travel, response, and bench depth so cover stays credible as your footprint grows." }),
         /* @__PURE__ */ jsxs(
           Link,
           {
@@ -192,7 +192,7 @@ function AboutPage() {
       ] }),
       /* @__PURE__ */ jsx(Reveal, { delay: 0.06, children: /* @__PURE__ */ jsxs("div", { className: "rounded-2xl border border-sage/40 bg-base/5 p-8 dark:border-sage/30 dark:bg-secondary/5", children: [
         /* @__PURE__ */ jsx("h3", { className: "text-lg font-semibold text-base dark:text-secondary", children: "Governance & assurance" }),
-        /* @__PURE__ */ jsx("p", { className: "mt-3 text-sm leading-relaxed text-base/80 dark:text-sage", children: "Mission, safety, ethics, data protection, equality, anti-bribery, and more\u2014published for clients, insurers, and auditors. Browse the policy library or read our standards page for how we run operations day to day." }),
+        /* @__PURE__ */ jsx("p", { className: "mt-3 text-sm leading-relaxed text-base/80 dark:text-sage", children: "Mission, safety, ethics, data protection, equality, anti-bribery, and more, published for clients, insurers, and auditors. Browse the policy library or read our standards page for how we run operations day to day." }),
         /* @__PURE__ */ jsxs("div", { className: "mt-6 flex flex-wrap gap-3", children: [
           /* @__PURE__ */ jsx(
             Link,
@@ -239,7 +239,7 @@ function AboutPage() {
     ] }),
     /* @__PURE__ */ jsx("section", { className: "mx-auto max-w-page px-4 py-16 sm:px-6 lg:py-20 lg:px-8", children: /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "rounded-2xl border border-primary/35 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 px-8 py-10 text-center sm:px-12", children: [
       /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold text-base dark:text-secondary sm:text-3xl", children: "Ready to talk?" }),
-      /* @__PURE__ */ jsx("p", { className: "mx-auto mt-3 max-w-xl text-sm text-base/80 dark:text-sage", children: "Request a quote or speak to us about sites, hours, and hazards\u2014we\u2019ll propose a proportionate plan with clear deliverables." }),
+      /* @__PURE__ */ jsx("p", { className: "mx-auto mt-3 max-w-xl text-sm text-base/80 dark:text-sage", children: "Request a quote or speak to us about sites, hours, and hazards. We\u2019ll propose a proportionate plan with clear deliverables." }),
       /* @__PURE__ */ jsxs("div", { className: "mt-8 flex flex-wrap justify-center gap-4", children: [
         /* @__PURE__ */ jsxs(
           Link,

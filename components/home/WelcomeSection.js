@@ -30,7 +30,7 @@ function WelcomeSection() {
             /* @__PURE__ */ jsx("p", { className: "text-sm font-semibold uppercase tracking-[0.2em] text-accent", children: "Welcome" }),
             /* @__PURE__ */ jsx("h2", { className: "mt-3 text-[1.6rem] font-bold leading-tight tracking-tight text-balance sm:text-3xl md:text-4xl lg:text-[2.5rem] lg:leading-tight", children: "Welcome to SkyWatch Security" }),
             /* @__PURE__ */ jsxs("div", { className: "mt-6 space-y-4 text-base leading-relaxed text-sage", children: [
-              /* @__PURE__ */ jsx("p", { children: "Thank you for visiting. We provide professional security services across England\u2014from manned guarding and concierge reception to patrols, monitoring, and alarm response\u2014delivered by licensed teams who understand your brand and your risks." }),
+              /* @__PURE__ */ jsx("p", { children: "Thank you for visiting. We provide professional security services across England, from manned guarding and concierge reception to patrols, monitoring, and alarm response, delivered by licensed teams who understand your brand and your risks." }),
               /* @__PURE__ */ jsx("p", { children: "Whether you need a single site covered or a coordinated model across a portfolio, we build clear assignment instructions, supervision, and reporting so you always know what good looks like on the ground." })
             ] }),
             /* @__PURE__ */ jsxs("div", { className: "mt-8 flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4", children: [

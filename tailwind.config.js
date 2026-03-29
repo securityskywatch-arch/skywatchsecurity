@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       maxWidth: {
-        /** Main content width — wider than old max-w-6xl for less empty gutter on large screens */
+        /** Main content width: wider than old max-w-6xl for less empty gutter on large screens */
         page: "90rem",
       },
       colors: {

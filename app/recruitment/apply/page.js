@@ -10,7 +10,7 @@ function ApplyPage() {
     /* @__PURE__ */ jsx(Link, { href: "/recruitment", className: "text-sm text-primary hover:text-accent", children: "\u2190 Recruitment" }),
     /* @__PURE__ */ jsxs(Reveal, { children: [
       /* @__PURE__ */ jsx("h1", { className: "mt-4 text-3xl font-bold tracking-tight text-base dark:text-secondary sm:text-4xl", children: "Application form" }),
-      /* @__PURE__ */ jsx("p", { className: "mt-3 leading-relaxed text-base/75 dark:text-sage", children: "Submit your details for recruitment screening. This demo form does not post anywhere\u2014connect an API route or form backend when live." })
+      /* @__PURE__ */ jsx("p", { className: "mt-3 leading-relaxed text-base/75 dark:text-sage", children: "Submit your details for recruitment screening. This demo form does not post anywhere, connect an API route or form backend when live." })
     ] }),
     /* @__PURE__ */ jsx(Reveal, { delay: 0.06, children: /* @__PURE__ */ jsxs(
       "form",

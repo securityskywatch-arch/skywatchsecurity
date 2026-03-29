@@ -18,7 +18,7 @@ export function SiteLoader({ logoSrc }) {
         setVisible(false);
       }
     } catch {
-      /* private mode — show intro */
+      /* private mode: show intro */
     }
   }, []);
 

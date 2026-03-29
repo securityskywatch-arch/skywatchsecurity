@@ -67,7 +67,7 @@ function HomePage() {
         /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl text-center", children: [
           /* @__PURE__ */ jsx("p", { className: "text-xs font-semibold uppercase tracking-[0.22em] text-[#5c3d06] dark:text-accent sm:text-sm sm:tracking-[0.26em]", children: "What we deliver" }),
           /* @__PURE__ */ jsx("h2", { className: "mt-3 text-balance text-[1.65rem] font-bold leading-tight tracking-tight text-base dark:text-secondary sm:text-3xl md:text-4xl", children: "Featured security services" }),
-          /* @__PURE__ */ jsx("p", { className: "mx-auto mt-4 max-w-2xl text-pretty leading-relaxed text-base/75 dark:text-sage", children: "Bespoke packages spanning manned guarding, concierge, patrols, and rapid alarm response\u2014structured like leading UK contractors." })
+          /* @__PURE__ */ jsx("p", { className: "mx-auto mt-4 max-w-2xl text-pretty leading-relaxed text-base/75 dark:text-sage", children: "Bespoke packages spanning manned guarding, concierge, patrols, and rapid alarm response, structured like leading UK contractors." })
         ] }) }),
         /* @__PURE__ */ jsx("div", { className: "mt-14 grid min-w-0 gap-7 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3", children: featured.map((service) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsx(ServiceCard, { slug: service.slug }) }, service.slug)) }),
         /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("div", { className: "mx-auto mt-12 max-w-2xl rounded-2xl border border-primary/35 bg-gradient-to-br from-primary/[0.08] via-primary/[0.04] to-transparent p-6 text-center shadow-lg dark:from-primary/15 dark:via-primary/10 dark:to-transparent sm:p-8", children: [

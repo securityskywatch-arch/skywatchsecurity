@@ -56,7 +56,7 @@ function ServiceDetailLayout({ service, content }) {
     ] }) }),
     /* @__PURE__ */ jsx("section", { className: "bg-secondary px-4 py-14 dark:bg-base sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-page", children: /* @__PURE__ */ jsxs(Reveal, { children: [
       /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold text-base dark:text-secondary sm:text-3xl", children: "Request a quote" }),
-      /* @__PURE__ */ jsx("p", { className: "mt-2 max-w-2xl leading-relaxed text-base/80 dark:text-sage", children: "Share your sites, hours, and risks\u2014our team will respond with a clear scope and next steps." }),
+      /* @__PURE__ */ jsx("p", { className: "mt-2 max-w-2xl leading-relaxed text-base/80 dark:text-sage", children: "Share your sites, hours, and risks. Our team will respond with a clear scope and next steps." }),
       /* @__PURE__ */ jsxs(
         Link,
         {
@@ -113,7 +113,7 @@ function ServiceDetailLayout({ service, content }) {
     /* @__PURE__ */ jsx("section", { className: "bg-base px-4 py-14 text-secondary sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-page", children: [
       /* @__PURE__ */ jsxs(Reveal, { children: [
         /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold sm:text-3xl", children: content.whyChooseTitle }),
-        /* @__PURE__ */ jsx("p", { className: "mt-2 max-w-2xl text-sage", children: "SkyWatch is built for estates that need consistency across shifts\u2014not heroics on day one and drift by week four." })
+        /* @__PURE__ */ jsx("p", { className: "mt-2 max-w-2xl text-sage", children: "SkyWatch is built for estates that need consistency across shifts, not heroics on day one and drift by week four." })
       ] }),
       /* @__PURE__ */ jsx("ul", { className: "mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3", children: content.whyChooseBullets.map((line) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("li", { className: "flex gap-3 rounded-xl border border-sage/40 bg-white/5 p-4 backdrop-blur-sm", children: [
         /* @__PURE__ */ jsx(Check, { className: "mt-0.5 h-5 w-5 shrink-0 text-accent", "aria-hidden": true }),
@@ -131,7 +131,7 @@ function ServiceDetailLayout({ service, content }) {
     /* @__PURE__ */ jsx(StaggerSection, { className: "px-4 py-14 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-page", children: [
       /* @__PURE__ */ jsxs(StaggerItem, { children: [
         /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold text-base dark:text-secondary sm:text-3xl", children: content.offeringsTitle }),
-        /* @__PURE__ */ jsx("p", { className: "mt-2 max-w-2xl text-sm text-base/75 dark:text-sage", children: "Explore complementary services\u2014many clients blend guarding, patrols, monitoring, and alarm response on the same contract." })
+        /* @__PURE__ */ jsx("p", { className: "mt-2 max-w-2xl text-sm text-base/75 dark:text-sage", children: "Explore complementary services, many clients blend guarding, patrols, monitoring, and alarm response on the same contract." })
       ] }),
       /* @__PURE__ */ jsx("div", { className: "mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3", children: content.offerings.map((o) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs(
         Link,

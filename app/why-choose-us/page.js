@@ -10,7 +10,7 @@ function WhyChooseUsPage() {
   return /* @__PURE__ */ jsxs("main", { className: "flex-1 bg-secondary dark:bg-base", children: [
     /* @__PURE__ */ jsx("section", { className: "border-b border-sage/30 bg-base px-4 py-14 text-secondary sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl", children: [
       /* @__PURE__ */ jsx("h1", { className: "text-3xl font-bold tracking-tight sm:text-4xl", children: "Why choose SkyWatch" }),
-      /* @__PURE__ */ jsx("p", { className: "mt-4 text-lg text-sage", children: "Our reputation is built on values\u2014safety, security, trust, and loyalty\u2014delivered through dependable, efficient service." })
+      /* @__PURE__ */ jsx("p", { className: "mt-4 text-lg text-sage", children: "Our reputation is built on values, safety, security, trust, and loyalty, delivered through dependable, efficient service." })
     ] }) }),
     /* @__PURE__ */ jsxs("section", { className: "mx-auto max-w-3xl space-y-12 px-4 py-14 sm:px-6 lg:px-8", children: [
       /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "flex gap-4", children: [
@@ -43,7 +43,7 @@ function WhyChooseUsPage() {
             ", and",
             " ",
             /* @__PURE__ */ jsx("strong", { className: "text-base dark:text-secondary", children: "Central England" }),
-            "\u2014including major towns and cities within those regions. Share your postcode and we will confirm feasibility and response models."
+            ", including major towns and cities within those regions. Share your postcode and we will confirm feasibility and response models."
           ] })
         ] })
       ] }) }),

@@ -8,7 +8,7 @@ function Footer() {
     /* @__PURE__ */ jsxs("div", { className: "mx-auto grid min-w-0 max-w-page gap-10 px-4 py-12 pb-[max(3rem,env(safe-area-inset-bottom))] sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8", children: [
       /* @__PURE__ */ jsxs("div", { className: "min-w-0 lg:col-span-1", children: [
         /* @__PURE__ */ jsx(BrandLogo, { href: "/", variant: "footer" }),
-        /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-xs text-sm text-[#4a4538] dark:text-sage", children: "SIA-aligned guarding, patrols, and monitoring\u2014delivered with discipline, discretion, and clear communication." }),
+        /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-xs text-sm text-[#4a4538] dark:text-sage", children: "SIA-aligned guarding, patrols, and monitoring, delivered with discipline, discretion, and clear communication." }),
         /* @__PURE__ */ jsx("p", { className: "mt-3 text-xs text-[#5c574c] dark:text-sage/80", children: "Registered in England and Wales. Company No. 00000000 \xB7 VAT GB000000000" })
       ] }),
       /* @__PURE__ */ jsxs("div", { className: "min-w-0", children: [
@@ -81,7 +81,7 @@ function Footer() {
         (/* @__PURE__ */ new Date()).getFullYear(),
         " SkyWatch Security. All rights reserved."
       ] }),
-      /* @__PURE__ */ jsx("p", { className: "text-[#6b6355] dark:text-sage/80", children: "Professional security services \u2014 structure inspired by leading UK contractors." })
+      /* @__PURE__ */ jsx("p", { className: "text-[#6b6355] dark:text-sage/80", children: "Professional security services, with structure inspired by leading UK contractors." })
     ] }) })
   ] });
 }
