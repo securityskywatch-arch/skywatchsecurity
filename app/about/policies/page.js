@@ -25,10 +25,10 @@ function PoliciesIndexPage() {
       Link,
       {
         href: `/about/policies/${p.slug}`,
-        className: "flex h-full flex-col rounded-xl border border-sage/40 bg-base/5 p-4 transition hover:border-primary/50 hover:shadow-md dark:border-sage/30 dark:bg-secondary/5",
+        className: "flex h-full flex-col rounded-xl border border-sage/40 bg-base/5 p-4 transition hover:border-primary/50 hover:shadow-md dark:border-sage/30 dark:bg-[#22211c]",
         children: [
-          /* @__PURE__ */ jsx("span", { className: "font-semibold text-base dark:text-secondary", children: p.title }),
-          /* @__PURE__ */ jsx("p", { className: "mt-1 flex-1 text-sm text-base/70 dark:text-sage", children: p.summary })
+          /* @__PURE__ */ jsx("span", { className: "font-semibold text-[1rem] text-[#1a1a1a] dark:text-secondary", children: p.title }),
+          /* @__PURE__ */ jsx("p", { className: "mt-1 flex-1 text-sm leading-relaxed text-[#1a1a1a]/75 dark:text-[#d8d3c8]", children: p.summary })
         ]
       }
     ) }) }, p.slug)) }) })

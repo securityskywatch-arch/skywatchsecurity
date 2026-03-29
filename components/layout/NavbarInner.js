@@ -65,7 +65,8 @@ function NavbarInner({ logoSrc }) {
     setMobileAcc(null);
   }, [pathname]);
   const isActive = (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`);
-  const aboutActive = isActive("/about") || isActive("/standards");
+  /** Policies live under /about/policies; keep the About pill for the main about page only so the header state matches the page. */
+  const aboutActive = pathname === "/about" || isActive("/standards");
   const servicesActive = isActive("/services");
   const recruitmentActive = isActive("/recruitment");
   const closeMobile = () => {
