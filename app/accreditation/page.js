@@ -40,7 +40,7 @@ function AccreditationPage() {
       /* @__PURE__ */ jsx("p", { className: "mx-auto mt-4 max-w-3xl text-lg text-sage md:mx-0", children: "Credentials and management systems that support procurement, auditing, and insurer questions." })
     ] }) }),
     /* @__PURE__ */ jsxs(StaggerSection, { className: "page-container page-align py-12 lg:py-16", children: [
-      /* @__PURE__ */ jsx("div", { className: "grid gap-6 sm:grid-cols-2", children: items.map(({ Icon, title, body }) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("div", { className: "h-full rounded-2xl border border-sage/40 bg-base/5 p-6 text-left dark:border-sage/30 dark:bg-[#22211c]", children: [
+      /* @__PURE__ */ jsx("div", { className: "grid gap-6 sm:grid-cols-2", children: items.map(({ Icon, title, body }) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card h-full p-6 text-left", children: [
         /* @__PURE__ */ jsx("div", { className: "flex h-11 w-11 items-center justify-center rounded-lg border border-primary/35 text-primary", children: /* @__PURE__ */ jsx(Icon, { className: "h-5 w-5" }) }),
         /* @__PURE__ */ jsx("h2", { className: "mt-4 text-lg font-semibold text-[#1a1a1a] dark:text-secondary", children: title }),
         /* @__PURE__ */ jsx("p", { className: "mt-2 text-sm leading-relaxed text-[#1a1a1a]/85 dark:text-[#d8d3c8]", children: body })

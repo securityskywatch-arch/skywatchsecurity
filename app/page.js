@@ -41,7 +41,7 @@ function HomePage() {
         title: "Quality you can audit",
         body: "Structured reporting and management visibility on every shift."
       }
-    ].map(({ Icon, title, body }) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "flex min-w-0 gap-4 rounded-xl border border-sage/35 bg-base/5 p-5 transition duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-lift-gold dark:border-sage/30 dark:bg-secondary/5 dark:hover:border-primary/40", children: [
+    ].map(({ Icon, title, body }) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card brand-card-interactive flex min-w-0 gap-4 p-5 transition duration-300 hover:-translate-y-1", children: [
       /* @__PURE__ */ jsx("div", { className: "flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-primary/40 text-primary", children: /* @__PURE__ */ jsx(Icon, { className: "h-5 w-5", "aria-hidden": true }) }),
       /* @__PURE__ */ jsxs("div", { className: "min-w-0", children: [
         /* @__PURE__ */ jsx("h2", { className: "break-words font-semibold text-base dark:text-secondary", children: title }),
@@ -70,7 +70,7 @@ function HomePage() {
           /* @__PURE__ */ jsx("p", { className: "mx-auto mt-4 max-w-2xl text-pretty leading-relaxed text-base/75 dark:text-sage", children: "Bespoke packages spanning manned guarding, concierge, patrols, and rapid alarm response, structured like leading UK contractors." })
         ] }) }),
         /* @__PURE__ */ jsx("div", { className: "mt-14 grid min-w-0 gap-7 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3", children: featured.map((service) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsx(ServiceCard, { slug: service.slug }) }, service.slug)) }),
-        /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("div", { className: "mx-auto mt-12 max-w-2xl rounded-2xl border border-primary/35 bg-gradient-to-br from-primary/[0.08] via-primary/[0.04] to-transparent p-6 text-center shadow-lg dark:from-primary/15 dark:via-primary/10 dark:to-transparent sm:p-8", children: [
+        /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card-cta brand-card-interactive mx-auto mt-12 max-w-2xl p-6 text-center sm:p-8", children: [
           /* @__PURE__ */ jsx("p", { className: "text-sm font-semibold text-[#5c3d06] dark:text-accent", children: "Need a blended package?" }),
           /* @__PURE__ */ jsx("p", { className: "mx-auto mt-2 max-w-lg text-sm leading-relaxed text-base/75 dark:text-sage", children: "Combine guarding with patrols, CCTV coordination, or key holding on one instruction set." }),
           /* @__PURE__ */ jsx(
@@ -154,7 +154,7 @@ function HomePage() {
           }
         )
       ] }),
-      /* @__PURE__ */ jsx("div", { className: "mt-10 grid gap-6 lg:grid-cols-3", children: blogPosts.map((post) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("article", { className: "group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-sage/40 bg-base/5 transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lift-gold dark:border-sage/30 dark:bg-secondary/5", children: [
+      /* @__PURE__ */ jsx("div", { className: "mt-10 grid gap-6 lg:grid-cols-3", children: blogPosts.map((post) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("article", { className: "brand-card brand-card-interactive group flex h-full min-w-0 flex-col overflow-hidden transition duration-300 hover:-translate-y-1", children: [
         /* @__PURE__ */ jsxs(
           Link,
           {

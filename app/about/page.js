@@ -86,7 +86,7 @@ function AboutPage() {
           /* @__PURE__ */ jsx("h1", { className: "mt-4 max-w-4xl text-4xl font-bold tracking-tight text-balance sm:text-5xl md:max-w-none", children: "Protection that protects your reputation, not just your perimeter." }),
           /* @__PURE__ */ jsx("p", { className: "mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-sage md:mx-0", children: "We are a customer-focused security provider delivering manned guarding, door supervision, key holding, patrols, concierge-style reception cover, and monitoring support. Our SIA-licensed teams are briefed to protect the integrity of your sites while reinforcing the professional image you expect at the front line, with screening aligned to BS 7858 vetting principles where your procurement requires it." })
         ] }),
-        /* @__PURE__ */ jsx("div", { className: "mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4", children: stats.map((s) => /* @__PURE__ */ jsx(Reveal, { delay: 0.05, children: /* @__PURE__ */ jsxs("div", { className: "rounded-xl border border-sage/35 bg-white/5 px-5 py-4 backdrop-blur-sm", children: [
+        /* @__PURE__ */ jsx("div", { className: "mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4", children: stats.map((s) => /* @__PURE__ */ jsx(Reveal, { delay: 0.05, children: /* @__PURE__ */ jsxs("div", { className: "brand-card-dark px-5 py-4", children: [
           /* @__PURE__ */ jsx("p", { className: "text-2xl font-bold text-accent", children: s.value }),
           /* @__PURE__ */ jsx("p", { className: "mt-1 text-sm text-sage", children: s.label })
         ] }) }, s.label)) })
@@ -122,7 +122,7 @@ function AboutPage() {
           )
         ] })
       ] }),
-      /* @__PURE__ */ jsx(Reveal, { delay: 0.08, children: /* @__PURE__ */ jsxs("div", { className: "rounded-2xl border border-sage/40 bg-base/5 p-8 dark:border-sage/30 dark:bg-secondary/5", children: [
+      /* @__PURE__ */ jsx(Reveal, { delay: 0.08, children: /* @__PURE__ */ jsxs("div", { className: "brand-card brand-card-interactive p-8", children: [
         /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3", children: [
           /* @__PURE__ */ jsx("div", { className: "flex h-12 w-12 items-center justify-center rounded-xl border border-primary/40 text-primary", children: /* @__PURE__ */ jsx(Users, { className: "h-6 w-6" }) }),
           /* @__PURE__ */ jsx("h3", { className: "text-lg font-semibold text-base dark:text-secondary", children: "Safe, ethical, modern employment" })
@@ -152,7 +152,7 @@ function AboutPage() {
         Link,
         {
           href: item.href,
-          className: "flex h-full items-center justify-between gap-3 rounded-xl border border-sage/40 bg-secondary/80 px-4 py-3 text-sm font-medium text-base transition hover:border-primary/50 hover:text-primary dark:border-sage/30 dark:bg-base/40 dark:text-secondary dark:hover:text-accent",
+          className: "brand-card brand-card-interactive flex h-full items-center justify-between gap-3 px-4 py-3 text-sm font-medium text-base transition hover:text-primary dark:text-secondary dark:hover:text-accent",
           children: [
             item.label,
             /* @__PURE__ */ jsx(ArrowRight, { className: "h-4 w-4 shrink-0 opacity-60", "aria-hidden": true })
@@ -190,7 +190,7 @@ function AboutPage() {
           }
         )
       ] }),
-      /* @__PURE__ */ jsx(Reveal, { delay: 0.06, children: /* @__PURE__ */ jsxs("div", { className: "rounded-2xl border border-sage/40 bg-base/5 p-8 dark:border-sage/30 dark:bg-secondary/5", children: [
+      /* @__PURE__ */ jsx(Reveal, { delay: 0.06, children: /* @__PURE__ */ jsxs("div", { className: "brand-card brand-card-interactive p-8", children: [
         /* @__PURE__ */ jsx("h3", { className: "text-lg font-semibold text-base dark:text-secondary", children: "Governance & assurance" }),
         /* @__PURE__ */ jsx("p", { className: "mt-3 text-sm leading-relaxed text-base/80 dark:text-sage", children: "Mission, safety, ethics, data protection, equality, anti-bribery, and more, published for clients, insurers, and auditors. Browse the policy library or read our standards page for how we run operations day to day." }),
         /* @__PURE__ */ jsxs("div", { className: "mt-6 flex flex-wrap gap-3", children: [
@@ -218,7 +218,7 @@ function AboutPage() {
         /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold tracking-tight text-base dark:text-secondary sm:text-3xl", children: "How we operate day to day" }),
         /* @__PURE__ */ jsx("p", { className: "mx-auto mt-3 max-w-3xl leading-relaxed text-base/75 dark:text-sage md:mx-0", children: "Four principles that show up in post orders, supervisor visits, and the tone your visitors experience." })
       ] }),
-      /* @__PURE__ */ jsx("div", { className: "mt-12 grid grid-cols-1 gap-6 text-left sm:grid-cols-2", children: pillars.map(({ Icon, title, text }) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("div", { className: "group h-full rounded-2xl border border-sage/40 bg-secondary/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-primary/45 hover:shadow-lift dark:border-sage/30 dark:bg-base/40", children: [
+      /* @__PURE__ */ jsx("div", { className: "mt-12 grid grid-cols-1 gap-6 text-left sm:grid-cols-2", children: pillars.map(({ Icon, title, text }) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card brand-card-interactive group h-full p-6 transition duration-300 hover:-translate-y-1", children: [
         /* @__PURE__ */ jsx("div", { className: "flex h-11 w-11 items-center justify-center rounded-lg border border-primary/35 bg-primary/10 text-primary transition group-hover:border-accent group-hover:text-accent", children: /* @__PURE__ */ jsx(Icon, { className: "h-5 w-5" }) }),
         /* @__PURE__ */ jsx("h3", { className: "mt-4 text-lg font-semibold text-base dark:text-secondary", children: title }),
         /* @__PURE__ */ jsx("p", { className: "mt-2 text-sm leading-relaxed text-base/75 dark:text-sage", children: text })
@@ -229,7 +229,7 @@ function AboutPage() {
         /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold text-base dark:text-secondary sm:text-3xl", children: "Frequently asked questions" }),
         /* @__PURE__ */ jsx("p", { className: "mx-auto mt-2 max-w-3xl text-sm text-base/75 dark:text-sage md:mx-0", children: "Quick answers before you speak to the team or request a quote." })
       ] }),
-      /* @__PURE__ */ jsx("div", { className: "mt-8 space-y-3", children: aboutFaqs.map((faq) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("details", { className: "group rounded-xl border border-sage/40 bg-base/5 open:border-primary/40 dark:border-sage/30 dark:bg-secondary/5", children: [
+      /* @__PURE__ */ jsx("div", { className: "mt-8 space-y-3", children: aboutFaqs.map((faq) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("details", { className: "brand-card brand-card-interactive group open:border-primary/50 open:ring-primary/25 dark:open:border-primary/55", children: [
         /* @__PURE__ */ jsx("summary", { className: "cursor-pointer list-none px-5 py-4 font-semibold text-base dark:text-secondary [&::-webkit-details-marker]:hidden", children: /* @__PURE__ */ jsxs("span", { className: "flex items-center justify-between gap-4", children: [
           faq.q,
           /* @__PURE__ */ jsx(ChevronRight, { className: "h-5 w-5 shrink-0 text-primary transition group-open:rotate-90" })
@@ -237,7 +237,7 @@ function AboutPage() {
         /* @__PURE__ */ jsx("div", { className: "border-t border-sage/25 px-5 pb-4 pt-3 text-sm leading-relaxed text-base/80 dark:text-sage", children: faq.a })
       ] }) }, faq.q)) })
     ] }),
-    /* @__PURE__ */ jsx("section", { className: "page-container py-16 page-align lg:py-20", children: /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "rounded-2xl border border-primary/35 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 px-8 py-10 sm:px-12", children: [
+    /* @__PURE__ */ jsx("section", { className: "page-container py-16 page-align lg:py-20", children: /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card-cta brand-card-interactive px-8 py-10 sm:px-12", children: [
       /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold text-base dark:text-secondary sm:text-3xl", children: "Ready to talk?" }),
       /* @__PURE__ */ jsx("p", { className: "mx-auto mt-3 max-w-2xl text-sm text-base/80 dark:text-sage md:mx-0", children: "Request a quote or speak to us about sites, hours, and hazards. We\u2019ll propose a proportionate plan with clear deliverables." }),
       /* @__PURE__ */ jsxs("div", { className: "mt-8 flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center md:justify-start", children: [

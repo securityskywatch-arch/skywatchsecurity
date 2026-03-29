@@ -51,7 +51,7 @@ function VacanciesPage() {
       /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-2xl text-lg text-sage", children: "Sample roles illustrating how we advertise. Swap for your live ATS, spreadsheet, or HR system feed. Each card is designed for quick scanning on mobile and desktop." })
     ] }) }),
     /* @__PURE__ */ jsxs("div", { className: "mx-auto grid max-w-page gap-10 px-4 py-12 lg:grid-cols-[1fr_280px] sm:px-6 lg:px-8 lg:py-16", children: [
-      /* @__PURE__ */ jsx("div", { className: "space-y-5", children: vacancies.map((v, i) => /* @__PURE__ */ jsx(Reveal, { delay: i * 0.05, children: /* @__PURE__ */ jsxs("article", { className: "rounded-2xl border border-sage/40 bg-base/5 p-6 transition hover:border-primary/45 hover:shadow-md dark:border-sage/30 dark:bg-secondary/5 sm:p-8", children: [
+      /* @__PURE__ */ jsx("div", { className: "space-y-5", children: vacancies.map((v, i) => /* @__PURE__ */ jsx(Reveal, { delay: i * 0.05, children: /* @__PURE__ */ jsxs("article", { className: "brand-card brand-card-interactive p-6 transition hover:shadow-md sm:p-8", children: [
         /* @__PURE__ */ jsxs("div", { className: "flex flex-wrap items-start justify-between gap-3", children: [
           /* @__PURE__ */ jsxs("div", { children: [
             /* @__PURE__ */ jsx("h2", { className: "text-xl font-bold text-base dark:text-secondary", children: v.title }),
@@ -88,7 +88,7 @@ function VacanciesPage() {
           )
         ] })
       ] }) }, v.ref)) }),
-      /* @__PURE__ */ jsx("aside", { className: "space-y-6 lg:sticky lg:top-28 lg:self-start", children: /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "rounded-2xl border border-primary/35 bg-base p-6 text-secondary dark:bg-base/80", children: [
+      /* @__PURE__ */ jsx("aside", { className: "space-y-6 lg:sticky lg:top-28 lg:self-start", children: /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card-inverse p-6", children: [
         /* @__PURE__ */ jsx(Shield, { className: "h-8 w-8 text-accent" }),
         /* @__PURE__ */ jsx("h2", { className: "mt-3 text-lg font-bold", children: "Before you apply" }),
         /* @__PURE__ */ jsxs("ul", { className: "mt-4 space-y-3 text-sm text-sage", children: [

@@ -62,6 +62,117 @@ body {
     @apply flex flex-nowrap items-center justify-between gap-3 sm:gap-3;
     @apply lg:justify-center lg:gap-3 xl:gap-4;
   }
+
+  /**
+   * Logo-aligned surfaces: cream / gold / base contrast, inset depth, slow gold ambient.
+   * Direct children stack above decorative layers (z-index).
+   */
+  .brand-card {
+    @apply relative isolate overflow-hidden rounded-2xl border-2 border-base/15 bg-gradient-to-br from-secondary via-[#faf3dc] to-base/[0.08] shadow-md shadow-base/[0.06] ring-1 ring-primary/20 transition-[box-shadow,border-color,ring-color] duration-300 dark:border-secondary/15 dark:bg-gradient-to-br dark:from-base dark:via-[#22211c] dark:to-secondary/[0.06] dark:shadow-black/35 dark:ring-primary/30;
+  }
+
+  .brand-card > * {
+    @apply relative z-[1];
+  }
+
+  .brand-card::before {
+    content: "";
+    @apply pointer-events-none absolute inset-0 z-0 rounded-2xl;
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.65),
+      inset 0 -1px 0 0 rgba(26, 26, 26, 0.06);
+  }
+
+  .dark .brand-card::before {
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.35);
+  }
+
+  .brand-card::after {
+    content: "";
+    @apply pointer-events-none absolute -left-[20%] -top-[25%] z-0 h-[85%] w-[85%] rounded-full bg-gradient-to-br from-primary/25 via-accent/20 to-transparent opacity-50 blur-3xl motion-safe:animate-brand-ambient motion-reduce:animate-none motion-reduce:opacity-40 dark:from-primary/30 dark:via-accent/20;
+  }
+
+  .brand-card-interactive {
+    @apply hover:border-primary/45 hover:shadow-lift-gold hover:ring-primary/40 dark:hover:border-primary/50 dark:hover:ring-primary/40;
+  }
+
+  /** Primary-forward callouts (quotes, end-of-page CTAs) */
+  .brand-card-cta {
+    @apply relative isolate overflow-hidden rounded-2xl border-2 border-primary/40 bg-gradient-to-br from-primary/[0.12] via-secondary to-accent/[0.08] shadow-lg shadow-primary/15 ring-2 ring-primary/25 transition-[box-shadow,border-color,ring-color] duration-300 dark:border-primary/45 dark:bg-gradient-to-br dark:from-primary/20 dark:via-[#22211c] dark:to-secondary/[0.08] dark:shadow-black/40 dark:ring-primary/35;
+  }
+
+  .brand-card-cta > * {
+    @apply relative z-[1];
+  }
+
+  .brand-card-cta::before {
+    content: "";
+    @apply pointer-events-none absolute inset-0 z-0 rounded-2xl;
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.55),
+      inset 0 -1px 0 0 rgba(26, 26, 26, 0.08);
+  }
+
+  .dark .brand-card-cta::before {
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-card-cta::after {
+    content: "";
+    @apply pointer-events-none absolute -right-[18%] -top-[22%] z-0 h-[75%] w-[75%] rounded-full bg-gradient-to-bl from-accent/25 via-primary/20 to-transparent opacity-55 blur-3xl motion-safe:animate-brand-ambient motion-reduce:animate-none motion-reduce:opacity-40;
+  }
+
+  /** Panels on dark hero bars (e.g. services catalogue sidebar) */
+  .brand-card-dark {
+    @apply relative isolate overflow-hidden rounded-2xl border-2 border-secondary/20 bg-gradient-to-br from-white/[0.09] via-white/[0.04] to-primary/[0.14] shadow-lg shadow-black/30 ring-1 ring-primary/35 backdrop-blur-md transition-[box-shadow,border-color,ring-color] duration-300;
+  }
+
+  .brand-card-dark > * {
+    @apply relative z-[1];
+  }
+
+  .brand-card-dark::before {
+    content: "";
+    @apply pointer-events-none absolute inset-0 z-0 rounded-2xl;
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.14),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.28);
+  }
+
+  .brand-card-dark::after {
+    content: "";
+    @apply pointer-events-none absolute -right-[15%] -top-[20%] z-0 h-[70%] w-[70%] rounded-full bg-gradient-to-bl from-primary/35 via-accent/20 to-transparent opacity-50 blur-3xl motion-safe:animate-brand-ambient motion-reduce:animate-none motion-reduce:opacity-40;
+  }
+
+  .brand-card-dark-interactive {
+    @apply hover:border-secondary/35 hover:ring-primary/50 hover:shadow-lift-gold;
+  }
+
+  /** Dark panel on cream page (e.g. vacancy sidebar) — charcoal + gold rim */
+  .brand-card-inverse {
+    @apply relative isolate overflow-hidden rounded-2xl border-2 border-primary/40 bg-base p-6 text-secondary shadow-lg shadow-black/20 ring-1 ring-primary/30;
+  }
+
+  .brand-card-inverse > * {
+    @apply relative z-[1];
+  }
+
+  .brand-card-inverse::before {
+    content: "";
+    @apply pointer-events-none absolute inset-0 z-0 rounded-2xl;
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.07),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.45);
+  }
+
+  .brand-card-inverse::after {
+    content: "";
+    @apply pointer-events-none absolute -right-[20%] -top-[15%] z-0 h-[80%] w-[70%] rounded-full bg-gradient-to-bl from-primary/30 via-accent/20 to-transparent opacity-45 blur-3xl motion-safe:animate-brand-ambient motion-reduce:animate-none motion-reduce:opacity-30;
+  }
 }
 
 @layer utilities {

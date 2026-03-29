@@ -52,12 +52,12 @@ function StandardsPage() {
       /* @__PURE__ */ jsx("h1", { className: "mt-4 text-4xl font-bold tracking-tight sm:text-5xl", children: "What \u201Cgood\u201D looks like on your site" }),
       /* @__PURE__ */ jsx("p", { className: "mt-6 text-lg text-sage", children: "Reference-style assurance: visible standards for uniform, behaviour, reporting, and management oversight, so procurement and operations teams know what they\u2019re buying." })
     ] }) }) }),
-    /* @__PURE__ */ jsx(StaggerSection, { className: "mx-auto max-w-page px-4 py-16 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx("div", { className: "grid gap-6 sm:grid-cols-2 lg:grid-cols-3", children: blocks.map(({ Icon, title, body }) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("article", { className: "h-full rounded-2xl border border-sage/40 bg-base/5 p-6 transition hover:border-primary/40 hover:shadow-md dark:border-sage/30 dark:bg-secondary/5", children: [
+    /* @__PURE__ */ jsx(StaggerSection, { className: "mx-auto max-w-page px-4 py-16 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx("div", { className: "grid gap-6 sm:grid-cols-2 lg:grid-cols-3", children: blocks.map(({ Icon, title, body }) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("article", { className: "brand-card brand-card-interactive h-full p-6 transition hover:shadow-md", children: [
       /* @__PURE__ */ jsx("div", { className: "flex h-10 w-10 items-center justify-center rounded-lg border border-primary/35 text-primary", children: /* @__PURE__ */ jsx(Icon, { className: "h-5 w-5" }) }),
       /* @__PURE__ */ jsx("h2", { className: "mt-4 text-lg font-semibold text-base dark:text-secondary", children: title }),
       /* @__PURE__ */ jsx("p", { className: "mt-2 text-sm leading-relaxed text-base/80 dark:text-sage", children: body })
     ] }) }, title)) }) }),
-    /* @__PURE__ */ jsx("section", { className: "border-t border-sage/20 px-4 py-14 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl rounded-2xl border border-sage/40 bg-base/5 p-8 text-center dark:border-sage/30 dark:bg-secondary/5", children: [
+    /* @__PURE__ */ jsx("section", { className: "border-t border-sage/20 px-4 py-14 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card brand-card-interactive mx-auto max-w-3xl p-8 text-center", children: [
       /* @__PURE__ */ jsx("p", { className: "text-sm text-base/80 dark:text-sage", children: "Standards sit alongside formal policies. For legal and governance text, see our policy library." }),
       /* @__PURE__ */ jsx(
         Link,

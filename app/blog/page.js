@@ -12,7 +12,7 @@ function BlogIndexPage() {
       /* @__PURE__ */ jsx("h1", { className: "text-3xl font-bold tracking-tight sm:text-4xl", children: "News & articles" }),
       /* @__PURE__ */ jsx("p", { className: "mx-auto mt-3 max-w-3xl text-sage md:mx-0", children: "Practical perspectives on guarding, retail, and corporate security." })
     ] }) }),
-    /* @__PURE__ */ jsx(StaggerSection, { className: "page-container py-12 page-align", children: /* @__PURE__ */ jsx("ul", { className: "grid grid-cols-1 gap-6 text-left md:grid-cols-3", children: blogPosts.map((post) => /* @__PURE__ */ jsx(StaggerItem, { className: "h-full", children: /* @__PURE__ */ jsx("li", { className: "h-full", children: /* @__PURE__ */ jsxs("article", { className: "flex h-full flex-col rounded-2xl border border-sage/40 bg-base/5 p-6 dark:border-sage/30 dark:bg-secondary/5", children: [
+    /* @__PURE__ */ jsx(StaggerSection, { className: "page-container py-12 page-align", children: /* @__PURE__ */ jsx("ul", { className: "grid grid-cols-1 gap-6 text-left md:grid-cols-3", children: blogPosts.map((post) => /* @__PURE__ */ jsx(StaggerItem, { className: "h-full", children: /* @__PURE__ */ jsx("li", { className: "h-full", children: /* @__PURE__ */ jsxs("article", { className: "brand-card brand-card-interactive flex h-full flex-col p-6", children: [
       /* @__PURE__ */ jsx(
         "time",
         {

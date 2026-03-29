@@ -15,7 +15,7 @@ function ApplyPage() {
     /* @__PURE__ */ jsx(Reveal, { delay: 0.06, children: /* @__PURE__ */ jsxs(
       "form",
       {
-        className: "mt-10 space-y-5 rounded-2xl border border-sage/45 bg-base/5 p-6 dark:border-sage/35 dark:bg-secondary/5 sm:p-8",
+        className: "brand-card brand-card-interactive mt-10 space-y-5 p-6 sm:p-8",
         action: "#",
         method: "post",
         children: [

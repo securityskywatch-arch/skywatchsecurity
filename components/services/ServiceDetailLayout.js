@@ -99,7 +99,7 @@ function ServiceDetailLayout({ service, content }) {
         /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold text-base dark:text-secondary sm:text-3xl", children: content.advantagesTitle }),
         /* @__PURE__ */ jsx("p", { className: "mx-auto mt-2 max-w-3xl text-sm text-base/75 dark:text-sage md:mx-0", children: "Practical outcomes clients ask for in tenders and reviews." })
       ] }),
-      /* @__PURE__ */ jsx("ul", { className: "mt-10 grid grid-cols-1 gap-4 text-left md:grid-cols-3", children: content.advantages.map((line) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("li", { className: "flex h-full gap-3 rounded-xl border border-sage/35 bg-secondary/80 p-4 dark:border-sage/30 dark:bg-base/40", children: [
+      /* @__PURE__ */ jsx("ul", { className: "mt-10 grid grid-cols-1 gap-4 text-left md:grid-cols-3", children: content.advantages.map((line) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("li", { className: "brand-card brand-card-interactive flex h-full gap-3 p-4", children: [
         /* @__PURE__ */ jsx(
           Check,
           {
@@ -115,7 +115,7 @@ function ServiceDetailLayout({ service, content }) {
         /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold sm:text-3xl", children: content.whyChooseTitle }),
         /* @__PURE__ */ jsx("p", { className: "mx-auto mt-2 max-w-2xl text-sage md:mx-0", children: "SkyWatch is built for estates that need consistency across shifts, not heroics on day one and drift by week four." })
       ] }),
-      /* @__PURE__ */ jsx("ul", { className: "mt-10 grid grid-cols-1 gap-4 text-left md:grid-cols-3", children: content.whyChooseBullets.map((line) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("li", { className: "flex h-full gap-3 rounded-xl border border-sage/40 bg-white/5 p-4 backdrop-blur-sm", children: [
+      /* @__PURE__ */ jsx("ul", { className: "mt-10 grid grid-cols-1 gap-4 text-left md:grid-cols-3", children: content.whyChooseBullets.map((line) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("li", { className: "brand-card-dark brand-card-dark-interactive flex h-full gap-3 p-4", children: [
         /* @__PURE__ */ jsx(Check, { className: "mt-0.5 h-5 w-5 shrink-0 text-accent", "aria-hidden": true }),
         /* @__PURE__ */ jsx("span", { className: "text-sm leading-relaxed text-sage", children: line })
       ] }) }, line)) }),
@@ -137,7 +137,7 @@ function ServiceDetailLayout({ service, content }) {
         Link,
         {
           href: o.href,
-          className: "group flex h-full flex-col rounded-2xl border border-sage/40 bg-base/5 p-6 transition hover:border-primary/50 hover:shadow-md dark:border-sage/30 dark:bg-secondary/5",
+          className: "brand-card brand-card-interactive group flex h-full flex-col p-6 transition hover:shadow-md",
           children: [
             /* @__PURE__ */ jsx("h3", { className: "text-lg font-semibold text-base group-hover:text-primary dark:text-secondary dark:group-hover:text-accent", children: o.title }),
             /* @__PURE__ */ jsx("p", { className: "mt-2 flex-1 text-sm leading-relaxed text-base/75 dark:text-sage", children: o.description }),
@@ -150,7 +150,7 @@ function ServiceDetailLayout({ service, content }) {
       /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold text-base dark:text-secondary", children: content.areasTitle }),
       /* @__PURE__ */ jsx("p", { className: "mx-auto mt-4 max-w-4xl leading-relaxed text-base/80 dark:text-sage md:mx-0", children: content.areasBody })
     ] }) }) }),
-    /* @__PURE__ */ jsx("section", { className: "py-14", children: /* @__PURE__ */ jsx("div", { className: "page-container", children: /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/15 via-base/5 to-accent/10 px-6 py-12 page-align dark:from-primary/20 dark:via-base/20 dark:to-transparent sm:px-12", children: [
+    /* @__PURE__ */ jsx("section", { className: "py-14", children: /* @__PURE__ */ jsx("div", { className: "page-container", children: /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card-cta brand-card-interactive px-6 py-12 page-align sm:px-12", children: [
       /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold text-base dark:text-secondary sm:text-3xl", children: content.finalCta.title }),
       /* @__PURE__ */ jsx("p", { className: "mx-auto mt-4 max-w-3xl leading-relaxed text-base/80 dark:text-sage md:mx-0", children: content.finalCta.body }),
       /* @__PURE__ */ jsxs("div", { className: "mt-8 flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center md:justify-start", children: [

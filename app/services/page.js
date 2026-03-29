@@ -80,7 +80,7 @@ function ServicesPage() {
             )
           ] })
         ] }) }),
-        /* @__PURE__ */ jsx("div", { className: "lg:col-span-2", children: /* @__PURE__ */ jsx(Reveal, { delay: 0.1, children: /* @__PURE__ */ jsxs("div", { className: "rounded-2xl border border-sage/40 bg-white/5 p-6 backdrop-blur-md sm:p-8", children: [
+        /* @__PURE__ */ jsx("div", { className: "lg:col-span-2", children: /* @__PURE__ */ jsx(Reveal, { delay: 0.1, children: /* @__PURE__ */ jsxs("div", { className: "brand-card-dark p-6 sm:p-8", children: [
           /* @__PURE__ */ jsx("p", { className: "text-sm font-semibold text-accent", children: "Typical engagements" }),
           /* @__PURE__ */ jsxs("ul", { className: "mt-4 space-y-3 text-sm text-sage", children: [
             /* @__PURE__ */ jsxs("li", { className: "flex gap-2 border-b border-sage/15 pb-3", children: [

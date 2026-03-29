@@ -13,7 +13,7 @@ function ContactPage() {
       /* @__PURE__ */ jsx("p", { className: "mt-4 text-lg text-sage", children: "Speak to our team about guarding, patrols, key holding, or monitoring packages." })
     ] }) }),
     /* @__PURE__ */ jsxs("section", { className: "mx-auto grid max-w-page gap-8 px-4 py-14 lg:grid-cols-2 sm:px-6 lg:px-8", children: [
-      /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "space-y-6 rounded-2xl border border-sage/40 bg-base/5 p-8 dark:border-sage/30 dark:bg-secondary/5", children: [
+      /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card brand-card-interactive space-y-6 p-8", children: [
         /* @__PURE__ */ jsxs("div", { className: "flex gap-3", children: [
           /* @__PURE__ */ jsx(MapPin, { className: "mt-1 h-5 w-5 shrink-0 text-primary" }),
           /* @__PURE__ */ jsx("p", {
@@ -63,7 +63,7 @@ function ContactPage() {
       /* @__PURE__ */ jsx(Reveal, { delay: 0.06, children: /* @__PURE__ */ jsxs(
         "form",
         {
-          className: "space-y-4 rounded-2xl border border-sage/45 bg-base/5 p-8 dark:border-sage/35 dark:bg-secondary/5",
+          className: "brand-card brand-card-interactive space-y-4 p-8",
           action: "#",
           method: "post",
           children: [

@@ -15,14 +15,7 @@ function ReviewsPage() {
       /* @__PURE__ */ jsx("p", { className: "mt-3 text-sage", children: "Feedback from facilities, operations, and estates teams we support." })
     ] }) }),
     /* @__PURE__ */ jsxs(StaggerSection, { className: "mx-auto max-w-page px-4 py-12 sm:px-6 lg:px-8", children: [
-      /* @__PURE__ */ jsx("div", { className: "grid gap-6 sm:grid-cols-2", children: reviews.map((r) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("blockquote", { className: "group relative h-full overflow-hidden rounded-2xl border border-sage/40 bg-gradient-to-br from-base/[0.04] via-secondary/80 to-transparent p-6 shadow-sm transition duration-300 hover:border-primary/40 hover:shadow-lift-gold dark:border-sage/30 dark:from-secondary/[0.05] dark:via-base/40 dark:to-base/20", children: [
-        /* @__PURE__ */ jsx(
-          "div",
-          {
-            className: "pointer-events-none absolute -right-6 -top-6 h-28 w-28 rounded-full bg-primary/10 blur-2xl dark:bg-primary/15",
-            "aria-hidden": true
-          }
-        ),
+      /* @__PURE__ */ jsx("div", { className: "grid gap-6 sm:grid-cols-2", children: reviews.map((r) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("blockquote", { className: "brand-card brand-card-interactive group relative h-full overflow-hidden p-6 transition duration-300", children: [
         /* @__PURE__ */ jsxs("div", { className: "relative flex items-start justify-between gap-3", children: [
           /* @__PURE__ */ jsx(StarRating, { value: r.rating }),
           /* @__PURE__ */ jsx(Quote, { className: "h-7 w-7 shrink-0 text-primary/30 dark:text-primary/40", "aria-hidden": true })

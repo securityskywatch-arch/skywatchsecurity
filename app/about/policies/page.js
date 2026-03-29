@@ -25,7 +25,7 @@ function PoliciesIndexPage() {
       Link,
       {
         href: `/about/policies/${p.slug}`,
-        className: "flex h-full flex-col rounded-xl border border-sage/40 bg-base/5 p-4 transition hover:border-primary/50 hover:shadow-md dark:border-sage/30 dark:bg-[#22211c]",
+        className: "brand-card brand-card-interactive flex h-full flex-col p-4 transition hover:shadow-md",
         children: [
           /* @__PURE__ */ jsx("span", { className: "font-semibold text-[1rem] text-[#1a1a1a] dark:text-secondary", children: p.title }),
           /* @__PURE__ */ jsx("p", { className: "mt-1 flex-1 text-sm leading-relaxed text-[#1a1a1a]/75 dark:text-[#d8d3c8]", children: p.summary })

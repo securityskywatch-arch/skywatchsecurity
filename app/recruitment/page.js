@@ -82,7 +82,7 @@ function RecruitmentPage() {
             Link,
             {
               href: "/recruitment/vacancies",
-              className: "group flex flex-col rounded-2xl border border-primary/40 bg-white/5 p-6 transition hover:-translate-y-1 hover:bg-primary/10",
+              className: "brand-card-dark brand-card-dark-interactive group flex flex-col p-6 transition hover:-translate-y-1 hover:bg-primary/10",
               children: [
                 /* @__PURE__ */ jsx(Users, { className: "h-9 w-9 text-accent" }),
                 /* @__PURE__ */ jsx("span", { className: "mt-4 text-lg font-bold text-secondary", children: "Current vacancies" }),
@@ -98,7 +98,7 @@ function RecruitmentPage() {
             Link,
             {
               href: "/recruitment/apply",
-              className: "group flex flex-col rounded-2xl border border-sage/40 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-primary/50",
+              className: "brand-card-dark brand-card-dark-interactive group flex flex-col p-6 transition hover:-translate-y-1",
               children: [
                 /* @__PURE__ */ jsx(FileText, { className: "h-9 w-9 text-primary" }),
                 /* @__PURE__ */ jsx("span", { className: "mt-4 text-lg font-bold text-secondary", children: "Application form" }),
@@ -122,7 +122,7 @@ function RecruitmentPage() {
         /* @__PURE__ */ jsx("h2", { className: "text-center text-2xl font-bold text-base dark:text-secondary sm:text-3xl", children: "From application to first shift" }),
         /* @__PURE__ */ jsx("p", { className: "mx-auto mt-3 max-w-2xl text-center text-sm text-base/75 dark:text-sage", children: "Transparent stages so you always know what happens next." })
       ] }),
-      /* @__PURE__ */ jsx("div", { className: "mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4", children: steps.map(({ step, title, text }) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("div", { className: "relative h-full rounded-2xl border border-sage/40 bg-secondary/80 p-6 dark:border-sage/30 dark:bg-base/40", children: [
+      /* @__PURE__ */ jsx("div", { className: "mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4", children: steps.map(({ step, title, text }) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card relative h-full p-6", children: [
         /* @__PURE__ */ jsx("span", { className: "text-4xl font-black text-primary/25", children: step }),
         /* @__PURE__ */ jsx("h3", { className: "mt-2 text-lg font-bold text-base dark:text-secondary", children: title }),
         /* @__PURE__ */ jsx("p", { className: "mt-2 text-sm leading-relaxed text-base/75 dark:text-sage", children: text })
@@ -130,7 +130,7 @@ function RecruitmentPage() {
     ] }) }),
     /* @__PURE__ */ jsxs("section", { className: "mx-auto max-w-page px-4 py-16 sm:px-6 lg:px-8", children: [
       /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold text-base dark:text-secondary sm:text-3xl", children: "What officers tell us they value" }) }),
-      /* @__PURE__ */ jsx("div", { className: "mt-10 grid gap-6 sm:grid-cols-2", children: benefits.map(({ Icon, title, text }) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "flex gap-4 rounded-2xl border border-sage/40 bg-base/5 p-6 dark:border-sage/30 dark:bg-secondary/5", children: [
+      /* @__PURE__ */ jsx("div", { className: "mt-10 grid gap-6 sm:grid-cols-2", children: benefits.map(({ Icon, title, text }) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card brand-card-interactive flex gap-4 p-6", children: [
         /* @__PURE__ */ jsx("div", { className: "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-primary/35 text-primary", children: /* @__PURE__ */ jsx(Icon, { className: "h-6 w-6" }) }),
         /* @__PURE__ */ jsxs("div", { children: [
           /* @__PURE__ */ jsx("h3", { className: "font-semibold text-base dark:text-secondary", children: title }),
@@ -138,7 +138,7 @@ function RecruitmentPage() {
         ] })
       ] }) }, title)) })
     ] }),
-    /* @__PURE__ */ jsx("section", { className: "px-4 pb-20 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/15 to-transparent px-8 py-10 text-center", children: [
+    /* @__PURE__ */ jsx("section", { className: "px-4 pb-20 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card-cta brand-card-interactive mx-auto max-w-3xl px-8 py-10 text-center", children: [
       /* @__PURE__ */ jsx("h2", { className: "text-xl font-bold text-base dark:text-secondary", children: "Ready to explore roles?" }),
       /* @__PURE__ */ jsx("p", { className: "mt-2 text-sm text-base/75 dark:text-sage", children: "Vacancies change weekly, start with live roles or leave a general application." }),
       /* @__PURE__ */ jsxs("div", { className: "mt-6 flex flex-wrap justify-center gap-3", children: [
