@@ -47,6 +47,10 @@ body {
   .page-align {
     @apply text-center md:text-left;
   }
+  /** Full-width bar so brand and CTAs sit nearer the left/right edges than page copy (7xl). */
+  .header-container {
+    @apply mx-auto flex w-full min-w-0 max-w-none flex-nowrap items-center justify-between gap-2 overflow-visible px-4 py-2 sm:gap-3 sm:px-5 sm:py-3 lg:gap-3 lg:px-6 lg:py-3 xl:gap-4 xl:px-10 xl:py-4 2xl:px-14;
+  }
 }
 
 @layer utilities {

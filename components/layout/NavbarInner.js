@@ -83,7 +83,7 @@ function NavbarInner({ logoSrc }) {
   const mobileServiceLinks = /* @__PURE__ */ jsx("div", { className: "min-w-0", children: mobileDrawerLinkItems(serviceNavItems) });
   const mobileRecruitmentLinks = /* @__PURE__ */ jsx("div", { className: "min-w-0", children: mobileDrawerLinkItems(recruitmentNavItems) });
   return /* @__PURE__ */ jsxs("header", { className: "sticky top-0 z-[60] overflow-visible border-b border-sage/30 bg-secondary text-[#1a1a1a] shadow-sm dark:border-sage/30 dark:bg-base dark:text-secondary", children: [
-    /* @__PURE__ */ jsxs("div", { className: "page-container flex flex-nowrap items-center justify-between gap-2 overflow-visible py-2 sm:gap-3 sm:py-3 lg:gap-3 lg:py-3 xl:gap-4 xl:py-4", children: [
+    /* @__PURE__ */ jsxs("div", { className: "header-container", children: [
       /* @__PURE__ */ jsx(
         Link,
         {
@@ -102,9 +102,9 @@ function NavbarInner({ logoSrc }) {
                   width: 520,
                   height: 156,
                   className:
-                    "h-10 w-auto shrink-0 object-contain object-left md:h-14 lg:h-16",
+                    "h-12 w-auto shrink-0 object-contain object-left md:h-[4rem] lg:h-[4.75rem]",
                   priority: true,
-                  sizes: "(max-width: 768px) 120px, (max-width: 1024px) 168px, 200px"
+                  sizes: "(max-width: 768px) 140px, (max-width: 1024px) 192px, 240px"
                 }
               ),
               /* @__PURE__ */ jsxs("span", {
@@ -113,7 +113,7 @@ function NavbarInner({ logoSrc }) {
                 children: [
                   /* @__PURE__ */ jsxs("span", {
                     className:
-                      "truncate text-[1.02rem] font-black tracking-[-0.02em] text-[#141414] sm:text-lg md:text-[1.15rem] lg:text-[1.4rem] lg:leading-[1.1] xl:text-[1.45rem] dark:text-[#faf8f3]",
+                      "truncate text-[0.9375rem] font-black tracking-[-0.02em] text-[#141414] sm:text-base md:text-[1.05rem] lg:text-[1.15rem] lg:leading-[1.1] xl:text-[1.2rem] dark:text-[#faf8f3]",
                     children: [
                       "Sky",
                       /* @__PURE__ */ jsx("span", {
@@ -125,7 +125,7 @@ function NavbarInner({ logoSrc }) {
                   }),
                   /* @__PURE__ */ jsx("span", {
                     className:
-                      "relative inline-block w-max max-w-full text-[0.625rem] font-bold uppercase leading-none tracking-[0.08em] text-primary after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:rounded-full after:bg-gradient-to-r after:from-primary/40 after:via-accent/80 after:to-primary/40 dark:text-accent dark:after:from-accent/30 dark:after:via-accent dark:after:to-primary/40 sm:text-[0.6875rem] sm:tracking-[0.1em]",
+                      "relative inline-block w-max max-w-full text-[0.5625rem] font-bold uppercase leading-none tracking-[0.08em] text-primary after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:rounded-full after:bg-gradient-to-r after:from-primary/40 after:via-accent/80 after:to-primary/40 dark:text-accent dark:after:from-accent/30 dark:after:via-accent dark:after:to-primary/40 sm:text-[0.625rem] sm:tracking-[0.1em]",
                     children: "SECURITY"
                   })
                 ]
@@ -231,7 +231,7 @@ function NavbarInner({ logoSrc }) {
         {
           id: "mobile-nav",
           className:
-            "fixed bottom-0 left-0 right-0 top-16 z-[55] max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-y-contain border-t border-sage/25 bg-secondary px-3 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-2 shadow-2xl dark:border-sage/25 dark:bg-base lg:hidden",
+            "fixed bottom-0 left-0 right-0 top-[4.75rem] z-[55] max-h-[calc(100dvh-4.75rem)] overflow-y-auto overscroll-y-contain border-t border-sage/25 bg-secondary px-3 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-2 shadow-2xl dark:border-sage/25 dark:bg-base lg:hidden",
           children: [
             /* @__PURE__ */ jsxs("div", { className: "flex min-h-0 flex-col gap-0", children: [
               /* @__PURE__ */ jsx(
