@@ -8,7 +8,7 @@ function AppShell({ children }) {
   return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx(SiteLoader, { logoSrc }),
     /* @__PURE__ */ jsx(Navbar, {}),
-    /* @__PURE__ */ jsx("div", { className: "flex min-h-[calc(100dvh-5rem)] min-w-0 flex-col overflow-x-hidden lg:min-h-[calc(100dvh-6.75rem)]", children }),
+    /* @__PURE__ */ jsx("div", { className: "flex min-h-[calc(100dvh-var(--header-h))] min-w-0 flex-col overflow-x-hidden pt-[var(--header-h)]", children }),
     /* @__PURE__ */ jsx(Footer, {})
   ] });
 }

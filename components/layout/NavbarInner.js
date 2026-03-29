@@ -101,14 +101,14 @@ function NavbarInner({ logoSrc }) {
   const mobileAboutLinks = /* @__PURE__ */ jsx("div", { className: "min-w-0", children: mobileDrawerLinkItems(aboutNavItems) });
   const mobileServiceLinks = /* @__PURE__ */ jsx("div", { className: "min-w-0", children: mobileDrawerLinkItems(serviceNavItems) });
   const mobileRecruitmentLinks = /* @__PURE__ */ jsx("div", { className: "min-w-0", children: mobileDrawerLinkItems(recruitmentNavItems) });
-  return /* @__PURE__ */ jsxs("header", { className: "sticky top-0 z-[60] overflow-visible border-b border-sage/30 bg-secondary/95 text-[#1a1a1a] shadow-sm backdrop-blur-md backdrop-saturate-150 dark:border-sage/30 dark:bg-base/95 dark:text-secondary", children: [
-    /* @__PURE__ */ jsxs("div", { className: "header-container", children: [
+  return /* @__PURE__ */ jsxs("header", { className: "fixed inset-x-0 top-0 z-[60] isolate overflow-visible border-b border-sage/30 bg-secondary/95 text-[#1a1a1a] shadow-sm backdrop-blur-md backdrop-saturate-150 dark:border-sage/30 dark:bg-base/95 dark:text-secondary", children: [
+    /* @__PURE__ */ jsxs("div", { className: "header-container relative z-20", children: [
       /* @__PURE__ */ jsx("div", { className: "flex min-w-0 flex-1 justify-start lg:flex-none lg:shrink-0", children: /* @__PURE__ */ jsx(
         Link,
         {
           href: "/",
           className:
-            "relative z-[70] flex min-h-[44px] min-w-0 max-w-full items-center gap-2.5 overflow-visible rounded-lg pr-1 outline-none ring-primary/0 transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-primary/50 sm:gap-3 lg:max-w-none lg:gap-3",
+            "relative z-10 flex min-h-[44px] min-w-0 max-w-full items-center gap-2.5 overflow-visible rounded-lg pr-1 outline-none ring-primary/0 transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-primary/50 sm:gap-3 lg:max-w-none lg:gap-3",
           onClick: closeMobile,
           "aria-label": "SkyWatch Security, home",
           children: /* @__PURE__ */ jsxs(Fragment, {
@@ -233,7 +233,8 @@ function NavbarInner({ logoSrc }) {
         "button",
         {
           type: "button",
-          className: "fixed inset-0 z-[54] bg-black/45 lg:hidden",
+          className:
+            "fixed bottom-0 left-0 right-0 top-[var(--header-h)] z-[150] bg-black/50 lg:hidden",
           "aria-label": "Close menu",
           onClick: closeMobile
         }
@@ -243,7 +244,7 @@ function NavbarInner({ logoSrc }) {
         {
           id: "mobile-nav",
           className:
-            "fixed bottom-0 left-0 right-0 top-20 z-[55] max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-y-contain border-t border-sage/25 bg-secondary px-3 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-2 shadow-2xl dark:border-sage/25 dark:bg-base lg:hidden",
+            "fixed bottom-0 left-0 right-0 top-[var(--header-h)] z-[160] flex max-h-[calc(100dvh-var(--header-h))] min-h-[min(55dvh,24rem)] flex-col overflow-y-auto overscroll-y-contain border-t border-sage/25 bg-secondary px-3 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-3 shadow-2xl dark:border-sage/25 dark:bg-base lg:hidden",
           children: [
             /* @__PURE__ */ jsxs("div", { className: "flex min-h-0 flex-col gap-0", children: [
               /* @__PURE__ */ jsx(

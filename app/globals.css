@@ -6,6 +6,14 @@
   --page-bg: #f9f1d1;
   --page-fg: #1a1a1a;
   --muted: #6b6350;
+  /** Reserved space for fixed navbar (mobile / desktop); keep in sync with bar padding + logo row */
+  --header-h: 5rem;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-h: 7rem;
+  }
 }
 
 .dark {
@@ -17,6 +25,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
+  scroll-padding-top: var(--header-h);
 }
 
 body {
