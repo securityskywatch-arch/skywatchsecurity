@@ -3,15 +3,6 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "react-icons"],
   },
-  async redirects() {
-    return [
-      {
-        source: "/favicon.ico",
-        destination: "/brand/logo.webp",
-        permanent: false,
-      },
-    ];
-  },
   images: {
     remotePatterns: [
       {
