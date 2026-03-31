@@ -173,6 +173,18 @@ body {
     content: "";
     @apply pointer-events-none absolute -right-[20%] -top-[15%] z-0 h-[80%] w-[70%] rounded-full bg-gradient-to-bl from-primary/30 via-accent/20 to-transparent opacity-45 blur-3xl motion-safe:animate-brand-ambient motion-reduce:animate-none motion-reduce:opacity-30;
   }
+
+  .field-error {
+    @apply mt-1 hidden text-xs font-medium text-red-500 dark:text-red-300;
+  }
+
+  .form-validated :is(input, select, textarea):invalid + .field-error {
+    display: block;
+  }
+
+  .form-validated div:has(> :is(input, select, textarea):invalid) + .field-error {
+    display: block;
+  }
 }
 
 @layer utilities {

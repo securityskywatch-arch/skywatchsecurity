@@ -1,5 +1,6 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { LoadingSubmitButton } from "@/components/forms/LoadingSubmitButton";
+import { ValidatedForm } from "@/components/forms/ValidatedForm";
 import { Reveal } from "@/components/motion/scroll-reveal";
 import { siteContact } from "@/lib/siteContact";
 const metadata = {
@@ -26,7 +27,7 @@ function QuotePage({ searchParams }) {
       ] })
     ] }),
     /* @__PURE__ */ jsx(Reveal, { delay: 0.08, children: /* @__PURE__ */ jsxs(
-      "form",
+      ValidatedForm,
       {
         className: "brand-card brand-card-interactive mt-10 space-y-6 p-6 sm:p-8",
         action: "/api/forms/quote",
@@ -49,12 +50,15 @@ function QuotePage({ searchParams }) {
                 id: "name",
                 name: "name",
                 required: true,
+                minLength: 2,
+                maxLength: 80,
                 autoComplete: "name",
                 className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none ring-primary/30 placeholder:text-base/40 focus:border-primary focus:ring-2 dark:bg-base dark:text-secondary",
                 placeholder: "Jane Smith"
               }
             )
           ] }),
+          /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please enter your full name (at least 2 characters)." }),
           /* @__PURE__ */ jsxs("div", { children: [
             /* @__PURE__ */ jsx(
               "label",
@@ -77,6 +81,7 @@ function QuotePage({ searchParams }) {
               }
             )
           ] }),
+          /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please enter a valid work email address, e.g. name@company.co.uk." }),
           /* @__PURE__ */ jsxs("div", { children: [
             /* @__PURE__ */ jsx(
               "label",
@@ -92,12 +97,16 @@ function QuotePage({ searchParams }) {
                 id: "phone",
                 name: "phone",
                 type: "tel",
+                required: true,
                 autoComplete: "tel",
+                pattern: "^\\+?[0-9()\\-\\s]{7,20}$",
+                title: "Please enter a valid phone number",
                 className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none ring-primary/30 placeholder:text-base/40 focus:border-primary focus:ring-2 dark:bg-base dark:text-secondary",
                 placeholder: "020 7123 4567"
               }
             )
           ] }),
+          /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please enter a valid UK contact number." }),
           /* @__PURE__ */ jsxs("div", { children: [
             /* @__PURE__ */ jsx(
               "label",
@@ -112,6 +121,7 @@ function QuotePage({ searchParams }) {
               {
                 id: "service",
                 name: "service",
+                required: true,
                 className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 dark:bg-base dark:text-secondary",
                 defaultValue: "",
                 children: [
@@ -125,6 +135,7 @@ function QuotePage({ searchParams }) {
               }
             )
           ] }),
+          /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please select a service." }),
           /* @__PURE__ */ jsxs("div", { children: [
             /* @__PURE__ */ jsx(
               "label",
@@ -140,11 +151,15 @@ function QuotePage({ searchParams }) {
                 id: "message",
                 name: "message",
                 rows: 5,
+                required: true,
+                minLength: 10,
+                maxLength: 1800,
                 className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none ring-primary/30 placeholder:text-base/40 focus:border-primary focus:ring-2 dark:bg-base dark:text-secondary",
                 placeholder: "Location, hours, risks, start date\u2026"
               }
             )
           ] }),
+          /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please provide site details such as location, hours, and risks (minimum 10 characters)." }),
           /* @__PURE__ */ jsx(LoadingSubmitButton, { idleLabel: "Submit enquiry", loadingLabel: "Sending...", className: "w-full rounded-md bg-primary py-3 text-sm font-semibold text-base transition hover:bg-accent disabled:cursor-not-allowed disabled:opacity-75 sm:w-auto sm:px-10" })
         ]
       }

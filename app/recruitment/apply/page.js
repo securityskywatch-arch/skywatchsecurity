@@ -1,5 +1,6 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { LoadingSubmitButton } from "@/components/forms/LoadingSubmitButton";
+import { ValidatedForm } from "@/components/forms/ValidatedForm";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/scroll-reveal";
 const metadata = {
@@ -15,7 +16,7 @@ function ApplyPage({ searchParams }) {
       /* @__PURE__ */ jsx("p", { className: "mt-3 leading-relaxed text-base/75 dark:text-sage", children: "Share your core details for manual shortlisting. We review applications and contact suitable candidates when roles are available." })
     ] }),
     /* @__PURE__ */ jsx(Reveal, { delay: 0.06, children: /* @__PURE__ */ jsxs(
-      "form",
+      ValidatedForm,
       {
         className: "brand-card brand-card-interactive mt-10 space-y-5 p-6 sm:p-8",
         action: "/api/forms/application",
@@ -45,9 +46,15 @@ function ApplyPage({ searchParams }) {
                 name: id,
                 type,
                 required: req,
+                minLength: id === "full_name" ? 2 : id === "postcode" ? 3 : void 0,
+                maxLength: id === "full_name" ? 100 : id === "postcode" ? 12 : id === "sia_number" ? 30 : void 0,
+                autoComplete: id === "full_name" ? "name" : id === "email" ? "email" : id === "phone" ? "tel" : "off",
+                pattern: id === "phone" ? "^\\+?[0-9()\\-\\s]{7,20}$" : void 0,
+                title: id === "phone" ? "Please enter a valid UK phone number" : id === "postcode" ? "Please enter a valid UK postcode" : void 0,
                 className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 dark:bg-base dark:text-secondary"
               }
-            )
+            ),
+            /* @__PURE__ */ jsx("p", { className: "field-error", children: id === "email" ? "Please enter a valid email address, e.g. name@email.co.uk." : id === "phone" ? "Please enter a valid UK phone number." : id === "postcode" ? "Please enter a valid UK postcode, e.g. RG1 1AA." : `Please enter a valid ${label.toLowerCase()}.` })
           ] }, id)),
           /* @__PURE__ */ jsxs("div", { children: [
             /* @__PURE__ */ jsx(
@@ -72,7 +79,8 @@ function ApplyPage({ searchParams }) {
                   /* @__PURE__ */ jsx("option", { value: "no", children: "No" })
                 ]
               }
-            )
+            ),
+            /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please select if you have the right to work in the UK." })
           ] }),
           /* @__PURE__ */ jsxs("div", { className: "grid gap-5 sm:grid-cols-2", children: [
             /* @__PURE__ */ jsxs("div", { children: [
@@ -94,7 +102,8 @@ function ApplyPage({ searchParams }) {
                     /* @__PURE__ */ jsx("option", { value: "5+", children: "5+ years" })
                   ]
                 }
-              )
+              ),
+              /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please select your security experience." })
             ] }),
             /* @__PURE__ */ jsxs("div", { children: [
               /* @__PURE__ */ jsx("label", { htmlFor: "availability", className: "block text-sm font-medium text-base dark:text-secondary", children: "Availability" }),
@@ -114,16 +123,19 @@ function ApplyPage({ searchParams }) {
                     /* @__PURE__ */ jsx("option", { value: "flexible", children: "Flexible" })
                   ]
                 }
-              )
+              ),
+              /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please select your availability." })
             ] })
           ] }),
           /* @__PURE__ */ jsxs("div", { children: [
             /* @__PURE__ */ jsx("label", { htmlFor: "preferred_regions", className: "block text-sm font-medium text-base dark:text-secondary", children: "Preferred work area(s)" }),
-            /* @__PURE__ */ jsx("input", { id: "preferred_regions", name: "preferred_regions", type: "text", placeholder: "e.g. South East, London, Reading, Oxford", className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 dark:bg-base dark:text-secondary" })
+            /* @__PURE__ */ jsx("input", { id: "preferred_regions", name: "preferred_regions", type: "text", required: true, minLength: 2, maxLength: 120, placeholder: "e.g. South East, London, Reading, Oxford", className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 dark:bg-base dark:text-secondary" }),
+            /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please enter your preferred work areas." })
           ] }),
           /* @__PURE__ */ jsxs("div", { children: [
             /* @__PURE__ */ jsx("label", { htmlFor: "notes", className: "block text-sm font-medium text-base dark:text-secondary", children: "Relevant notes" }),
-            /* @__PURE__ */ jsx("textarea", { id: "notes", name: "notes", rows: 4, placeholder: "Any additional details (licences, transport, notice period, preferred role)", className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 dark:bg-base dark:text-secondary" })
+            /* @__PURE__ */ jsx("textarea", { id: "notes", name: "notes", rows: 4, required: true, minLength: 10, maxLength: 1800, placeholder: "Any additional details (licences, transport, notice period, preferred role)", className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 dark:bg-base dark:text-secondary" }),
+            /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please add at least 10 characters in relevant notes." })
           ] }),
           /* @__PURE__ */ jsx(LoadingSubmitButton, { idleLabel: "Submit application", loadingLabel: "Sending...", className: "w-full rounded-md bg-primary py-3 text-sm font-semibold text-base hover:bg-accent disabled:cursor-not-allowed disabled:opacity-75 sm:w-auto sm:px-10" })
         ]

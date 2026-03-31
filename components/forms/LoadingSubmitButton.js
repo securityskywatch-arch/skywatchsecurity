@@ -1,22 +1,21 @@
 "use client";
 
 import { jsx } from "react/jsx-runtime";
-import { useState } from "react";
+import { useFormStatus } from "react-dom";
 
 function LoadingSubmitButton({
   idleLabel,
   loadingLabel = "Sending...",
   className = ""
 }) {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { pending } = useFormStatus();
   return /* @__PURE__ */ jsx(
     "button",
     {
       type: "submit",
-      disabled: isSubmitting,
-      onClick: () => setIsSubmitting(true),
+      disabled: pending,
       className,
-      children: isSubmitting ? loadingLabel : idleLabel
+      children: pending ? loadingLabel : idleLabel
     }
   );
 }

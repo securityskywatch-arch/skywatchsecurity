@@ -1,21 +1,17 @@
 "use client";
 import { jsx, jsxs } from "react/jsx-runtime";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { getServiceBySlug } from "@/lib/services";
-const MotionLink = motion.create(Link);
 function ServiceCard({ slug }) {
   const service = getServiceBySlug(slug);
   if (!service) return null;
   const { Icon } = service;
   return /* @__PURE__ */ jsxs(
-    MotionLink,
+    Link,
     {
       href: `/services/${service.slug}`,
+      prefetch: false,
       className: "group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border-2 border-base/15 bg-gradient-to-br from-secondary via-[#fdf4d4] to-base/[0.09] p-5 shadow-md shadow-base/[0.07] ring-1 ring-primary/25 transition-[box-shadow,border-color,ring-color] duration-500 hover:border-primary/45 hover:shadow-lift-gold hover:ring-primary/40 dark:border-secondary/15 dark:bg-gradient-to-br dark:from-base dark:via-[#22211c] dark:to-secondary/[0.07] dark:shadow-black/40 dark:ring-primary/30 dark:hover:border-primary/50 dark:hover:ring-primary/45 sm:p-6",
-      whileHover: { y: -8 },
-      whileTap: { scale: 0.985 },
-      transition: { type: "spring", stiffness: 380, damping: 22 },
       children: [
         /* @__PURE__ */ jsx("div", { className: "pointer-events-none absolute inset-0 rounded-2xl shadow-card-inset-light dark:shadow-card-inset-dark", "aria-hidden": true }),
         /* @__PURE__ */ jsx(

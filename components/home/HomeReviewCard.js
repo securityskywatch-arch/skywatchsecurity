@@ -1,6 +1,5 @@
 "use client";
 import { jsx, jsxs } from "react/jsx-runtime";
-import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 import { StarRating } from "@/components/ui/StarRating";
 function initials(name) {
@@ -8,13 +7,8 @@ function initials(name) {
 }
 function HomeReviewCard({ review, staticEntry = false }) {
   return /* @__PURE__ */ jsxs(
-    motion.article,
+    "article",
     {
-      initial: staticEntry ? false : { opacity: 0, y: 28, scale: 0.98 },
-      whileInView: staticEntry ? void 0 : { opacity: 1, y: 0, scale: 1 },
-      viewport: staticEntry ? void 0 : { once: true, margin: "0px", amount: "some" },
-      transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-      whileHover: { y: -4, transition: { duration: 0.2 } },
       className: "group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border-2 border-base/15 bg-gradient-to-br from-secondary via-[#faf3dc] to-base/[0.08] p-5 shadow-md shadow-base/[0.06] ring-1 ring-primary/20 transition-[box-shadow,border-color,ring-color] duration-300 hover:border-primary/45 hover:shadow-lift-gold hover:ring-primary/38 dark:border-secondary/15 dark:bg-gradient-to-br dark:from-base dark:via-[#22211c] dark:to-secondary/[0.06] dark:shadow-black/35 dark:ring-primary/28 dark:hover:border-primary/50 dark:hover:ring-primary/42 sm:p-6",
       children: [
         /* @__PURE__ */ jsx("div", { className: "pointer-events-none absolute inset-0 rounded-2xl shadow-card-inset-light dark:shadow-card-inset-dark", "aria-hidden": true }),

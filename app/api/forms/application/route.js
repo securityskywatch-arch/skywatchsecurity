@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { sendStructuredFormEmail } from "@/lib/formEmail";
 
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phonePattern = /^\+?[0-9()\-\s]{7,20}$/;
+
 export async function POST(request) {
   const formData = await request.formData();
   const data = {
@@ -15,6 +18,23 @@ export async function POST(request) {
     preferred_regions: String(formData.get("preferred_regions") || "").trim(),
     notes: String(formData.get("notes") || "").trim()
   };
+  if (
+    !data.full_name ||
+    data.full_name.length < 2 ||
+    !emailPattern.test(data.email) ||
+    !phonePattern.test(data.phone) ||
+    !data.postcode ||
+    data.postcode.length < 3 ||
+    !data.right_to_work ||
+    !data.experience_years ||
+    !data.availability ||
+    !data.preferred_regions ||
+    data.preferred_regions.length < 2 ||
+    !data.notes ||
+    data.notes.length < 10
+  ) {
+    return NextResponse.redirect(new URL("/recruitment/apply?sent=0", request.url), 303);
+  }
   try {
     await sendStructuredFormEmail({
       subject: "New Recruitment Application - SkyWatch Security",

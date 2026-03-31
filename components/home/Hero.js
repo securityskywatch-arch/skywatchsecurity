@@ -1,9 +1,9 @@
 "use client";
 import { jsx, jsxs } from "react/jsx-runtime";
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
 import { ArrowRight, Check, Shield } from "lucide-react";
+import { LoadingSubmitButton } from "@/components/forms/LoadingSubmitButton";
+import { ValidatedForm } from "@/components/forms/ValidatedForm";
 
 const heroServices = [
   "Security guarding",
@@ -21,7 +21,6 @@ const fieldClass =
   "mt-1 w-full rounded-lg border border-sage/45 bg-white px-3 py-2 text-[0.875rem] text-base shadow-[0_1px_2px_rgba(0,0,0,0.05)] outline-none transition placeholder:text-base/45 focus:border-primary focus:ring-2 focus:ring-primary/15 dark:border-white/12 dark:bg-white/[0.07] dark:text-[#f4f0e6] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:placeholder:text-[#9a9488] dark:focus:border-primary/65 dark:focus:ring-primary/20 backdrop-blur-sm";
 
 function Hero({ heroSent }) {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   return /* @__PURE__ */ jsxs("section", {
     className:
       "relative overflow-hidden border-b border-sage/25 bg-secondary px-4 pb-14 pt-8 dark:border-white/[0.06] dark:bg-[#0c0c0c] sm:px-6 sm:pb-16 sm:pt-10 lg:px-8 lg:pb-20 lg:pt-12",
@@ -46,25 +45,19 @@ function Hero({ heroSent }) {
           className:
             "grid min-w-0 items-start gap-10 lg:grid-cols-[3fr_2fr] lg:items-center lg:gap-6 xl:gap-8",
           children: [
-            /* @__PURE__ */ jsxs(motion.div, {
-              initial: { opacity: 0, y: 28 },
-              animate: { opacity: 1, y: 0 },
-              transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+            /* @__PURE__ */ jsxs("div", {
               className: "min-w-0 max-w-xl lg:max-w-none",
               children: [
-                /* @__PURE__ */ jsxs(motion.div, {
+                /* @__PURE__ */ jsxs("div", {
                   className:
                     "mb-4 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/[0.12] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#5c3d06] dark:text-accent sm:text-[11px]",
-                  initial: { opacity: 0, scale: 0.96 },
-                  animate: { opacity: 1, scale: 1 },
-                  transition: { delay: 0.12, duration: 0.45, ease: [0.22, 1, 0.36, 1] },
                   children: [
                     /* @__PURE__ */ jsxs("span", {
                       className: "relative flex h-2 w-2",
                       children: [
                         /* @__PURE__ */ jsx("span", {
                           className:
-                            "absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-50",
+                            "absolute inline-flex h-full w-full motion-safe:animate-ping motion-reduce:animate-none rounded-full bg-accent opacity-50",
                         }),
                         /* @__PURE__ */ jsx("span", {
                           className: "relative inline-flex h-2 w-2 rounded-full bg-accent",
@@ -146,26 +139,12 @@ function Hero({ heroSent }) {
                 }),
               ],
             }),
-            /* @__PURE__ */ jsx(motion.div, {
-              initial: { opacity: 0, y: 24 },
-              animate: { opacity: 1, y: 0 },
-              transition: {
-                duration: 0.6,
-                delay: 0.08,
-                ease: [0.22, 1, 0.36, 1],
-              },
+            /* @__PURE__ */ jsx("div", {
               className:
                 "min-w-0 w-full flex justify-center lg:justify-start",
-              children: /* @__PURE__ */ jsxs(motion.div, {
+              children: /* @__PURE__ */ jsxs("div", {
                 className:
                   "relative w-full max-w-[30rem] overflow-hidden rounded-2xl border border-sage/40 bg-gradient-to-b from-white/70 via-secondary/50 to-white/40 shadow-md ring-1 ring-sage/25 backdrop-blur-xl sm:max-w-[32rem] lg:max-w-none dark:border-sage/30 dark:from-secondary/[0.08] dark:via-base/45 dark:to-base/35 dark:shadow-[0_28px_56px_-20px_rgba(0,0,0,0.65)] dark:shadow-lift-gold dark:ring-sage/25",
-                initial: { opacity: 0, y: 16 },
-                animate: { opacity: 1, y: 0 },
-                transition: {
-                  delay: 0.15,
-                  duration: 0.55,
-                  ease: [0.22, 1, 0.36, 1],
-                },
                 children: [
                   /* @__PURE__ */ jsx("div", {
                     className:
@@ -219,12 +198,11 @@ function Hero({ heroSent }) {
                           }),
                         ],
                       }),
-                      /* @__PURE__ */ jsxs("form", {
+                      /* @__PURE__ */ jsxs(ValidatedForm, {
                         className: "mt-3 space-y-2.5 sm:mt-4 sm:space-y-2.5",
                         action: "/api/forms/quote",
                         method: "post",
                         "aria-labelledby": "hero-quote-heading",
-                        onSubmit: () => setIsSubmitting(true),
                         children: [
                           /* @__PURE__ */ jsx("input", { type: "hidden", name: "quote_source", value: "hero" }),
                           heroSent === "1" ? /* @__PURE__ */ jsx("p", { className: "rounded-md border border-emerald-500/40 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-300", children: "Quote request sent successfully. We will contact you shortly." }) : null,
@@ -240,12 +218,15 @@ function Hero({ heroSent }) {
                                 id: "hero-quote-name",
                                 name: "name",
                                 required: true,
+                                minLength: 2,
+                                maxLength: 80,
                                 autoComplete: "name",
                                 placeholder: "Your name",
                                 className: fieldClass,
                               }),
                             ],
                           }),
+                          /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please enter your name (at least 2 characters)." }),
                           /* @__PURE__ */ jsxs("div", {
                             children: [
                               /* @__PURE__ */ jsx("label", {
@@ -264,6 +245,7 @@ function Hero({ heroSent }) {
                               }),
                             ],
                           }),
+                          /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please enter a valid work email, e.g. name@company.co.uk." }),
                           /* @__PURE__ */ jsxs("div", {
                             children: [
                               /* @__PURE__ */ jsx("label", {
@@ -275,12 +257,16 @@ function Hero({ heroSent }) {
                                 id: "hero-quote-phone",
                                 name: "phone",
                                 type: "tel",
+                                required: true,
                                 autoComplete: "tel",
+                                pattern: "^\\+?[0-9()\\-\\s]{7,20}$",
+                                title: "Please enter a valid phone number",
                                 placeholder: "Best number to reach you",
                                 className: fieldClass,
                               }),
                             ],
                           }),
+                          /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please enter a valid UK contact number." }),
                           /* @__PURE__ */ jsxs("div", {
                             children: [
                               /* @__PURE__ */ jsx("label", {
@@ -292,23 +278,22 @@ function Hero({ heroSent }) {
                                 id: "hero-quote-msg",
                                 name: "message",
                                 rows: 2,
+                                required: true,
+                                minLength: 10,
+                                maxLength: 1000,
                                 placeholder: "Site, hours, service type…",
                                 className: `${fieldClass} min-h-[3.75rem] resize-y sm:min-h-16`,
                               }),
                             ],
                           }),
-                          /* @__PURE__ */ jsxs("button", {
-                            type: "submit",
-                            disabled: isSubmitting,
-                            className:
-                              "mt-0.5 flex min-h-[42px] w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-bold tracking-wide text-[#141414] shadow-sm transition hover:brightness-105 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-75",
-                            children: [
-                              isSubmitting ? "Sending..." : "Get my quote",
-                              /* @__PURE__ */ jsx(ArrowRight, {
-                                className: "h-4 w-4",
-                                "aria-hidden": true,
-                              }),
-                            ],
+                          /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please add at least 10 characters in your message." }),
+                          /* @__PURE__ */ jsx("div", { className: "mt-0.5", children:
+                            /* @__PURE__ */ jsx(LoadingSubmitButton, {
+                              idleLabel: "Get my quote",
+                              loadingLabel: "Sending...",
+                              className:
+                                "flex min-h-[42px] w-full items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-bold tracking-wide text-[#141414] shadow-sm transition hover:brightness-105 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-75",
+                            }),
                           }),
                           /* @__PURE__ */ jsx("p", {
                             className:

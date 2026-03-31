@@ -1,6 +1,7 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { LoadingSubmitButton } from "@/components/forms/LoadingSubmitButton";
+import { ValidatedForm } from "@/components/forms/ValidatedForm";
 import { Reveal } from "@/components/motion/scroll-reveal";
 import { siteContact } from "@/lib/siteContact";
 const metadata = {
@@ -63,7 +64,7 @@ function ContactPage({ searchParams }) {
         ] })
       ] }) }),
       /* @__PURE__ */ jsx(Reveal, { delay: 0.06, children: /* @__PURE__ */ jsxs(
-        "form",
+        ValidatedForm,
         {
           className: "brand-card brand-card-interactive space-y-4 p-8",
           action: "/api/forms/contact",
@@ -76,37 +77,54 @@ function ContactPage({ searchParams }) {
               "input",
               {
                 name: "name",
+                required: true,
+                minLength: 2,
+                maxLength: 80,
+                autoComplete: "name",
                 placeholder: "Name",
                 className: "w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 dark:bg-base dark:text-secondary"
               }
             ),
+            /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please enter your name (at least 2 characters)." }),
             /* @__PURE__ */ jsx(
               "input",
               {
                 name: "email",
                 type: "email",
+                required: true,
+                autoComplete: "email",
                 placeholder: "Email",
                 className: "w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 dark:bg-base dark:text-secondary"
               }
             ),
+            /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please enter a valid email address, e.g. name@company.co.uk." }),
             /* @__PURE__ */ jsx(
               "input",
               {
                 name: "phone",
                 type: "tel",
+                required: true,
+                autoComplete: "tel",
+                pattern: "^\\+?[0-9()\\-\\s]{7,20}$",
+                title: "Please enter a valid phone number",
                 placeholder: "Phone number",
                 className: "w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 dark:bg-base dark:text-secondary"
               }
             ),
+            /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please enter a valid UK phone number, e.g. 07xxx xxxxxx or 01xxx xxxxxx." }),
             /* @__PURE__ */ jsx(
               "textarea",
               {
                 name: "message",
                 rows: 4,
+                required: true,
+                minLength: 10,
+                maxLength: 1500,
                 placeholder: "How can we help?",
                 className: "w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 dark:bg-base dark:text-secondary"
               }
             ),
+            /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please include a few more details (minimum 10 characters)." }),
             /* @__PURE__ */ jsx(LoadingSubmitButton, { idleLabel: "Send message", loadingLabel: "Sending...", className: "rounded-md bg-primary px-6 py-2.5 text-sm font-semibold text-base hover:bg-accent disabled:cursor-not-allowed disabled:opacity-75" })
           ]
         }

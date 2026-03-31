@@ -1,16 +1,32 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { ArrowRight, Award, Newspaper, ShieldCheck, Users } from "lucide-react";
 import { Hero } from "@/components/home/Hero";
-import { HomeReviewsCarousel } from "@/components/home/HomeReviewsCarousel";
-import { WelcomeSection } from "@/components/home/WelcomeSection";
-import { WhyChooseHomeSection } from "@/components/home/WhyChooseHomeSection";
 import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { blogPosts } from "@/lib/blog";
 import { reviews } from "@/lib/reviews";
 import { getServiceBySlug } from "@/lib/services";
+const WelcomeSection = dynamic(
+  () => import("@/components/home/WelcomeSection").then((mod) => mod.WelcomeSection),
+  {
+    loading: () => /* @__PURE__ */ jsx("section", { className: "border-y border-sage/25 bg-base px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-page animate-pulse text-sm text-sage/70", children: "Loading section..." }) })
+  }
+);
+const WhyChooseHomeSection = dynamic(
+  () => import("@/components/home/WhyChooseHomeSection").then((mod) => mod.WhyChooseHomeSection),
+  {
+    loading: () => /* @__PURE__ */ jsx("section", { className: "border-b border-sage/20 bg-secondary px-4 py-16 dark:border-sage/25 dark:bg-base sm:px-6 sm:py-20 lg:px-8 lg:py-24", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-page animate-pulse text-sm text-base/60 dark:text-sage/70", children: "Loading section..." }) })
+  }
+);
+const HomeReviewsCarousel = dynamic(
+  () => import("@/components/home/HomeReviewsCarousel").then((mod) => mod.HomeReviewsCarousel),
+  {
+    loading: () => /* @__PURE__ */ jsx("div", { className: "mt-10 h-40 animate-pulse rounded-2xl border border-sage/25 bg-base/[0.04] dark:border-sage/20 dark:bg-secondary/[0.08]" })
+  }
+);
 const featuredSlugs = [
   "manned-security-guards",
   "dog-handling",
@@ -99,7 +115,7 @@ function HomePage({ searchParams }) {
       ] })
     ] }),
     /* @__PURE__ */ jsx(WhyChooseHomeSection, {}),
-    /* @__PURE__ */ jsx("section", { className: "border-b border-sage/20 bg-secondary px-4 py-16 dark:border-sage/25 dark:bg-base sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-page", children: /* @__PURE__ */ jsxs(Reveal, { children: [
+    /* @__PURE__ */ jsx("section", { className: "border-b border-sage/20 bg-secondary px-4 py-16 [content-visibility:auto] [contain-intrinsic-size:1px_720px] dark:border-sage/25 dark:bg-base sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-page", children: /* @__PURE__ */ jsxs(Reveal, { children: [
       /* @__PURE__ */ jsxs("div", { className: "text-center", children: [
         /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold tracking-tight text-base dark:text-secondary sm:text-3xl", children: "Accreditation partners" }),
         /* @__PURE__ */ jsx("p", { className: "mx-auto mt-2 max-w-2xl text-sm text-base/75 dark:text-sage", children: "Aligned with schemes and standards your procurement team expects." }),
@@ -127,7 +143,7 @@ function HomePage({ searchParams }) {
         label
       )) })
     ] }) }) }),
-    /* @__PURE__ */ jsx("section", { className: "border-b border-sage/20 bg-secondary px-4 py-16 dark:border-sage/25 dark:bg-base sm:px-6 sm:py-20 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto min-w-0 max-w-page", children: [
+    /* @__PURE__ */ jsx("section", { className: "border-b border-sage/20 bg-secondary px-4 py-16 [content-visibility:auto] [contain-intrinsic-size:1px_760px] dark:border-sage/25 dark:bg-base sm:px-6 sm:py-20 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto min-w-0 max-w-page", children: [
       /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "text-center", children: [
         /* @__PURE__ */ jsx("p", { className: "text-xs font-semibold uppercase tracking-wider text-[#5c3d06] dark:text-accent sm:text-sm", children: "Testimonials" }),
         /* @__PURE__ */ jsx("h2", { className: "mt-2 text-[1.65rem] font-bold leading-tight tracking-tight text-base dark:text-secondary sm:text-3xl md:text-4xl", children: "What our clients say" }),
@@ -143,7 +159,7 @@ function HomePage({ searchParams }) {
       ] }) }),
       /* @__PURE__ */ jsx(HomeReviewsCarousel, { reviews })
     ] }) }),
-    /* @__PURE__ */ jsx("section", { className: "bg-secondary px-4 py-16 dark:bg-base sm:px-6 sm:py-20 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto min-w-0 max-w-page", children: [
+    /* @__PURE__ */ jsx("section", { className: "bg-secondary px-4 py-16 [content-visibility:auto] [contain-intrinsic-size:1px_820px] dark:bg-base sm:px-6 sm:py-20 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto min-w-0 max-w-page", children: [
       /* @__PURE__ */ jsxs("div", { className: "flex flex-col items-center text-center", children: [
         /* @__PURE__ */ jsx("div", { className: "flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-primary/40 text-primary", children: /* @__PURE__ */ jsx(Newspaper, { className: "h-5 w-5" }) }),
         /* @__PURE__ */ jsx("h2", { className: "mt-3 text-[1.65rem] font-bold leading-tight tracking-tight text-base dark:text-secondary sm:text-3xl md:text-4xl", children: "Recent blogs" }),
@@ -162,6 +178,7 @@ function HomePage({ searchParams }) {
           Link,
           {
             href: `/blog/${post.slug}`,
+                  prefetch: false,
             className: "relative aspect-[16/10] overflow-hidden",
             children: [
               /* @__PURE__ */ jsx(
@@ -184,6 +201,7 @@ function HomePage({ searchParams }) {
             Link,
             {
               href: `/blog/${post.slug}`,
+              prefetch: false,
               className: "break-words text-[#1a1a1a] transition hover:text-primary dark:text-secondary dark:hover:text-accent",
               children: post.title
             }
@@ -196,6 +214,7 @@ function HomePage({ searchParams }) {
             Link,
             {
               href: `/blog/${post.slug}`,
+              prefetch: false,
               className: "mt-4 text-sm font-semibold text-[#5c3d06] hover:text-[#3d2904] dark:text-accent dark:hover:text-accent",
               children: "Read more \u2192"
             }
