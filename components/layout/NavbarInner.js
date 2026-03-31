@@ -222,6 +222,7 @@ function NavbarInner({ logoSrc }) {
             className: "inline-flex h-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-md border border-sage/40 text-[#1a1a1a] touch-manipulation dark:text-secondary lg:hidden",
             "aria-expanded": mobileOpen,
             "aria-controls": "mobile-nav",
+            "aria-label": mobileOpen ? "Close navigation menu" : "Open navigation menu",
             onClick: () => setMobileOpen((v) => !v),
             children: mobileOpen ? /* @__PURE__ */ jsx(X, { className: "h-5 w-5" }) : /* @__PURE__ */ jsx(Menu, { className: "h-5 w-5" })
           }

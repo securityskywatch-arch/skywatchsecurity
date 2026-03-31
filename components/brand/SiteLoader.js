@@ -50,7 +50,7 @@ export function SiteLoader({ logoSrc }) {
             children: /* @__PURE__ */ jsx(
               motion.div,
               {
-                className: "relative h-28 w-56 sm:h-32 sm:w-64",
+                className: "relative h-24 w-48 sm:h-28 sm:w-56",
                 initial: { opacity: 0, scale: 0.94 },
                 animate: { opacity: 1, scale: 1 },
                 transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
@@ -60,7 +60,7 @@ export function SiteLoader({ logoSrc }) {
                   fill: true,
                   className: "object-contain",
                   priority: true,
-                  sizes: "(max-width: 640px) 224px, 256px",
+                  sizes: "(max-width: 640px) 192px, 224px",
                 }),
               },
             ),

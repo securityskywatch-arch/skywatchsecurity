@@ -112,7 +112,10 @@ function HomeReviewsCarousel({ reviews }) {
           "aria-selected": i === clampedPage,
           "aria-label": `Go to testimonial page ${i + 1} of ${pageCount}`,
           onClick: () => setPage(i),
-          className: `h-2.5 rounded-full transition-all ${i === clampedPage ? "w-8 bg-primary dark:bg-accent" : "w-2.5 bg-sage/40 hover:bg-sage/60 dark:bg-sage/30"}`
+          className: "inline-flex h-10 w-10 items-center justify-center rounded-full touch-manipulation",
+          children: /* @__PURE__ */ jsx("span", {
+            className: `block h-2.5 rounded-full transition-all ${i === clampedPage ? "w-8 bg-primary dark:bg-accent" : "w-2.5 bg-sage/40 hover:bg-sage/60 dark:bg-sage/30"}`
+          })
         },
         i
       )) })
