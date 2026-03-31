@@ -18,6 +18,23 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Form Email Setup
+
+Website forms (Contact, Quote, Recruitment Application) send structured emails via SMTP.
+
+1. Copy `.env.example` to `.env.local`
+2. Fill in your SMTP credentials
+3. Keep `FORM_TO_EMAIL=admin@skywatchsecurity.co.uk` (or update if needed)
+
+Required environment variables:
+
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_USER`
+- `SMTP_PASS`
+- `SMTP_FROM`
+- `FORM_TO_EMAIL`
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

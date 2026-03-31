@@ -1,12 +1,14 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { LoadingSubmitButton } from "@/components/forms/LoadingSubmitButton";
 import { Reveal } from "@/components/motion/scroll-reveal";
 import { siteContact } from "@/lib/siteContact";
 const metadata = {
   title: "Contact Us",
   description: "Address, phone, and email for SkyWatch Security, professional guarding across England."
 };
-function ContactPage() {
+function ContactPage({ searchParams }) {
+  const sent = searchParams?.sent;
   return /* @__PURE__ */ jsxs("main", { className: "flex-1 bg-secondary dark:bg-base", children: [
     /* @__PURE__ */ jsx("section", { className: "border-b border-sage/30 bg-base px-4 py-14 text-secondary sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-3xl", children: [
       /* @__PURE__ */ jsx("h1", { className: "text-3xl font-bold tracking-tight sm:text-4xl", children: "Contact us" }),
@@ -64,9 +66,11 @@ function ContactPage() {
         "form",
         {
           className: "brand-card brand-card-interactive space-y-4 p-8",
-          action: "#",
+          action: "/api/forms/contact",
           method: "post",
           children: [
+            sent === "1" ? /* @__PURE__ */ jsx("p", { className: "rounded-md border border-emerald-500/40 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-300", children: "Message sent successfully. Our team will contact you shortly." }) : null,
+            sent === "0" ? /* @__PURE__ */ jsx("p", { className: "rounded-md border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-300", children: "Unable to send your message right now. Please try again or call us directly." }) : null,
             /* @__PURE__ */ jsx("h2", { className: "text-lg font-semibold text-base dark:text-secondary", children: "Quick message" }),
             /* @__PURE__ */ jsx(
               "input",
@@ -86,6 +90,15 @@ function ContactPage() {
               }
             ),
             /* @__PURE__ */ jsx(
+              "input",
+              {
+                name: "phone",
+                type: "tel",
+                placeholder: "Phone number",
+                className: "w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 dark:bg-base dark:text-secondary"
+              }
+            ),
+            /* @__PURE__ */ jsx(
               "textarea",
               {
                 name: "message",
@@ -94,14 +107,7 @@ function ContactPage() {
                 className: "w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 dark:bg-base dark:text-secondary"
               }
             ),
-            /* @__PURE__ */ jsx(
-              "button",
-              {
-                type: "submit",
-                className: "rounded-md bg-primary px-6 py-2.5 text-sm font-semibold text-base hover:bg-accent",
-                children: "Send (demo)"
-              }
-            )
+            /* @__PURE__ */ jsx(LoadingSubmitButton, { idleLabel: "Send message", loadingLabel: "Sending...", className: "rounded-md bg-primary px-6 py-2.5 text-sm font-semibold text-base hover:bg-accent disabled:cursor-not-allowed disabled:opacity-75" })
           ]
         }
       ) })

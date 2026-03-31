@@ -1,7 +1,6 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import Link from "next/link";
 import {
-  ArrowRight,
   Award,
   FileText,
   GraduationCap,
@@ -12,7 +11,7 @@ import {
 import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
 const metadata = {
   title: "Recruitment",
-  description: "Careers at SkyWatch Security: SIA roles, training, vetting, wellbeing, and fair progression for licensed officers and supervisors."
+  description: "Register your details for future UK security opportunities. We review applications and contact suitable candidates directly."
 };
 const steps = [
   {
@@ -75,25 +74,9 @@ function RecruitmentPage() {
         /* @__PURE__ */ jsxs(Reveal, { children: [
           /* @__PURE__ */ jsx("p", { className: "text-sm font-semibold uppercase tracking-[0.2em] text-accent", children: "Careers" }),
           /* @__PURE__ */ jsx("h1", { className: "mt-4 text-4xl font-bold tracking-tight sm:text-5xl", children: "Build a security career with standards, not shortcuts." }),
-          /* @__PURE__ */ jsx("p", { className: "mt-6 text-lg leading-relaxed text-sage", children: "We recruit professional SIA licence-holders who want clear instructions, respectful management, and sites where their judgement matters. Whether you\u2019re experienced or returning to the industry, we\u2019ll be honest about fit, hours, and expectations." })
+          /* @__PURE__ */ jsx("p", { className: "mt-6 text-lg leading-relaxed text-sage", children: "We maintain a candidate pool for upcoming mobilisations and replacement cover. Share your details once and we will contact you when your profile matches a role." })
         ] }),
-        /* @__PURE__ */ jsx(Reveal, { delay: 0.08, children: /* @__PURE__ */ jsxs("div", { className: "grid gap-4 sm:grid-cols-2", children: [
-          /* @__PURE__ */ jsxs(
-            Link,
-            {
-              href: "/recruitment/vacancies",
-              className: "brand-card-dark brand-card-dark-interactive group flex flex-col p-6 transition hover:-translate-y-1 hover:bg-primary/10",
-              children: [
-                /* @__PURE__ */ jsx(Users, { className: "h-9 w-9 text-accent" }),
-                /* @__PURE__ */ jsx("span", { className: "mt-4 text-lg font-bold text-secondary", children: "Current vacancies" }),
-                /* @__PURE__ */ jsx("span", { className: "mt-2 text-sm text-sage", children: "Roles, locations, and shift patterns we\u2019re hiring for now." }),
-                /* @__PURE__ */ jsxs("span", { className: "mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent", children: [
-                  "View roles",
-                  /* @__PURE__ */ jsx(ArrowRight, { className: "h-4 w-4 transition group-hover:translate-x-0.5" })
-                ] })
-              ]
-            }
-          ),
+        /* @__PURE__ */ jsx(Reveal, { delay: 0.08, children: /* @__PURE__ */ jsxs("div", { className: "grid gap-4", children: [
           /* @__PURE__ */ jsxs(
             Link,
             {
@@ -102,14 +85,12 @@ function RecruitmentPage() {
               children: [
                 /* @__PURE__ */ jsx(FileText, { className: "h-9 w-9 text-primary" }),
                 /* @__PURE__ */ jsx("span", { className: "mt-4 text-lg font-bold text-secondary", children: "Application form" }),
-                /* @__PURE__ */ jsx("span", { className: "mt-2 text-sm text-sage", children: "Join our talent pool for upcoming mobilisations." }),
-                /* @__PURE__ */ jsxs("span", { className: "mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary", children: [
-                  "Apply now",
-                  /* @__PURE__ */ jsx(ArrowRight, { className: "h-4 w-4 transition group-hover:translate-x-0.5" })
-                ] })
+                /* @__PURE__ */ jsx("span", { className: "mt-2 text-sm text-sage", children: "No CV upload required. Add your key details and we will contact you when suitable roles open." }),
+                /* @__PURE__ */ jsx("span", { className: "mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary", children: "Apply now \u2192" })
               ]
             }
-          )
+          ),
+          /* @__PURE__ */ jsx("p", { className: "rounded-lg border border-primary/25 bg-primary/[0.08] px-4 py-3 text-sm text-sage", children: "We are not publishing live vacancy cards right now. All recruitment is handled through the application form and manual shortlisting." })
         ] }) })
       ] }) })
     ] }),
@@ -139,26 +120,16 @@ function RecruitmentPage() {
       ] }) }, title)) })
     ] }),
     /* @__PURE__ */ jsx("section", { className: "px-4 pb-20 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card-cta brand-card-interactive mx-auto max-w-3xl px-8 py-10 text-center", children: [
-      /* @__PURE__ */ jsx("h2", { className: "text-xl font-bold text-base dark:text-secondary", children: "Ready to explore roles?" }),
-      /* @__PURE__ */ jsx("p", { className: "mt-2 text-sm text-base/75 dark:text-sage", children: "Vacancies change weekly, start with live roles or leave a general application." }),
-      /* @__PURE__ */ jsxs("div", { className: "mt-6 flex flex-wrap justify-center gap-3", children: [
-        /* @__PURE__ */ jsx(
-          Link,
-          {
-            href: "/recruitment/vacancies",
-            className: "rounded-md bg-primary px-5 py-2.5 text-sm font-bold text-base hover:bg-accent",
-            children: "View vacancies"
-          }
-        ),
-        /* @__PURE__ */ jsx(
-          Link,
-          {
-            href: "/recruitment/apply",
-            className: "rounded-md border border-sage/50 px-5 py-2.5 text-sm font-semibold text-primary hover:border-primary",
-            children: "Application form"
-          }
-        )
-      ] })
+      /* @__PURE__ */ jsx("h2", { className: "text-xl font-bold text-base dark:text-secondary", children: "Ready to register your details?" }),
+      /* @__PURE__ */ jsx("p", { className: "mt-2 text-sm text-base/75 dark:text-sage", children: "Complete one form and our team will contact you if your profile matches current or future requirements." }),
+      /* @__PURE__ */ jsx("div", { className: "mt-6 flex flex-wrap justify-center gap-3", children: /* @__PURE__ */ jsx(
+        Link,
+        {
+          href: "/recruitment/apply",
+          className: "rounded-md bg-primary px-5 py-2.5 text-sm font-bold text-base hover:bg-accent",
+          children: "Go to application form"
+        }
+      ) })
     ] }) }) })
   ] });
 }

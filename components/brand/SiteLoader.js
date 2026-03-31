@@ -40,7 +40,6 @@ export function SiteLoader({ logoSrc }) {
       ? /* @__PURE__ */ jsx(
           motion.div,
           {
-            key: "loader",
             className:
               "fixed inset-0 z-[100] flex items-center justify-center bg-[#0c0c0c]",
             initial: { opacity: 1 },
@@ -66,6 +65,7 @@ export function SiteLoader({ logoSrc }) {
               },
             ),
           },
+          "loader",
         )
       : null,
   });

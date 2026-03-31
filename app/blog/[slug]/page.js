@@ -15,6 +15,7 @@ function generateMetadata({ params }) {
 function BlogPostPage({ params }) {
   const p = getPostBySlug(params.slug);
   if (!p) notFound();
+  const hasLinks = Array.isArray(p.links) && p.links.length > 0;
   return /* @__PURE__ */ jsx("main", { className: "min-w-0 flex-1 overflow-x-hidden bg-secondary dark:bg-base", children: /* @__PURE__ */ jsxs("article", { className: "page-container py-14 page-align", children: [
     /* @__PURE__ */ jsx(
       Link,
@@ -58,6 +59,23 @@ function BlogPostPage({ params }) {
       },
       i
     )) }) })
+    ,
+    hasLinks ? /* @__PURE__ */ jsx(Reveal, { delay: 0.12, children: /* @__PURE__ */ jsxs("section", { className: "brand-card mt-10 p-6 text-left sm:p-8", children: [
+      /* @__PURE__ */ jsx("h2", { className: "text-lg font-semibold text-base dark:text-secondary", children: "Useful links" }),
+      /* @__PURE__ */ jsx("ul", { className: "mt-4 space-y-2 text-sm", children: p.links.map((link) => {
+        const external = typeof link.href === "string" && link.href.startsWith("http");
+        return /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
+          Link,
+          {
+            href: link.href,
+            className: "font-medium text-primary underline-offset-4 hover:underline",
+            target: external ? "_blank" : void 0,
+            rel: external ? "noopener noreferrer" : void 0,
+            children: link.label
+          }
+        ) }, link.href);
+      }) })
+    ] }) }) : null
   ] }) });
 }
 export {

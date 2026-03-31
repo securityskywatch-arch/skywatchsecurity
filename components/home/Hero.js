@@ -2,6 +2,7 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 import { ArrowRight, Check, Shield } from "lucide-react";
 
 const heroServices = [
@@ -19,7 +20,8 @@ const labelClass =
 const fieldClass =
   "mt-1 w-full rounded-lg border border-sage/45 bg-white px-3 py-2 text-[0.875rem] text-base shadow-[0_1px_2px_rgba(0,0,0,0.05)] outline-none transition placeholder:text-base/45 focus:border-primary focus:ring-2 focus:ring-primary/15 dark:border-white/12 dark:bg-white/[0.07] dark:text-[#f4f0e6] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:placeholder:text-[#9a9488] dark:focus:border-primary/65 dark:focus:ring-primary/20 backdrop-blur-sm";
 
-function Hero() {
+function Hero({ heroSent }) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   return /* @__PURE__ */ jsxs("section", {
     className:
       "relative overflow-hidden border-b border-sage/25 bg-secondary px-4 pb-14 pt-8 dark:border-white/[0.06] dark:bg-[#0c0c0c] sm:px-6 sm:pb-16 sm:pt-10 lg:px-8 lg:pb-20 lg:pt-12",
@@ -219,11 +221,14 @@ function Hero() {
                       }),
                       /* @__PURE__ */ jsxs("form", {
                         className: "mt-3 space-y-2.5 sm:mt-4 sm:space-y-2.5",
-                        action: "#",
+                        action: "/api/forms/quote",
                         method: "post",
                         "aria-labelledby": "hero-quote-heading",
-                        onSubmit: (e) => e.preventDefault(),
+                        onSubmit: () => setIsSubmitting(true),
                         children: [
+                          /* @__PURE__ */ jsx("input", { type: "hidden", name: "quote_source", value: "hero" }),
+                          heroSent === "1" ? /* @__PURE__ */ jsx("p", { className: "rounded-md border border-emerald-500/40 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-300", children: "Quote request sent successfully. We will contact you shortly." }) : null,
+                          heroSent === "0" ? /* @__PURE__ */ jsx("p", { className: "rounded-md border border-red-500/40 bg-red-500/10 px-3 py-2 text-xs text-red-300", children: "Could not send request right now. Please try again." }) : null,
                           /* @__PURE__ */ jsxs("div", {
                             children: [
                               /* @__PURE__ */ jsx("label", {
@@ -294,10 +299,11 @@ function Hero() {
                           }),
                           /* @__PURE__ */ jsxs("button", {
                             type: "submit",
+                            disabled: isSubmitting,
                             className:
-                              "mt-0.5 flex min-h-[42px] w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-bold tracking-wide text-[#141414] shadow-sm transition hover:brightness-105 active:scale-[0.99]",
+                              "mt-0.5 flex min-h-[42px] w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-bold tracking-wide text-[#141414] shadow-sm transition hover:brightness-105 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-75",
                             children: [
-                              "Get my quote",
+                              isSubmitting ? "Sending..." : "Get my quote",
                               /* @__PURE__ */ jsx(ArrowRight, {
                                 className: "h-4 w-4",
                                 "aria-hidden": true,
@@ -307,7 +313,7 @@ function Hero() {
                           /* @__PURE__ */ jsx("p", {
                             className:
                               "mt-1 text-center text-[10px] leading-tight text-base/55 sm:text-[11px] dark:text-sage/75",
-                            children: "We never share your details. Demo: wire to your API or form provider.",
+                            children: "We never share your details.",
                           }),
                         ],
                       }),

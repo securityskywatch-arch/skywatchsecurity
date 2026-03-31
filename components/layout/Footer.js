@@ -9,7 +9,7 @@ function Footer() {
       /* @__PURE__ */ jsxs("div", { className: "min-w-0 lg:col-span-1", children: [
         /* @__PURE__ */ jsx(BrandLogo, { href: "/", variant: "footer" }),
         /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-xs text-sm text-[#4a4538] dark:text-sage", children: "SIA-aligned guarding, patrols, and monitoring, delivered with discipline, discretion, and clear communication." }),
-        /* @__PURE__ */ jsx("p", { className: "mt-3 text-xs text-[#5c574c] dark:text-sage/80", children: "Registered in England and Wales. Company No. 00000000 \xB7 VAT GB000000000" })
+        /* @__PURE__ */ jsx("p", { className: "mt-3 text-xs text-[#5c574c] dark:text-sage/80", children: "Registered in England and Wales. Company No. 16520149" })
       ] }),
       /* @__PURE__ */ jsxs("div", { className: "min-w-0", children: [
         /* @__PURE__ */ jsx("p", { className: "text-sm font-semibold uppercase tracking-wider text-[#5c3d06] dark:text-accent", children: "Get in touch" }),

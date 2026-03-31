@@ -1,11 +1,13 @@
 import { jsx, jsxs } from "react/jsx-runtime";
+import { LoadingSubmitButton } from "@/components/forms/LoadingSubmitButton";
 import { Reveal } from "@/components/motion/scroll-reveal";
 import { siteContact } from "@/lib/siteContact";
 const metadata = {
   title: "Request a Quote",
   description: "Tell us about your site, hours, and risks. We will respond with a tailored guarding or monitoring proposal."
 };
-function QuotePage() {
+function QuotePage({ searchParams }) {
+  const sent = searchParams?.sent;
   return /* @__PURE__ */ jsx("main", { className: "flex-1 bg-secondary px-4 py-16 dark:bg-base sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-2xl", children: [
     /* @__PURE__ */ jsxs(Reveal, { children: [
       /* @__PURE__ */ jsx("h1", { className: "text-3xl font-bold tracking-tight text-base dark:text-secondary sm:text-4xl", children: "Request a quote" }),
@@ -27,9 +29,11 @@ function QuotePage() {
       "form",
       {
         className: "brand-card brand-card-interactive mt-10 space-y-6 p-6 sm:p-8",
-        action: "#",
+        action: "/api/forms/quote",
         method: "post",
         children: [
+          sent === "1" ? /* @__PURE__ */ jsx("p", { className: "rounded-md border border-emerald-500/40 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-300", children: "Quote request sent successfully. We will reply with next steps shortly." }) : null,
+          sent === "0" ? /* @__PURE__ */ jsx("p", { className: "rounded-md border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-300", children: "We could not send your quote request right now. Please try again or contact us directly." }) : null,
           /* @__PURE__ */ jsxs("div", { children: [
             /* @__PURE__ */ jsx(
               "label",
@@ -141,15 +145,7 @@ function QuotePage() {
               }
             )
           ] }),
-          /* @__PURE__ */ jsx(
-            "button",
-            {
-              type: "submit",
-              className: "w-full rounded-md bg-primary py-3 text-sm font-semibold text-base transition hover:bg-accent sm:w-auto sm:px-10",
-              children: "Submit enquiry"
-            }
-          ),
-          /* @__PURE__ */ jsx("p", { className: "text-xs text-base/60 dark:text-sage", children: "This demo form does not post to a server, wire your API route or form provider when you go live." })
+          /* @__PURE__ */ jsx(LoadingSubmitButton, { idleLabel: "Submit enquiry", loadingLabel: "Sending...", className: "w-full rounded-md bg-primary py-3 text-sm font-semibold text-base transition hover:bg-accent disabled:cursor-not-allowed disabled:opacity-75 sm:w-auto sm:px-10" })
         ]
       }
     ) })

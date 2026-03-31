@@ -18,12 +18,15 @@ const featuredSlugs = [
   "concierge-security",
   "door-supervision",
   "event-security",
-  "key-holding-alarm-response"
+  "key-holding-alarm-response",
+  "cctv-monitoring",
+  "mobile-patrols"
 ];
 const featured = featuredSlugs.map((slug) => getServiceBySlug(slug)).filter((s) => s != null);
-function HomePage() {
+function HomePage({ searchParams }) {
+  const heroSent = searchParams?.hero_sent;
   return /* @__PURE__ */ jsxs("main", { className: "flex min-w-0 flex-1 flex-col overflow-x-clip", children: [
-    /* @__PURE__ */ jsx(Hero, {}),
+    /* @__PURE__ */ jsx(Hero, { heroSent }),
     /* @__PURE__ */ jsx(WelcomeSection, {}),
     /* @__PURE__ */ jsx("section", { className: "border-b border-sage/20 bg-secondary px-4 py-14 dark:border-sage/25 dark:bg-base sm:px-6 sm:py-16 lg:px-8", children: /* @__PURE__ */ jsx("div", { className: "mx-auto grid min-w-0 max-w-page gap-6 sm:grid-cols-3 sm:gap-8", children: [
       {
@@ -154,7 +157,7 @@ function HomePage() {
           }
         )
       ] }),
-      /* @__PURE__ */ jsx("div", { className: "mt-10 grid gap-6 lg:grid-cols-3", children: blogPosts.map((post) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("article", { className: "brand-card brand-card-interactive group flex h-full min-w-0 flex-col overflow-hidden transition duration-300 hover:-translate-y-1", children: [
+      /* @__PURE__ */ jsx("div", { className: "mt-10 grid gap-6 lg:grid-cols-3", children: blogPosts.slice(0, 3).map((post) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("article", { className: "brand-card brand-card-interactive group flex h-full min-w-0 flex-col overflow-hidden transition duration-300 hover:-translate-y-1", children: [
         /* @__PURE__ */ jsxs(
           Link,
           {
