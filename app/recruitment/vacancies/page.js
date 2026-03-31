@@ -48,7 +48,7 @@ function VacanciesPage() {
         }
       ),
       /* @__PURE__ */ jsx("h1", { className: "mt-4 text-3xl font-bold tracking-tight sm:text-5xl", children: "Current vacancies" }),
-      /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-2xl text-lg text-sage", children: "Sample roles illustrating how we advertise. Swap for your live ATS, spreadsheet, or HR system feed. Each card is designed for quick scanning on mobile and desktop." })
+      /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-2xl text-lg text-sage", children: "Current opportunities across door supervision, static guarding, patrol operations, and concierge security. Roles are listed in a mobile-friendly format so candidates can quickly review shift type, location, and next steps." })
     ] }) }),
     /* @__PURE__ */ jsxs("div", { className: "mx-auto grid max-w-page gap-10 px-4 py-12 lg:grid-cols-[1fr_280px] sm:px-6 lg:px-8 lg:py-16", children: [
       /* @__PURE__ */ jsx("div", { className: "space-y-5", children: vacancies.map((v, i) => /* @__PURE__ */ jsx(Reveal, { delay: i * 0.05, children: /* @__PURE__ */ jsxs("article", { className: "brand-card brand-card-interactive p-6 transition hover:shadow-md sm:p-8", children: [
