@@ -16,6 +16,7 @@ function dropdownLinkClass() {
 }
 function DesktopHoverDropdown({
   label,
+  href,
   wide,
   active,
   children,
@@ -34,27 +35,37 @@ function DesktopHoverDropdown({
       }
     },
     children: [
-      /* @__PURE__ */ jsxs(
-        "button",
-        {
-          type: "button",
-          tabIndex: 0,
-          "aria-haspopup": "true",
-          "aria-expanded": isOpen,
-          className: `flex shrink-0 items-center gap-1 whitespace-nowrap rounded-md px-2.5 py-2 text-[0.8125rem] font-medium outline-none transition ring-accent/0 focus-visible:ring-2 xl:px-3.5 xl:text-sm ${active ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
-          onFocus: () => setOpenMenu(menuKey),
-          children: [
-            label,
-            /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center", children: [
+        /* @__PURE__ */ jsx(
+          Link,
+          {
+            href,
+            className: `shrink-0 whitespace-nowrap rounded-l-md px-2.5 py-2 text-[0.8125rem] font-medium outline-none transition ring-accent/0 focus-visible:ring-2 xl:px-3.5 xl:text-sm ${active ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`
+          ,
+            children: label
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "button",
+          {
+            type: "button",
+            tabIndex: 0,
+            "aria-label": `${label} menu`,
+            "aria-haspopup": "true",
+            "aria-expanded": isOpen,
+            className: `rounded-r-md px-2 py-2 outline-none transition ring-accent/0 focus-visible:ring-2 ${active ? "bg-primary/15 text-[#5c3d06] dark:text-accent" : "text-[#1a1a1a]/90 hover:bg-base/[0.06] hover:text-primary dark:text-secondary/90 dark:hover:bg-white/5 dark:hover:text-accent"}`,
+            onFocus: () => setOpenMenu(menuKey),
+            onClick: () => setOpenMenu(isOpen ? null : menuKey),
+            children: /* @__PURE__ */ jsx(
               ChevronDown,
               {
                 className: `h-4 w-4 shrink-0 transition duration-200 ${isOpen ? "rotate-180" : ""}`,
                 "aria-hidden": true
               }
             )
-          ]
-        }
-      ),
+          }
+        )
+      ] }),
       /* @__PURE__ */ jsx(
         "div",
         {
@@ -167,8 +178,8 @@ function NavbarInner({ logoSrc }) {
                 children: "Home"
               }
             ),
-            /* @__PURE__ */ jsx(DesktopHoverDropdown, { label: "About Us", wide: true, active: aboutActive, menuKey: "about", openMenu: openDesktopMenu, setOpenMenu: setOpenDesktopMenu, children: aboutLinks }),
-            /* @__PURE__ */ jsx(DesktopHoverDropdown, { label: "Services", wide: true, active: servicesActive, menuKey: "services", openMenu: openDesktopMenu, setOpenMenu: setOpenDesktopMenu, children: serviceLinks }),
+            /* @__PURE__ */ jsx(DesktopHoverDropdown, { label: "About Us", href: "/about", wide: true, active: aboutActive, menuKey: "about", openMenu: openDesktopMenu, setOpenMenu: setOpenDesktopMenu, children: aboutLinks }),
+            /* @__PURE__ */ jsx(DesktopHoverDropdown, { label: "Services", href: "/services", wide: true, active: servicesActive, menuKey: "services", openMenu: openDesktopMenu, setOpenMenu: setOpenDesktopMenu, children: serviceLinks }),
             /* @__PURE__ */ jsx(
               Link,
               {
@@ -185,7 +196,7 @@ function NavbarInner({ logoSrc }) {
                 children: "Accreditation"
               }
             ),
-            /* @__PURE__ */ jsx(DesktopHoverDropdown, { label: "Recruitment", active: recruitmentActive, menuKey: "recruitment", openMenu: openDesktopMenu, setOpenMenu: setOpenDesktopMenu, children: recruitmentLinks }),
+            /* @__PURE__ */ jsx(DesktopHoverDropdown, { label: "Recruitment", href: "/recruitment", active: recruitmentActive, menuKey: "recruitment", openMenu: openDesktopMenu, setOpenMenu: setOpenDesktopMenu, children: recruitmentLinks }),
             /* @__PURE__ */ jsx(
               Link,
               {
