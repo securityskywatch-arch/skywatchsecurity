@@ -81,7 +81,19 @@ function Footer() {
         (/* @__PURE__ */ new Date()).getFullYear(),
         " SkyWatch Security. All rights reserved."
       ] }),
-      /* @__PURE__ */ jsx("p", { className: "text-[#6b6355] dark:text-sage/80", children: "Professional security services, with structure inspired by leading UK contractors." })
+      /* @__PURE__ */ jsxs("p", { className: "text-[#6b6355] dark:text-sage/80", children: [
+        "Built by ",
+        /* @__PURE__ */ jsx(
+          "a",
+          {
+            href: "https://mintylogix.com",
+            target: "_blank",
+            rel: "noopener noreferrer",
+            className: "underline-offset-2 transition hover:text-primary hover:underline dark:hover:text-accent",
+            children: "mintylogix"
+          }
+        )
+      ] })
     ] }) })
   ] });
 }
