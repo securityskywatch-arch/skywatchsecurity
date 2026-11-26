@@ -21,6 +21,11 @@ const nextConfig = {
         destination: "/recruitment",
         permanent: true,
       },
+      {
+        source: "/blog/procuring-sia-licensed-security-buyers-checklist",
+        destination: "/blog/hiring-security-guards-buyers-checklist",
+        permanent: true,
+      },
     ];
   },
 };
