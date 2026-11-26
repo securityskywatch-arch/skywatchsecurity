@@ -38,3 +38,5 @@ next-env.d.ts
 
 # local SEO/AEO audit helpers (not part of the product)
 /_audit/
+.axe-results.json
+.lighthouse-runs/
