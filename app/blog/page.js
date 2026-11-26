@@ -2,13 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
 import { blogPosts } from "@/lib/blog";
-import { withCanonical } from "@/lib/pageMetadata";
+import { SITE_ORIGIN, withCanonical } from "@/lib/pageMetadata";
 
-const metadata = withCanonical({
-  title: "Security Insights & Guidance",
-  description:
-    "Guides on guarding procurement, patrol models, key holding and site security across Luton and the Home Counties."
-}, "/blog");
+const metadata = withCanonical(
+  {
+    title: "Security Insights & Guidance",
+    description:
+      "Guides on guarding procurement, patrol models, key holding and site security across Luton and the Home Counties.",
+    alternates: {
+      types: {
+        "application/rss+xml": `${SITE_ORIGIN}/blog/feed.xml`
+      }
+    }
+  },
+  "/blog"
+);
 
 function BlogIndexPage() {
   return (

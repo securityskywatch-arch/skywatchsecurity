@@ -27,6 +27,7 @@ function sitemap() {
 
   const blogEntries = blogPosts.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
     changeFrequency: "monthly",
     priority: 0.7
   }));

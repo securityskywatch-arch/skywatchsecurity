@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,6 +11,7 @@ import {
   recruitmentNavItems,
   serviceNavItems,
 } from "@/lib/navigation";
+import { siteContact } from "@/lib/siteContact";
 
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -507,6 +508,13 @@ function NavbarInner({ logoSrc }) {
 
         <div className="flex shrink-0 items-center gap-2 lg:gap-2.5">
           <ThemeToggle />
+          <a
+            href={`tel:${siteContact.phone.tel}`}
+            className="hidden min-h-[44px] shrink-0 items-center gap-1.5 rounded-md px-2.5 py-2 text-[0.8125rem] font-semibold text-[#5c3d06] outline-none transition hover:bg-base/[0.06] hover:text-primary-text focus-visible:ring-2 ring-[#5C3D06] dark:text-accent dark:hover:bg-white/5 dark:ring-accent xl:px-3 xl:text-sm"
+          >
+            <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+            <span>{siteContact.phone.display}</span>
+          </a>
           <Link
             href="/quote"
             aria-current={pathname === "/quote" ? "page" : undefined}
@@ -659,6 +667,16 @@ function NavbarInner({ logoSrc }) {
                 >
                   Blog
                 </Link>
+              </div>
+              <div className="w-full shrink-0">
+                <a
+                  href={`tel:${siteContact.phone.tel}`}
+                  onClick={closeMobile}
+                  className="flex w-full min-h-[44px] min-w-0 items-center gap-2 rounded-md px-3 py-3 text-left text-sm font-semibold leading-relaxed touch-manipulation text-[#5c3d06] hover:bg-base/[0.06] dark:text-accent dark:hover:bg-white/5"
+                >
+                  <Phone className="h-5 w-5 shrink-0" aria-hidden="true" />
+                  Call {siteContact.phone.display}
+                </a>
               </div>
               <div
                 className="mt-3 w-full shrink-0 border-t border-sage/30 pt-4 dark:border-sage/25"

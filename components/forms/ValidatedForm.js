@@ -72,6 +72,12 @@ function ValidatedForm({
   }, [initialType, initialMessage]);
 
   useEffect(() => {
+    if (initialType && initialMessage && statusRef.current) {
+      statusRef.current.focus();
+    }
+  }, [initialType, initialMessage]);
+
+  useEffect(() => {
     if (statusVersion > 0 && status && statusRef.current) {
       statusRef.current.focus();
     }
@@ -222,23 +228,29 @@ function ValidatedForm({
 
 function FormStatusBanner({ className = "" }) {
   const { status, statusRef } = useValidatedForm();
-  if (!status?.message) return null;
 
-  const isSuccess = status.type === "success";
+  const isSuccess = status?.type === "success";
   const toneClasses = isSuccess
     ? "border-emerald-600/40 bg-emerald-500/10 text-emerald-800 dark:border-emerald-500/40 dark:text-emerald-300"
     : "border-red-600/40 bg-red-500/10 text-red-800 dark:border-red-500/40 dark:text-red-300";
 
   return (
-    <p
-      ref={statusRef}
-      tabIndex={-1}
-      role={isSuccess ? "status" : "alert"}
-      aria-live={isSuccess ? "polite" : "assertive"}
-      className={`rounded-md border px-3 py-2 outline-none focus-visible:ring-2 ring-[#5C3D06] dark:ring-accent ${toneClasses} ${className}`.trim()}
+    <div
+      className={`min-h-[2.625rem] shrink-0 ${status?.message ? "" : "pointer-events-none"}`}
+      aria-hidden={!status?.message}
     >
-      {status.message}
-    </p>
+      {status?.message ? (
+        <p
+          ref={statusRef}
+          tabIndex={-1}
+          role={isSuccess ? "status" : "alert"}
+          aria-live={isSuccess ? "polite" : "assertive"}
+          className={`rounded-md border px-3 py-2 outline-none focus-visible:ring-2 ring-[#5C3D06] dark:ring-accent ${toneClasses} ${className}`.trim()}
+        >
+          {status.message}
+        </p>
+      ) : null}
+    </div>
   );
 }
 

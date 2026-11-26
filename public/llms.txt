@@ -1,0 +1,46 @@
+# SkyWatch Security Ltd
+
+> Commercial security services website for SkyWatch Security Ltd. Coverage is described on the About page as Luton-based operations across Bedfordshire, Hertfordshire, and Greater London. Use the linked pages for services, contact details, and policies.
+
+## Services
+
+- [Security services catalogue](https://skywatchsecurity.co.uk/services): Index of commercial security services published on this site.
+- [Static site and manned guarding](https://skywatchsecurity.co.uk/services/manned-security-guards): On-site guarding and gate access.
+- [Key holding and alarm response](https://skywatchsecurity.co.uk/services/key-holding-alarm-response): Key custody and alarm attendance.
+- [Mobile patrols](https://skywatchsecurity.co.uk/services/mobile-patrols): Vehicle patrols and lock–unlock visits.
+- [Construction site security](https://skywatchsecurity.co.uk/services/construction-security): Compound and plant protection.
+- [Warehouse and logistics security](https://skywatchsecurity.co.uk/services/industrial-warehouse): Distribution and logistics sites.
+- [All service pages](https://skywatchsecurity.co.uk/services): Concierge, corporate, CCTV, events, retail, reception, door supervision, campuses, foot patrols, dog handling, close protection, and dedicated guarding operations.
+
+## Areas
+
+- [About SkyWatch Security](https://skywatchsecurity.co.uk/about): Base location and named coverage areas as published on the site.
+- [Why choose us](https://skywatchsecurity.co.uk/why-choose-us): How the company describes its operating approach.
+
+## Company
+
+- [About](https://skywatchsecurity.co.uk/about): Company overview.
+- [Contact](https://skywatchsecurity.co.uk/contact): Phone and email published on the site.
+- [Request a quote](https://skywatchsecurity.co.uk/quote): Quotation form.
+- [Operating standards](https://skywatchsecurity.co.uk/standards): Standards and procedures as described by the company.
+- [Accreditation and practices](https://skywatchsecurity.co.uk/accreditation): Compliance and operating practices page.
+
+## Guides
+
+- [Security insights and guidance](https://skywatchsecurity.co.uk/blog): Articles on warehouses, construction, key holding, reception security, patrol models, and procurement.
+- [Warehouse loss prevention guide](https://skywatchsecurity.co.uk/blog/luton-bedfordshire-warehouse-loss-prevention)
+- [Construction site security guide](https://skywatchsecurity.co.uk/blog/construction-site-security-hertfordshire-developments)
+- [Key holding guide](https://skywatchsecurity.co.uk/blog/commercial-key-holding-best-practices-home-counties)
+- [Reception security guide](https://skywatchsecurity.co.uk/blog/corporate-reception-security-balancing-hospitality)
+- [Mobile vs static guarding guide](https://skywatchsecurity.co.uk/blog/mobile-patrols-vs-static-guarding-commercial-costs)
+- [Hiring security guards checklist](https://skywatchsecurity.co.uk/blog/hiring-security-guards-buyers-checklist)
+- [Security guarding cost factors](https://skywatchsecurity.co.uk/blog/what-affects-the-cost-of-security-guarding-uk)
+- [Door supervisors vs security guards](https://skywatchsecurity.co.uk/blog/door-supervisors-vs-security-guards)
+
+## Policies
+
+- [Policies overview](https://skywatchsecurity.co.uk/about/policies): Privacy, health and safety, modern slavery, equal opportunities, complaints, data retention, cookies, and terms.
+
+## Optional
+
+- [Recruitment](https://skywatchsecurity.co.uk/recruitment): Careers and candidate registration overview.

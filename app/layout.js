@@ -8,13 +8,10 @@ import "./globals.css";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
-  weight: "100 900"
-});
-
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900"
+  weight: "100 900",
+  display: "swap",
+  preload: true,
+  adjustFontFallback: true
 });
 
 const viewport = {
@@ -63,7 +60,7 @@ function RootLayout({ children }) {
   return (
     <html lang="en-GB" suppressHydrationWarning={true}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex min-h-dvh min-w-0 flex-col font-sans antialiased overflow-x-clip`}
+        className={`${geistSans.variable} flex min-h-dvh min-w-0 flex-col font-sans antialiased overflow-x-clip`}
       >
         <ThemeContextProvider>
           <AppShell>

@@ -1,50 +1,17 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { ArrowRight, Award, Clock, Newspaper, Users } from "lucide-react";
 import { Hero } from "@/components/home/Hero";
+import { HomeReviewsCarousel } from "@/components/home/HomeReviewsCarousel";
+import { WelcomeSection } from "@/components/home/WelcomeSection";
+import { WhyChooseHomeSection } from "@/components/home/WhyChooseHomeSection";
 import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { blogPosts } from "@/lib/blog";
 import { reviews } from "@/lib/reviews";
 import { withCanonical } from "@/lib/pageMetadata";
 import { getServiceBySlug } from "@/lib/services";
-
-const WelcomeSection = dynamic(
-  () => import("@/components/home/WelcomeSection").then((mod) => mod.WelcomeSection),
-  {
-    loading: () => (
-      <section className="border-y border-sage/25 bg-base px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <div className="mx-auto max-w-page animate-pulse text-sm text-sage/70">
-          Loading operational overview...
-        </div>
-      </section>
-    )
-  }
-);
-
-const WhyChooseHomeSection = dynamic(
-  () => import("@/components/home/WhyChooseHomeSection").then((mod) => mod.WhyChooseHomeSection),
-  {
-    loading: () => (
-      <section className="border-b border-sage/20 bg-secondary px-4 py-16 dark:border-sage/25 dark:bg-base sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-        <div className="mx-auto max-w-page animate-pulse text-sm text-[#5c574c] dark:text-sage/70">
-          Loading standards...
-        </div>
-      </section>
-    )
-  }
-);
-
-const HomeReviewsCarousel = dynamic(
-  () => import("@/components/home/HomeReviewsCarousel").then((mod) => mod.HomeReviewsCarousel),
-  {
-    loading: () => (
-      <div className="mt-10 h-40 animate-pulse rounded-2xl border border-sage/25 bg-base/[0.04] dark:border-sage/20 dark:bg-secondary/[0.08]" />
-    )
-  }
-);
 
 const featuredSlugs = [
   "manned-security-guards",

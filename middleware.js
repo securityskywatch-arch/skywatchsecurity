@@ -34,7 +34,7 @@ export function middleware(request) {
   const destination = REDIRECTS[pathname];
 
   if (destination) {
-    return NextResponse.redirect(new URL(destination, request.url), 308);
+    return NextResponse.redirect(new URL(destination, request.url), 301);
   }
 
   return NextResponse.next();
