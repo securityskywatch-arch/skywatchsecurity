@@ -9,12 +9,13 @@ import {
 } from "@/components/forms/ValidatedForm";
 import { Reveal } from "@/components/motion/scroll-reveal";
 import { siteContact } from "@/lib/siteContact";
+import { withCanonical } from "@/lib/pageMetadata";
 
-const metadata = {
-  title: "Request a Security Quote | SkyWatch Security Ltd",
+const metadata = withCanonical({
+  title: "Request a Security Quote",
   description:
-    "Request a commercial security quote for manned guarding, key holding, or mobile patrols in Luton, Bedfordshire, and Greater London."
-};
+    "Request a commercial security quote for guarding, key holding or patrols in Luton, Bedfordshire and London."
+}, "/quote");
 
 function QuotePage({ searchParams }) {
   const sent = searchParams?.sent;
@@ -159,13 +160,10 @@ function QuotePage({ searchParams }) {
                 <option value="industrial-warehouse">Logistics Hub & Warehouse Loss Prevention</option>
                 <option value="commercial-security">Commercial Estate & Facility Protection</option>
                 <option value="retail-security">Retail Store Security & Loss Prevention</option>
-                <option value="hotel-office-reception">Corporate Front-of-House Reception</option>
                 <option value="door-supervision">Licensed Venue & Door Management</option>
                 <option value="educational-campus">Educational Institution & Campus Safety</option>
-                <option value="security-patrol">Foot Patrols & Internal Checkpoint Sweeps</option>
                 <option value="dog-handling">K9 Patrol & Canine Deterrence Teams</option>
                 <option value="close-protection">Executive Escort & Close Protection</option>
-                <option value="sia-guarding">Dedicated Guarding Operations</option>
                 <option value="blended">Multiple / Blended Security Services</option>
               </ValidatedSelect>
               <FieldError id="service-error" name="service">

@@ -63,9 +63,38 @@ function ServiceDetailLayout({ service, content }) {
               <h1 className="mt-3 text-balance text-[1.65rem] font-bold leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
                 {content.heroTitle}
               </h1>
+              {content.directAnswer ? (
+                <p className="mt-4 text-base leading-relaxed text-secondary sm:text-lg">
+                  {content.directAnswer}
+                </p>
+              ) : null}
               <p className="mt-4 text-base leading-relaxed text-sage sm:text-lg">
                 {content.heroSubtitle}
               </p>
+              {content.relatedGuide || content.relatedService ? (
+                <ul className="mt-4 space-y-1 text-sm leading-relaxed text-sage">
+                  {content.relatedGuide ? (
+                    <li>
+                      <Link
+                        href={content.relatedGuide.href}
+                        className="inline-flex min-h-[44px] items-center font-semibold text-accent underline-offset-4 hover:underline sm:min-h-[24px]"
+                      >
+                        Guide: {content.relatedGuide.label}
+                      </Link>
+                    </li>
+                  ) : null}
+                  {content.relatedService ? (
+                    <li>
+                      <Link
+                        href={content.relatedService.href}
+                        className="inline-flex min-h-[44px] items-center font-semibold text-accent underline-offset-4 hover:underline sm:min-h-[24px]"
+                      >
+                        Related service: {content.relatedService.label}
+                      </Link>
+                    </li>
+                  ) : null}
+                </ul>
+              ) : null}
               <div className="mt-8 flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:flex-wrap md:justify-start">
                 <Link
                   href={`/quote?service=${service.slug}`}
@@ -96,11 +125,7 @@ function ServiceDetailLayout({ service, content }) {
                     priority={true}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-base via-transparent to-transparent opacity-75" />
-                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-base/85 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent backdrop-blur-md shadow-md">
-                      <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
-                      SkyWatch Certified Service
-                    </span>
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-end gap-3">
                     <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-primary/40 bg-primary/20 text-accent">
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
@@ -124,7 +149,7 @@ function ServiceDetailLayout({ service, content }) {
                   <div className="relative my-auto py-3 space-y-2">
                     <div className="flex items-center gap-2.5 text-xs text-sage">
                       <Check className="h-4 w-4 text-accent shrink-0" aria-hidden="true" />
-                      <span>BS 7858 Vetted & Screened Personnel</span>
+                      <span>Right to work and employment history checks</span>
                     </div>
                     <div className="flex items-center gap-2.5 text-xs text-sage">
                       <Check className="h-4 w-4 text-accent shrink-0" aria-hidden="true" />
@@ -156,7 +181,7 @@ function ServiceDetailLayout({ service, content }) {
       <section className="border-b border-sage/20 bg-secondary/80 py-5 dark:bg-base/50">
         <div className="page-container flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-center text-sm font-medium text-base/80 dark:text-sage sm:text-left">
-            BS 7858 Vetting Alignment · £5,000,000 Liability Cover · 24/7 Operations Desk
+            £5,000,000 Liability Cover · 24/7 Operations Desk
           </p>
           <Link
             href="/standards"

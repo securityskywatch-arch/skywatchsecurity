@@ -70,7 +70,7 @@ function Hero({ heroSent }) {
               patrols, key holding, and CCTV monitoring for commercial and industrial sites.
             </p>
             <p className="mt-3 text-xs font-medium text-[#5c574c] sm:text-[13px] dark:text-[#a69f8f]">
-              Luton operational hub serving the M1 corridor, Home Counties & London.
+              Covering Luton, Bedfordshire, Hertfordshire, and Greater London.
             </p>
             <ul className="mt-6 grid grid-cols-1 gap-2.5 sm:mt-7 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-2 lg:gap-x-12">
               {heroServices.map((item) => (

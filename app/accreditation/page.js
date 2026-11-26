@@ -11,49 +11,66 @@ import {
   Shield
 } from "lucide-react";
 import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
+import { withCanonical } from "@/lib/pageMetadata";
+import { aboutFaqPage, breadcrumbList, SITE } from "@/lib/schema";
 
-const metadata = {
-  title: "Accreditation & Compliance Assurance",
+const metadata = withCanonical({
+  title: "Compliance and Operating Practices",
   description:
-    "BS 7858 screening alignment, statutory health & safety protocols, UK GDPR controls, and £5,000,000 liability protection."
-};
+    "SkyWatch Security Ltd: 24/7 operations desk, pre-deployment checks, £5,000,000 liability cover, health and safety surveys, and UK GDPR handling."
+}, "/accreditation");
 
 const items = [
   {
     Icon: Headphones,
-    title: "24/7 Operations Control Desk",
-    body: "Round-the-clock operational coordination from our Luton base supporting lone-worker welfare check-ins, alarm response dispatch, and emergency escalation across Bedfordshire, Hertfordshire, and London."
+    title: "24/7 Operations Desk",
+    body: "Phone coordination for lone-worker welfare check-ins, alarm response dispatch, and emergency escalation across Luton, Bedfordshire, Hertfordshire, and Greater London."
   },
   {
     Icon: FileCheck,
-    title: "BS 7858 Screening Alignment",
-    body: "Our recruitment procedures align with the BS 7858 standard for security screening. This includes 5-year checkable UK employment history, direct Home Office Right to Work verification, and criminal record disclosures prior to site deployment."
+    title: "Pre-Deployment Checks",
+    body: "Before an officer is deployed we check UK Right to Work, employment history, references, and criminal disclosure."
   },
   {
     Icon: Shield,
     title: "£5,000,000 Commercial Liability Cover",
-    body: "We carry comprehensive Public Liability (£5,000,000) and Employers' Liability (£5,000,000) Insurance designed specifically for UK private security operations, providing full financial assurance to client stakeholders."
+    body: "We carry comprehensive Public Liability (£5,000,000) and Employers' Liability (£5,000,000) Insurance designed specifically for UK private security operations."
   },
   {
     Icon: HardHat,
-    title: "Statutory Health & Safety Protocols",
-    body: "Fully compliant with the Health and Safety at Work etc. Act 1974. Every assignment includes a pre-deployment site hazard survey, documented risk assessments, standard PPE issuance, and a mandatory Lone Worker Welfare check-in procedure."
+    title: "Health and Safety on Assignment",
+    body: "SkyWatch Security Ltd recognises its responsibilities under the Health and Safety at Work etc. Act 1974. A new assignment starts with a site hazard survey, written notes in the Assignment Instructions, PPE for the site, and scheduled lone-worker check-ins with the operations desk."
   },
   {
     Icon: Lock,
-    title: "UK GDPR & Data Protection Integrity",
-    body: "All client site records, digital occurrence books (DOBs), visitor manifests, and CCTV logs are processed and retained in strict alignment with the UK GDPR and Data Protection Act 2018."
+    title: "UK GDPR and Data Handling",
+    body: "Client site records, digital occurrence books, visitor logs, and CCTV footage are handled in line with the UK GDPR, the Data Protection Act 2018, and our published data retention policy."
   },
   {
     Icon: ClipboardCheck,
-    title: "Auditable Supervisory Governance",
-    body: "Clear assignment instructions, NFC/RFID patrol waypoint scans, unannounced supervisor inspections, and structured monthly client service reviews provide auditable proof of service delivery."
+    title: "Supervisory Checks You Can Review",
+    body: "Written assignment instructions, NFC or RFID patrol scans, unannounced supervisor visits, and monthly client service reviews give a record of what happened on site."
+  }
+];
+
+const insuranceFaqs = [
+  {
+    q: "What public and employers' liability cover do you carry?",
+    a: "We carry comprehensive Public Liability (£5,000,000) and Employers' Liability (£5,000,000) Insurance designed specifically for UK private security operations."
   }
 ];
 
 function AccreditationPage() {
+  const breadcrumbsLd = breadcrumbList([
+    { name: "Home", item: SITE },
+    { name: "Compliance and Operating Practices", item: `${SITE}/accreditation` }
+  ]);
+  const faqLd = aboutFaqPage(insuranceFaqs);
+
   return (
     <main id="main-content" tabIndex={-1} className="min-w-0 flex-1 overflow-x-hidden bg-secondary focus:outline-none dark:bg-base">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <section className="border-b border-sage/30 bg-base py-12 text-secondary lg:py-16">
         <div className="page-container page-align">
           <nav aria-label="Breadcrumb" className="text-sm text-sage">
@@ -66,15 +83,15 @@ function AccreditationPage() {
               <li aria-hidden="true" className="flex items-center">
                 <ChevronRight className="h-4 w-4 shrink-0 opacity-60" aria-hidden="true" />
               </li>
-              <li className="font-medium text-secondary">Accreditation</li>
+              <li className="font-medium text-secondary">Compliance and Operating Practices</li>
             </ol>
           </nav>
           <h1 className="mt-8 text-3xl font-bold tracking-tight sm:text-4xl">
-            Accreditation & Compliance Assurance
+            Compliance and Operating Practices
           </h1>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-sage md:mx-0">
-            Clear, verifiable compliance standards for procurement teams, compliance managers, and insurer due
-            diligence—delivered with complete transparency.
+            How we run commercial security across Luton, Bedfordshire, Hertfordshire, and Greater London.
+            Contact is by phone, WhatsApp, email, and the online forms.
           </p>
         </div>
       </section>
@@ -84,9 +101,9 @@ function AccreditationPage() {
           <div className="brand-card brand-card-interactive grid gap-4 p-6 text-left sm:grid-cols-2 sm:p-8">
             {[
               {
-                value: "BS 7858",
-                label: "Screening Alignment",
-                hint: "5-year checkable UK employment history"
+                value: "24/7",
+                label: "Operations Desk",
+                hint: "Phone coordination for welfare checks and alarm dispatch"
               },
               {
                 value: "£5,000,000",
@@ -124,6 +141,32 @@ function AccreditationPage() {
           ))}
         </div>
       </StaggerSection>
+
+      <section className="page-container page-align pb-4">
+        <Reveal>
+          <h2 className="text-2xl font-bold text-base dark:text-secondary sm:text-3xl">
+            Insurance cover
+          </h2>
+          <div className="mt-6 space-y-3">
+            {insuranceFaqs.map((faq) => (
+              <details
+                key={faq.q}
+                className="group rounded-xl border border-sage/40 bg-base/5 open:border-primary/40 dark:border-sage/30 dark:bg-secondary/5"
+              >
+                <summary className="cursor-pointer list-none px-5 py-4 font-semibold text-base dark:text-secondary [&::-webkit-details-marker]:hidden">
+                  <span className="flex items-center justify-between gap-4">
+                    {faq.q}
+                    <ChevronRight className="h-5 w-5 shrink-0 text-primary transition group-open:rotate-90" aria-hidden="true" />
+                  </span>
+                </summary>
+                <div className="border-t border-sage/25 px-5 pb-4 pt-3 text-sm leading-relaxed text-base/80 dark:text-sage">
+                  {faq.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </Reveal>
+      </section>
 
       <section className="page-container pb-14 page-align">
         <Reveal>

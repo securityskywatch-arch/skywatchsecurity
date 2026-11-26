@@ -11,16 +11,24 @@ import {
   Users
 } from "lucide-react";
 import { Reveal } from "@/components/motion/scroll-reveal";
+import { withCanonical } from "@/lib/pageMetadata";
+import { breadcrumbList, SITE } from "@/lib/schema";
 
-const metadata = {
-  title: "Why Choose SkyWatch Security Ltd | Standards & Accountability",
+const metadata = withCanonical({
+  title: "Why Choose Us",
   description:
-    "Disciplined security guarding, BS 7858 vetting, electronic patrol verification, and dedicated local supervision across Bedfordshire and London."
-};
+    "Assignment instructions, patrol verification, supervisory visits and reporting across Luton and the Home Counties."
+}, "/why-choose-us");
 
 function WhyChooseUsPage() {
+  const breadcrumbsLd = breadcrumbList([
+    { name: "Home", item: SITE },
+    { name: "Why Choose Us", item: `${SITE}/why-choose-us` }
+  ]);
+
   return (
     <main id="main-content" tabIndex={-1} className="min-w-0 flex-1 overflow-x-hidden bg-secondary focus:outline-none dark:bg-base">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsLd) }} />
       <section className="border-b border-sage/30 bg-base py-12 text-secondary lg:py-16">
         <div className="page-container page-align">
           <nav aria-label="Breadcrumb" className="text-sm text-sage">
@@ -60,7 +68,7 @@ function WhyChooseUsPage() {
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {[
                 "Direct UK Right to Work verification across all deployed security officers",
-                "BS 7858 vetting alignment: 5-year checkable history and criminal disclosure checks",
+                "Employment history, references, and criminal disclosure checks before deployment",
                 "Electronic NFC/RFID checkpoint patrol tags providing timestamped audit trails",
                 "£5,000,000 Public and Employers' Liability Insurance specifically tailored for security risks",
                 "Unannounced daytime and nocturnal site audits conducted by mobile field supervisors",
@@ -129,8 +137,8 @@ function WhyChooseUsPage() {
                 Ethical Screening & Vetting
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-base/80 dark:text-sage">
-                Full UK Right-to-Work verification, 5-year checkable employment history, and screening aligned to
-                BS 7858 standards prior to deployment on client sites.
+                UK Right to Work, employment history, references, and criminal disclosure checks before
+                deployment on client sites.
               </p>
             </div>
           </Reveal>
@@ -198,7 +206,7 @@ function WhyChooseUsPage() {
                   Operating Areas & Focus
                 </h2>
                 <p className="mt-3 leading-relaxed text-base/85 dark:text-sage">
-                  Operating from our hub in Luton, we deploy security personnel across{" "}
+                  We deploy security personnel across{" "}
                   <strong className="font-semibold text-base dark:text-secondary">
                     Luton, Dunstable, Bedford, Milton Keynes, Watford, St Albans, Hemel Hempstead, Stevenage
                   </strong>

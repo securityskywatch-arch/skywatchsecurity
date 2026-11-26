@@ -8,6 +8,7 @@ import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { blogPosts } from "@/lib/blog";
 import { reviews } from "@/lib/reviews";
+import { withCanonical } from "@/lib/pageMetadata";
 import { getServiceBySlug } from "@/lib/services";
 
 const WelcomeSection = dynamic(
@@ -73,7 +74,7 @@ function HomePage({ searchParams }) {
             {
               Icon: Clock,
               title: "24/7 Operations Desk",
-              body: "Round-the-clock operational coordination from our Luton hub serving Bedfordshire, Hertfordshire, and London."
+              body: "Round-the-clock phone coordination for sites in Luton, Bedfordshire, Hertfordshire, and Greater London."
             },
             {
               Icon: Users,
@@ -83,7 +84,7 @@ function HomePage({ searchParams }) {
             {
               Icon: Award,
               title: "Active Field Supervision",
-              body: "Unannounced mobile supervisory visits and lone-worker welfare check-ins ensuring continuous site compliance."
+              body: "Unannounced mobile supervisory visits and lone-worker welfare check-ins."
             }
           ].map(({ Icon, title, body }) => (
             <Reveal key={title}>
@@ -178,7 +179,7 @@ function HomePage({ searchParams }) {
                 Our Standards & Governance
               </h2>
               <p className="mx-auto mt-2 max-w-2xl text-sm text-base/75 dark:text-sage">
-                Operating in strict compliance with UK statutory security regulations and commercial standards.
+                Written assignment instructions, supervisory checks, and a 24/7 operations desk.
               </p>
               <Link
                 href="/standards"
@@ -189,10 +190,10 @@ function HomePage({ searchParams }) {
             </div>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               {[
-                "BS 7858 Screening Alignment",
+                "Right to Work Checks",
                 "£5,000,000 Liability Cover",
-                "Private Security Industry Act 2001",
-                "UK GDPR Compliant",
+                "Written Assignment Instructions",
+                "UK GDPR Controls",
                 "24/7 Operations Desk"
               ].map((label) => (
                 <span
@@ -304,4 +305,13 @@ function HomePage({ searchParams }) {
   );
 }
 
-export { HomePage as default };
+const metadata = withCanonical(
+  {
+    title: { absolute: "SkyWatch Security Ltd | Commercial Security" },
+    description:
+      "Manned guarding, key holding, mobile patrols and site security across Luton, Bedfordshire, Hertfordshire and Greater London."
+  },
+  "/"
+);
+
+export { HomePage as default, metadata };

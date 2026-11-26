@@ -3,16 +3,25 @@ import Link from "next/link";
 import { ChevronRight, ShieldCheck } from "lucide-react";
 import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
 import { policies } from "@/lib/policies";
+import { withCanonical } from "@/lib/pageMetadata";
+import { breadcrumbList, SITE } from "@/lib/schema";
 
-const metadata = {
-  title: "Corporate Policies & Governance | SkyWatch Security Ltd",
+const metadata = withCanonical({
+  title: "Corporate Policies",
   description:
-    "Statutory UK policies covering UK GDPR privacy, health & safety, modern slavery, equal opportunities, customer complaints, and commercial terms."
-};
+    "UK GDPR, health and safety, modern slavery, complaints, data retention, cookies and commercial terms for SkyWatch Security Ltd."
+}, "/about/policies");
 
 function PoliciesIndexPage() {
+  const breadcrumbsLd = breadcrumbList([
+    { name: "Home", item: SITE },
+    { name: "About", item: `${SITE}/about` },
+    { name: "Policies", item: `${SITE}/about/policies` }
+  ]);
+
   return (
     <main id="main-content" tabIndex={-1} className="min-w-0 flex-1 overflow-x-hidden bg-secondary focus:outline-none dark:bg-base">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsLd) }} />
       <section className="border-b border-sage/30 bg-base py-12 text-secondary">
         <div className="page-container page-align">
           <nav aria-label="Breadcrumb" className="text-sm text-sage">

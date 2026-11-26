@@ -2,6 +2,7 @@ import { jsx, jsxs } from "react/jsx-runtime";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/motion/scroll-reveal";
+import { withCanonical } from "@/lib/pageMetadata";
 import { getPolicyBySlug, policies } from "@/lib/policies";
 
 function generateStaticParams() {
@@ -11,10 +12,14 @@ function generateStaticParams() {
 function generateMetadata({ params }) {
   const p = getPolicyBySlug(params.slug);
   if (!p) return { title: "Policy" };
-  return {
-    title: `${p.title} | SkyWatch Security Ltd`,
-    description: p.summary
-  };
+  return withCanonical({
+    title: p.metaTitle,
+    description: p.metaDescription,
+    openGraph: {
+      title: `${p.metaTitle} | SkyWatch Security Ltd`,
+      description: p.metaDescription
+    }
+  }, `/about/policies/${params.slug}`);
 }
 
 function PolicyPage({ params }) {

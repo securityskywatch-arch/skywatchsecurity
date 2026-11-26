@@ -2,11 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
 import { blogPosts } from "@/lib/blog";
+import { withCanonical } from "@/lib/pageMetadata";
 
-const metadata = {
-  title: "Security Insights & Guidance | SkyWatch Security Ltd",
-  description: "Practical operational guidance on loss prevention, site security procurement, key holding, and compliance.",
-};
+const metadata = withCanonical({
+  title: "Security Insights & Guidance",
+  description:
+    "Guides on guarding procurement, patrol models, key holding and site security across Luton and the Home Counties."
+}, "/blog");
 
 function BlogIndexPage() {
   return (

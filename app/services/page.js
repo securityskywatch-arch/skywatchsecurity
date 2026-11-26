@@ -10,12 +10,13 @@ import {
 import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { services } from "@/lib/services";
+import { withCanonical } from "@/lib/pageMetadata";
 
-const metadata = {
-  title: "Commercial Security Services | SkyWatch Security Ltd",
+const metadata = withCanonical({
+  title: "Commercial Security Services",
   description:
-    "Static guarding, key holding, mobile patrols, and compound security across Luton, Bedfordshire, and London."
-};
+    "Fifteen commercial security services across Luton, Bedfordshire, Hertfordshire and Greater London."
+}, "/services");
 
 const highlights = [
   {
@@ -31,7 +32,7 @@ const highlights = [
   {
     Icon: MapPin,
     title: "Strategic Regional Hub",
-    text: "Luton operational base serving the M1 corridor, Bedfordshire, Hertfordshire, and Greater London commercial sites."
+    text: "Covering Luton, Bedfordshire, Hertfordshire, and Greater London."
   }
 ];
 

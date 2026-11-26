@@ -10,11 +10,13 @@ import {
 } from "@/components/forms/ValidatedForm";
 import { Reveal } from "@/components/motion/scroll-reveal";
 import { siteContact } from "@/lib/siteContact";
+import { withCanonical } from "@/lib/pageMetadata";
 
-const metadata = {
-  title: "Application Form",
-  description: "Register your details for future security opportunities. No CV upload required."
-};
+const metadata = withCanonical({
+  title: "Security Job Application",
+  description: "Register your details for future security work across Luton, Bedfordshire, Hertfordshire and London.",
+  robots: { index: false, follow: true }
+}, "/recruitment/apply");
 
 const inputClass =
   "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none placeholder:text-[#6B6350] focus:border-primary focus-visible:ring-2 ring-[#5C3D06] dark:bg-base dark:text-secondary dark:placeholder:text-[#9a9488] dark:ring-accent";

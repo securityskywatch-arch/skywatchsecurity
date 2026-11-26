@@ -2,9 +2,9 @@ import Link from "next/link";
 import { ArrowRight, ShieldAlert } from "lucide-react";
 
 export const metadata = {
-  title: "Page not found",
+  title: "Page Not Found",
   description:
-    "The page you requested could not be found. Explore SkyWatch Security Ltd services, request a quote, or contact our 24/7 operations desk.",
+    "This page could not be found. Browse services, request a quote, or contact our Luton operations desk.",
   robots: {
     index: false,
     follow: false

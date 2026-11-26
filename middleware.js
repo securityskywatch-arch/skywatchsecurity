@@ -1,9 +1,12 @@
 import { NextResponse } from "next/server";
 
 const REDIRECTS = {
-  // Aliases redirecting to canonical 18 service URLs
+  // Aliases redirecting to canonical service URLs
   "/services/manned-guarding": "/services/manned-security-guards",
-  "/services/reception-concierge": "/services/hotel-office-reception",
+  "/services/reception-concierge": "/services/concierge-security",
+  "/services/sia-guarding": "/services/manned-security-guards",
+  "/services/security-patrol": "/services/mobile-patrols",
+  "/services/hotel-office-reception": "/services/concierge-security",
 
   // Policy redirects (from legacy catalog to 8 lean UK policies)
   "/about/policies/mission-statement": "/about",
@@ -31,7 +34,7 @@ export function middleware(request) {
   const destination = REDIRECTS[pathname];
 
   if (destination) {
-    return NextResponse.redirect(new URL(destination, request.url), 301);
+    return NextResponse.redirect(new URL(destination, request.url), 308);
   }
 
   return NextResponse.next();

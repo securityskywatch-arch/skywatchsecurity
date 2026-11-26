@@ -4,12 +4,14 @@ import { ArrowRight, FileCheck, ShieldCheck } from "lucide-react";
 import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
 import { StarRating } from "@/components/ui/StarRating";
 import { reviews } from "@/lib/reviews";
+import { withCanonical } from "@/lib/pageMetadata";
 
-const metadata = {
-  title: "Client References & Assurance | SkyWatch Security Ltd",
+const metadata = withCanonical({
+  title: "Client References on Request",
   description:
-    "Commercial client references, assignment case studies, and compliance audits provided directly during formal procurement tenders."
-};
+    "Client references are available on request during procurement. Named testimonials are not published on this site.",
+  robots: { index: false, follow: true }
+}, "/reviews");
 
 function ReviewsPage() {
   const hasReviews = reviews && reviews.length > 0;

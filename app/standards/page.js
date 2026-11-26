@@ -12,12 +12,13 @@ import {
   Smartphone
 } from "lucide-react";
 import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
+import { withCanonical } from "@/lib/pageMetadata";
 
-const metadata = {
-  title: "Our Operating Standards",
+const metadata = withCanonical({
+  title: "Operating Standards on Site",
   description:
-    "Uniform standards, electronic patrol logging, BS 7858 vetting, incident escalation, and management supervision at SkyWatch Security Ltd."
-};
+    "Uniforms, assignment instructions, patrol scans, incident logs and supervision on SkyWatch assignments."
+}, "/standards");
 
 const blocks = [
   {

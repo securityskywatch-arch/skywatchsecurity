@@ -9,7 +9,7 @@ function Footer() {
     /* @__PURE__ */ jsxs("div", { className: "page-container grid min-w-0 gap-10 py-12 pb-[max(3rem,env(safe-area-inset-bottom))] sm:grid-cols-2 lg:grid-cols-4", children: [
       /* @__PURE__ */ jsxs("div", { className: "min-w-0 lg:col-span-1", children: [
         /* @__PURE__ */ jsx(BrandLogo, { href: "/", variant: "footer" }),
-        /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-xs text-sm text-[#4a4538] dark:text-sage", children: "SIA-aligned guarding, patrols, and monitoring, delivered with discipline, discretion, and clear communication." }),
+        /* @__PURE__ */ jsx("p", { className: "mt-4 max-w-xs text-sm text-[#4a4538] dark:text-sage", children: "Commercial guarding, patrols, and monitoring, delivered with discipline, discretion, and clear communication." }),
         /* @__PURE__ */ jsx("p", { className: "mt-3 text-xs text-[#5c574c] dark:text-sage/80", children: "Registered in England and Wales. Company No. 16520149" })
       ] }),
       /* @__PURE__ */ jsxs("div", { className: "min-w-0", children: [
@@ -17,12 +17,18 @@ function Footer() {
         /* @__PURE__ */ jsxs("ul", { className: "mt-4 space-y-2 text-sm text-[#4a4538] sm:space-y-2.5 dark:text-sage", children: [
           /* @__PURE__ */ jsxs("li", { className: "flex items-start gap-2", children: [
             /* @__PURE__ */ jsx(MapPin, { className: "mt-0.5 h-4 w-4 shrink-0 text-primary", "aria-hidden": true }),
-            /* @__PURE__ */ jsx("span", {
+            /* @__PURE__ */ jsxs("span", {
               className: "min-w-0 text-[#1a1a1a] dark:text-sage",
-              children: siteContact.addressLines.map((line, i) => /* @__PURE__ */ jsxs("span", { children: [
-                i > 0 && /* @__PURE__ */ jsx("br", {}),
-                line
-              ] }, line))
+              children: [
+                "Registered address",
+                /* @__PURE__ */ jsx("br", {}),
+                siteContact.addressLines.map((line, i) => /* @__PURE__ */ jsxs("span", { children: [
+                  i > 0 && /* @__PURE__ */ jsx("br", {}),
+                  line
+                ] }, line)),
+                /* @__PURE__ */ jsx("br", {}),
+                "No walk-in office. Phone, WhatsApp, email, or online forms."
+              ]
             })
           ] }),
           /* @__PURE__ */ jsxs("li", { className: "flex items-center gap-2", children: [
@@ -70,7 +76,7 @@ function Footer() {
           /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(FooterNavLink, { href: "/about", className: footerLinkClass, children: "About us" }) }),
           /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(FooterNavLink, { href: "/standards", className: footerLinkClass, children: "Our standards" }) }),
           /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(FooterNavLink, { href: "/about/policies", className: footerLinkClass, children: "Policies" }) }),
-          /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(FooterNavLink, { href: "/accreditation", className: footerLinkClass, children: "Accreditation" }) }),
+          /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(FooterNavLink, { href: "/accreditation", className: footerLinkClass, children: "Compliance" }) }),
           /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(FooterNavLink, { href: "/recruitment", className: footerLinkClass, children: "Recruitment" }) }),
           /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(FooterNavLink, { href: "/contact", className: footerLinkClass, children: "Contact" }) })
         ] })
@@ -79,7 +85,7 @@ function Footer() {
     /* @__PURE__ */ jsx("div", { className: "border-t border-sage/25 dark:border-sage/20", children: /* @__PURE__ */ jsx("div", { className: "mx-auto flex max-w-page items-center justify-between px-4 py-6 text-xs text-[#5c574c] sm:px-6 lg:px-8 dark:text-sage", children: /* @__PURE__ */ jsxs("p", { children: [
       "\xA9 ",
       (/* @__PURE__ */ new Date()).getFullYear(),
-      " SkyWatch Security. All rights reserved."
+      " SkyWatch Security Ltd. All rights reserved."
     ] }) }) })
   ] });
 }

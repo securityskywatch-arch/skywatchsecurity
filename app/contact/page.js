@@ -8,13 +8,15 @@ import {
   ValidatedTextarea
 } from "@/components/forms/ValidatedForm";
 import { Reveal } from "@/components/motion/scroll-reveal";
+import { FaWhatsapp } from "react-icons/fa";
 import { siteContact } from "@/lib/siteContact";
+import { withCanonical } from "@/lib/pageMetadata";
 
-const metadata = {
-  title: "Contact SkyWatch Security Ltd | Luton HQ & 24/7 Desk",
+const metadata = withCanonical({
+  title: "Contact Us | Luton Operations Desk",
   description:
-    "Contact SkyWatch Security Ltd in Luton. Phone +44 7365 128 680 or email admin@skywatchsecurity.co.uk for commercial security across Bedfordshire & London."
-};
+    "Phone, WhatsApp, email and forms for SkyWatch Security Ltd. Registered address in Luton—no walk-in office."
+}, "/contact");
 
 function ContactPage({ searchParams }) {
   const sent = searchParams?.sent;
@@ -36,8 +38,8 @@ function ContactPage({ searchParams }) {
             Contact SkyWatch Security Ltd
           </h1>
           <p className="mt-4 text-lg text-sage">
-            Speak directly with our operations desk regarding commercial guarding, mobile patrols,
-            alarm response, or key holding contracts.
+            Contact the operations desk by phone, WhatsApp, email, or the form on this page.
+            There is no walk-in office.
           </p>
         </div>
       </section>
@@ -47,7 +49,7 @@ function ContactPage({ searchParams }) {
           <div className="brand-card brand-card-interactive space-y-6 p-8">
             <div>
               <h2 className="text-xl font-bold text-base dark:text-secondary">
-                Operating Headquarters & Contact
+                Phone, WhatsApp, Email and Forms
               </h2>
               <p className="mt-1 text-xs text-[#5c574c] dark:text-sage">
                 Registered in England and Wales · Company No. 16520149
@@ -56,14 +58,20 @@ function ContactPage({ searchParams }) {
 
             <div className="flex gap-3">
               <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-              <p className="min-w-0 text-sm leading-relaxed text-base/80 dark:text-sage">
-                {siteContact.addressLines.map((line, i) => (
-                  <span key={line}>
-                    {i > 0 && <br />}
-                    {line}
-                  </span>
-                ))}
-              </p>
+              <div>
+                <p className="font-semibold text-base dark:text-secondary">Registered address</p>
+                <p className="mt-0.5 text-xs text-[#5c574c] dark:text-sage">
+                  Correspondence only. No walk-in office.
+                </p>
+                <p className="mt-1 min-w-0 text-sm leading-relaxed text-base/80 dark:text-sage">
+                  {siteContact.addressLines.map((line, i) => (
+                    <span key={line}>
+                      {i > 0 && <br />}
+                      {line}
+                    </span>
+                  ))}
+                </p>
+              </div>
             </div>
 
             <div className="flex gap-3">
@@ -75,6 +83,21 @@ function ContactPage({ searchParams }) {
                   className="mt-0.5 inline-flex min-h-[44px] items-center gap-2 py-1 text-sm font-medium text-primary-text hover:text-[#5c3d06] sm:min-h-[24px] sm:py-0.5 dark:text-primary dark:hover:text-accent"
                 >
                   {siteContact.phone.display}
+                </a>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <FaWhatsapp className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+              <div>
+                <p className="font-semibold text-base dark:text-secondary">WhatsApp</p>
+                <a
+                  href={`https://wa.me/${siteContact.phone.tel.replace(/[^\d]/g, "")}`}
+                  className="mt-0.5 inline-flex min-h-[44px] items-center py-1 text-sm font-medium text-primary-text hover:text-[#5c3d06] sm:min-h-[24px] sm:py-0.5 dark:text-primary dark:hover:text-accent"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Message {siteContact.phone.display}
                 </a>
               </div>
             </div>

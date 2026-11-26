@@ -14,7 +14,6 @@ function sitemap() {
     "/contact",
     "/quote",
     "/recruitment",
-    "/recruitment/apply",
     "/services",
     "/standards",
     "/why-choose-us"

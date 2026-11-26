@@ -11,12 +11,14 @@ import {
 } from "lucide-react";
 import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
 import { serviceNavItems } from "@/lib/navigation";
+import { withCanonical } from "@/lib/pageMetadata";
+import { aboutFaqPage, breadcrumbList, SITE } from "@/lib/schema";
 
-const metadata = {
-  title: "About SkyWatch Security Ltd | Luton & London Commercial Security",
+const metadata = withCanonical({
+  title: "About Us | Luton Commercial Security",
   description:
-    "SkyWatch Security Ltd delivers commercial guarding, key holding, and mobile patrols from Luton across Bedfordshire and London."
-};
+    "Commercial guarding, key holding and mobile patrols from Luton across Bedfordshire, Hertfordshire and Greater London."
+}, "/about");
 
 const pillars = [
   {
@@ -38,18 +40,18 @@ const pillars = [
 
 const stats = [
   { value: "24/7", label: "Operations Desk & Control" },
-  { value: "BS 7858", label: "Vetting Alignment Standards" },
+  { value: "15", label: "Commercial Security Services" },
   { value: "£5m", label: "Commercial Liability Insurance" }
 ];
 
 const aboutFaqs = [
   {
     q: "What security services does SkyWatch Security deliver?",
-    a: "We deliver 18 specialized commercial disciplines including Static Site Guarding, Key Holding & Alarm Response, Mobile Vehicle Patrols, Construction Compound Protection, Concierge Operations, Corporate Headquarters Security, CCTV Monitoring, Event Safety, and Logistics Loss Prevention."
+    a: "We deliver 15 commercial services across Luton, Bedfordshire, Hertfordshire and Greater London, including static site guarding, key holding and alarm response, mobile patrols, construction site security, concierge and reception security, corporate office security, CCTV monitoring, event security, warehouse security, business park security, retail security, door supervision, campus security, dog handling and close protection."
   },
   {
     q: "Where is SkyWatch Security based and which areas do you serve?",
-    a: "Our operational base is at 289 Park Street, Luton LU1 3HH. We serve clients across Luton, Dunstable, Bedford, Milton Keynes, Watford, St Albans, Hemel Hempstead, Stevenage, and Greater London along the M1 corridor."
+    a: "SkyWatch Security Ltd, 289 Park Street, Luton, Bedfordshire LU1 3HH, United Kingdom. There is no walk-in office—contact us by phone, WhatsApp, email, or the online forms. We serve Luton, Bedfordshire, Hertfordshire, and Greater London."
   },
   {
     q: "How do you ensure service consistency and guard vigilance?",
@@ -58,8 +60,16 @@ const aboutFaqs = [
 ];
 
 function AboutPage() {
+  const breadcrumbsLd = breadcrumbList([
+    { name: "Home", item: SITE },
+    { name: "About Us", item: `${SITE}/about` }
+  ]);
+  const faqLd = aboutFaqPage(aboutFaqs);
+
   return (
     <main id="main-content" tabIndex={-1} className="flex-1 bg-secondary focus:outline-none dark:bg-base">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <section className="relative overflow-hidden border-b border-sage/30 bg-base py-16 text-secondary lg:py-20">
         <div
           className="pointer-events-none absolute inset-0 opacity-30"
@@ -91,8 +101,8 @@ function AboutPage() {
               Disciplined Commercial Security Built on Vigilance and Accountability.
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-sage md:mx-0">
-              SkyWatch Security Ltd (Company No. 16520149) is a dedicated UK commercial security provider
-              based in Luton. We deploy vetted security personnel to safeguard commercial premises,
+              SkyWatch Security Ltd (Company No. 16520149) is a UK commercial security provider.
+              Our registered address is in Luton, and there is no walk-in office. We deploy security personnel to safeguard commercial premises,
               industrial logistics compounds, construction developments, and corporate offices across
               Bedfordshire, Hertfordshire, and Greater London.
             </p>
@@ -130,9 +140,9 @@ function AboutPage() {
                 trees so officers operate with clear operational purpose from shift one.
               </p>
               <p>
-                With full £5,000,000 commercial liability coverage, rigorous lone-worker welfare monitoring,
-                and active mobile supervision across the M1 corridor, we give stakeholders complete confidence
-                in their physical security infrastructure.
+                With £5,000,000 commercial liability coverage, lone-worker welfare monitoring,
+                and mobile supervision across Luton, Bedfordshire, Hertfordshire, and Greater London,
+                stakeholders can review attendance and incident reports.
               </p>
             </div>
             <div className="mt-8 flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:flex-wrap md:justify-start">
@@ -164,11 +174,11 @@ function AboutPage() {
               <ul className="mt-6 space-y-3 text-sm text-base/80 dark:text-sage">
                 <li className="flex gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                  Direct Right to Work verification in full compliance with UK Home Office rules
+                  UK Right to Work checks before deployment
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                  BS 7858 screening alignment: 5-year checkable history and criminal disclosure checks
+                  Employment history, references, and criminal disclosure checks before deployment
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
@@ -176,7 +186,7 @@ function AboutPage() {
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                  Strict adherence to UK National Living Wage and fair employment practices
+                  Pay at or above the UK National Living Wage, with written employment contracts
                 </li>
               </ul>
             </div>
@@ -224,9 +234,7 @@ function AboutPage() {
               </h2>
             </div>
             <p className="mt-4 leading-relaxed text-base/85 dark:text-sage">
-              Operating from our headquarters in Luton, Bedfordshire, SkyWatch Security provides focused
-              commercial security deployments along the M1 corridor, across the Home Counties, and into Greater
-              London.
+              SkyWatch Security works across Luton, Bedfordshire, Hertfordshire, and Greater London.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {[

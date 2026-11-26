@@ -42,8 +42,7 @@ function WelcomeSection() {
             <p>
               SkyWatch Security Ltd delivers dedicated commercial security solutions designed for
               commercial estates, logistics hubs, construction compounds, and corporate facilities.
-              Operating from our Luton headquarters, we deploy vetted personnel across Luton,
-              Dunstable, Bedford, Milton Keynes, Watford, St Albans, and Greater London.
+              We deploy personnel across Luton, Bedfordshire, Hertfordshire, and Greater London.
             </p>
             <p>
               We operate with an emphasis on discipline, verified attendance, and transparent

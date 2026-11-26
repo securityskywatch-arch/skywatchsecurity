@@ -476,7 +476,7 @@ function NavbarInner({ logoSrc }) {
             aria-current={pathname === "/accreditation" ? "page" : undefined}
             className={desktopLinkClass(isActive("/accreditation"))}
           >
-            Accreditation
+            Compliance
           </Link>
           <DesktopDisclosureDropdown
             label="Recruitment"
@@ -638,7 +638,7 @@ function NavbarInner({ logoSrc }) {
                 onClick={closeMobile}
                 className="block w-full min-w-0 rounded-md px-3 py-3 text-left text-sm font-medium leading-relaxed touch-manipulation text-[#1a1a1a] hover:bg-base/[0.06] dark:text-secondary dark:hover:bg-white/5"
               >
-                Accreditation
+                Compliance
               </Link>
               <div className="w-full shrink-0">
                 <Link

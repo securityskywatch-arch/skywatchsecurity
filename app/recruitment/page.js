@@ -9,10 +9,12 @@ import {
   Users
 } from "lucide-react";
 import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
-const metadata = {
-  title: "Recruitment",
-  description: "Register your details for future UK security opportunities. We review applications and contact suitable candidates directly."
-};
+import { withCanonical } from "@/lib/pageMetadata";
+const metadata = withCanonical({
+  title: "Security Careers",
+  description:
+    "Register for future guarding and security roles across Luton, Bedfordshire, Hertfordshire and Greater London."
+}, "/recruitment");
 const steps = [
   {
     step: "01",
@@ -22,7 +24,7 @@ const steps = [
   {
     step: "02",
     title: "Screening",
-    text: "Right-to-work, SIA validity, references, and role-appropriate checks aligned to client and safeguarding expectations."
+    text: "Right to work, references, and role-appropriate checks. Where a role needs an individual SIA licence, we ask for the licence number."
   },
   {
     step: "03",
@@ -38,8 +40,8 @@ const steps = [
 const benefits = [
   {
     Icon: ShieldCheck,
-    title: "Licensed work, done properly",
-    text: "Posts matched to your licence category, no informal \u201Cjust stand here\u201D deployments that put you or the client at risk."
+    title: "Briefed posts",
+    text: "Where you hold an individual licence, the post is matched to that licence category, with a site briefing rather than an informal deployment."
   },
   {
     Icon: GraduationCap,

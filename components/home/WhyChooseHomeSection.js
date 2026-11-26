@@ -22,8 +22,8 @@ const points = [
   },
   {
     Icon: FileCheck,
-    title: "BS 7858 Vetting Alignment",
-    text: "Rigorous 5-year UK employment history checks, criminal record disclosures, and direct Right to Work verification."
+    title: "Pre-Deployment Checks",
+    text: "UK Right to Work, employment history, references, and criminal disclosure checks before an officer is deployed."
   },
   {
     Icon: Radio,
@@ -138,9 +138,8 @@ function WhyChooseHomeSection() {
                 Why Choose SkyWatch Security?
               </h2>
               <p className="mt-4 max-w-2xl leading-relaxed text-base/80 dark:text-sage">
-                Security is only as effective as the discipline behind it. We operate in close alignment with
-                SIA regulatory standards with active field supervision, ensuring your premises are guarded
-                by reliable, articulate personnel who understand your site risks and represent your
+                Security is only as effective as the discipline behind it. Written assignment instructions
+                and active field supervision mean officers are briefed on your site risks and represent your
                 brand with calm authority.
               </p>
               <blockquote className="mt-6 break-words border-l-4 border-primary pl-5 font-medium italic text-base/90 dark:text-secondary/90">

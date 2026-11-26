@@ -82,16 +82,13 @@ export function ServiceCard({ slug }) {
         </p>
 
         {/* Action / Learn More */}
-        <div className="mt-5 flex items-center justify-between border-t border-sage/15 pt-3.5 dark:border-sage/20">
+        <div className="mt-5 flex items-center border-t border-sage/15 pt-3.5 dark:border-sage/20">
           <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#5c3d06] transition-colors duration-300 group-hover:text-primary-text dark:text-accent dark:group-hover:text-primary">
             Learn more
             <ArrowRight
               aria-hidden="true"
               className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5"
             />
-          </span>
-          <span className="text-[11px] font-medium tracking-wide text-[#5c574c] dark:text-sage/85">
-            SIA Aligned
           </span>
         </div>
       </div>
