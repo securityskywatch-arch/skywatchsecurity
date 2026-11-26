@@ -1,11 +1,50 @@
-import { NextResponse } from "next/server";
 import { sendStructuredFormEmail } from "@/lib/formEmail";
+import {
+  checkRateLimit,
+  emailPattern,
+  getRateLimitErrorMessage,
+  isHoneypotTriggered,
+  phonePattern,
+  respondError,
+  respondSuccess
+} from "@/lib/formProtection";
+import { siteContact } from "@/lib/siteContact";
 
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const phonePattern = /^\+?[0-9()\-\s]{7,20}$/;
+const SUCCESS_PATH = "/recruitment/apply?sent=1";
+const ERROR_PATH = "/recruitment/apply?sent=0";
+const SUCCESS_MESSAGE =
+  "Application submitted successfully. We will contact suitable candidates.";
+const DELIVERY_ERROR_MESSAGE = `We could not submit your application right now. Please try again shortly or call our desk on ${siteContact.phone.display}.`;
 
 export async function POST(request) {
-  const formData = await request.formData();
+  const rateLimit = checkRateLimit(request, "application");
+  if (!rateLimit.allowed) {
+    console.warn("[forms/application] Rate limit exceeded.");
+    return respondError(
+      request,
+      ERROR_PATH,
+      getRateLimitErrorMessage(),
+      429,
+      { "Retry-After": String(rateLimit.retryAfterSeconds) }
+    );
+  }
+
+  let formData;
+  try {
+    formData = await request.formData();
+  } catch (error) {
+    console.error(
+      "[forms/application] Failed to parse form data:",
+      error instanceof Error ? error.message : error
+    );
+    return respondError(request, ERROR_PATH, DELIVERY_ERROR_MESSAGE, 400);
+  }
+
+  if (isHoneypotTriggered(formData)) {
+    console.warn("[forms/application] Honeypot triggered; ignoring submission.");
+    return respondSuccess(request, SUCCESS_PATH, SUCCESS_MESSAGE);
+  }
+
   const data = {
     full_name: String(formData.get("full_name") || "").trim(),
     email: String(formData.get("email") || "").trim(),
@@ -18,6 +57,7 @@ export async function POST(request) {
     preferred_regions: String(formData.get("preferred_regions") || "").trim(),
     notes: String(formData.get("notes") || "").trim()
   };
+
   if (
     !data.full_name ||
     data.full_name.length < 2 ||
@@ -33,8 +73,14 @@ export async function POST(request) {
     !data.notes ||
     data.notes.length < 10
   ) {
-    return NextResponse.redirect(new URL("/recruitment/apply?sent=0", request.url), 303);
+    return respondError(
+      request,
+      ERROR_PATH,
+      "Please check the required fields and ensure all details are valid.",
+      400
+    );
   }
+
   try {
     await sendStructuredFormEmail({
       subject: "New Recruitment Application - SkyWatch Security",
@@ -53,8 +99,12 @@ export async function POST(request) {
         { label: "Relevant notes", value: data.notes }
       ]
     });
-    return NextResponse.redirect(new URL("/recruitment/apply?sent=1", request.url), 303);
-  } catch {
-    return NextResponse.redirect(new URL("/recruitment/apply?sent=0", request.url), 303);
+    return respondSuccess(request, SUCCESS_PATH, SUCCESS_MESSAGE);
+  } catch (error) {
+    console.error(
+      "[forms/application] Email delivery failed:",
+      error instanceof Error ? error.message : error
+    );
+    return respondError(request, ERROR_PATH, DELIVERY_ERROR_MESSAGE, 500);
   }
 }

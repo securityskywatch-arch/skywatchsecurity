@@ -45,7 +45,7 @@ function HomeReviewCard({ review, staticEntry = false }) {
           /* @__PURE__ */ jsx(
             "div",
             {
-              className: "flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/40 bg-primary/15 text-sm font-bold text-primary dark:border-primary/50 dark:bg-primary/20 dark:text-accent",
+              className: "flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/40 bg-primary/15 text-sm font-bold text-primary-text dark:border-primary/50 dark:bg-primary/20 dark:text-accent",
               "aria-hidden": true,
               children: initials(review.name)
             }

@@ -58,7 +58,7 @@ const benefits = [
   }
 ];
 function RecruitmentPage() {
-  return /* @__PURE__ */ jsxs("main", { className: "flex-1 bg-secondary dark:bg-base", children: [
+  return /* @__PURE__ */ jsxs("main", { id: "main-content", tabIndex: -1, className: "flex-1 bg-secondary focus:outline-none dark:bg-base", children: [
     /* @__PURE__ */ jsxs("section", { className: "relative overflow-hidden border-b border-sage/30 bg-base px-4 py-16 text-secondary sm:px-6 lg:px-8 lg:py-20", children: [
       /* @__PURE__ */ jsx(
         "div",
@@ -83,7 +83,7 @@ function RecruitmentPage() {
               href: "/recruitment/apply",
               className: "brand-card-dark brand-card-dark-interactive group flex flex-col p-6 transition hover:-translate-y-1",
               children: [
-                /* @__PURE__ */ jsx(FileText, { className: "h-9 w-9 text-primary" }),
+                /* @__PURE__ */ jsx(FileText, { className: "h-9 w-9 text-primary", "aria-hidden": true }),
                 /* @__PURE__ */ jsx("span", { className: "mt-4 text-lg font-bold text-secondary", children: "Application form" }),
                 /* @__PURE__ */ jsx("span", { className: "mt-2 text-sm text-sage", children: "No CV upload required. Add your key details and we will contact you when suitable roles open." }),
                 /* @__PURE__ */ jsx("span", { className: "mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary", children: "Apply now \u2192" })
@@ -104,7 +104,7 @@ function RecruitmentPage() {
         /* @__PURE__ */ jsx("p", { className: "mx-auto mt-3 max-w-2xl text-center text-sm text-base/75 dark:text-sage", children: "Transparent stages so you always know what happens next." })
       ] }),
       /* @__PURE__ */ jsx("div", { className: "mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4", children: steps.map(({ step, title, text }) => /* @__PURE__ */ jsx(StaggerItem, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card relative h-full p-6", children: [
-        /* @__PURE__ */ jsx("span", { className: "text-4xl font-black text-primary/25", children: step }),
+        /* @__PURE__ */ jsx("span", { className: "text-4xl font-black text-primary/25", "aria-hidden": true, children: step }),
         /* @__PURE__ */ jsx("h3", { className: "mt-2 text-lg font-bold text-base dark:text-secondary", children: title }),
         /* @__PURE__ */ jsx("p", { className: "mt-2 text-sm leading-relaxed text-base/75 dark:text-sage", children: text })
       ] }) }, step)) })
@@ -112,7 +112,7 @@ function RecruitmentPage() {
     /* @__PURE__ */ jsxs("section", { className: "mx-auto max-w-page px-4 py-16 sm:px-6 lg:px-8", children: [
       /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold text-base dark:text-secondary sm:text-3xl", children: "What officers tell us they value" }) }),
       /* @__PURE__ */ jsx("div", { className: "mt-10 grid gap-6 sm:grid-cols-2", children: benefits.map(({ Icon, title, text }) => /* @__PURE__ */ jsx(Reveal, { children: /* @__PURE__ */ jsxs("div", { className: "brand-card brand-card-interactive flex gap-4 p-6", children: [
-        /* @__PURE__ */ jsx("div", { className: "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-primary/35 text-primary", children: /* @__PURE__ */ jsx(Icon, { className: "h-6 w-6" }) }),
+        /* @__PURE__ */ jsx("div", { className: "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-primary/35 text-primary", children: /* @__PURE__ */ jsx(Icon, { className: "h-6 w-6", "aria-hidden": true }) }),
         /* @__PURE__ */ jsxs("div", { children: [
           /* @__PURE__ */ jsx("h3", { className: "font-semibold text-base dark:text-secondary", children: title }),
           /* @__PURE__ */ jsx("p", { className: "mt-2 text-sm text-base/75 dark:text-sage", children: text })

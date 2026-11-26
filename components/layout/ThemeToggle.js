@@ -22,9 +22,9 @@ function ThemeToggle() {
     {
       type: "button",
       onClick: () => setTheme(isDark ? "light" : "dark"),
-      className: "inline-flex h-11 min-h-[44px] min-w-[44px] w-11 items-center justify-center rounded-md border border-sage/40 bg-base/[0.06] text-[#1a1a1a] touch-manipulation transition hover:border-primary hover:text-primary dark:bg-base/60 dark:text-secondary dark:hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
+      className: "inline-flex h-11 min-h-[44px] min-w-[44px] w-11 items-center justify-center rounded-md border border-sage/40 bg-base/[0.06] text-[#1a1a1a] touch-manipulation transition hover:border-primary hover:text-primary dark:bg-base/60 dark:text-secondary dark:hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5C3D06] dark:focus-visible:outline-accent",
       "aria-label": isDark ? "Switch to light mode" : "Switch to dark mode",
-      children: isDark ? /* @__PURE__ */ jsx(Sun, { className: "h-5 w-5" }) : /* @__PURE__ */ jsx(Moon, { className: "h-5 w-5" })
+      children: isDark ? /* @__PURE__ */ jsx(Sun, { className: "h-5 w-5", "aria-hidden": true }) : /* @__PURE__ */ jsx(Moon, { className: "h-5 w-5", "aria-hidden": true })
     }
   );
 }

@@ -1,4 +1,4 @@
-import { jsx } from "react/jsx-runtime";
+import { jsx, jsxs } from "react/jsx-runtime";
 import Image from "next/image";
 import Link from "next/link";
 import { getBrandLogoSrc } from "@/lib/brand";
@@ -23,7 +23,14 @@ function BrandLogo({
     }
   );
   if (href) {
-    return /* @__PURE__ */ jsx(Link, { href, className: "inline-flex shrink-0 items-center", children: img });
+    return /* @__PURE__ */ jsxs(Link, {
+      href,
+      className: "inline-flex shrink-0 items-center",
+      children: [
+        img,
+        /* @__PURE__ */ jsx("span", { className: "sr-only", children: " home" })
+      ]
+    });
   }
   return /* @__PURE__ */ jsx("span", { className: "inline-flex shrink-0 items-center", children: img });
 }

@@ -1,149 +1,262 @@
-import { jsx, jsxs } from "react/jsx-runtime";
-import { LoadingSubmitButton } from "@/components/forms/LoadingSubmitButton";
-import { ValidatedForm } from "@/components/forms/ValidatedForm";
 import Link from "next/link";
+import { LoadingSubmitButton } from "@/components/forms/LoadingSubmitButton";
+import {
+  FieldError,
+  FormStatusBanner,
+  ValidatedForm,
+  ValidatedInput,
+  ValidatedSelect,
+  ValidatedTextarea
+} from "@/components/forms/ValidatedForm";
 import { Reveal } from "@/components/motion/scroll-reveal";
+import { siteContact } from "@/lib/siteContact";
+
 const metadata = {
   title: "Application Form",
   description: "Register your details for future security opportunities. No CV upload required."
 };
+
+const inputClass =
+  "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none placeholder:text-[#6B6350] focus:border-primary focus-visible:ring-2 ring-[#5C3D06] dark:bg-base dark:text-secondary dark:placeholder:text-[#9a9488] dark:ring-accent";
+
+const textFields = [
+  {
+    id: "full_name",
+    label: "Full name",
+    type: "text",
+    required: true,
+    minLength: 2,
+    maxLength: 100,
+    autoComplete: "name",
+    error: "Please enter a valid full name."
+  },
+  {
+    id: "email",
+    label: "Email address",
+    type: "email",
+    inputMode: "email",
+    required: true,
+    autoComplete: "email",
+    error: "Please enter a valid email address, e.g. name@email.co.uk."
+  },
+  {
+    id: "phone",
+    label: "Phone number",
+    type: "tel",
+    inputMode: "tel",
+    required: true,
+    autoComplete: "tel",
+    pattern: "^\\+?[0-9\\(\\)\\-\\s]{7,20}$",
+    title: "Please enter a valid UK phone number",
+    error: "Please enter a valid UK phone number."
+  },
+  {
+    id: "postcode",
+    label: "Home postcode",
+    type: "text",
+    required: true,
+    minLength: 3,
+    maxLength: 12,
+    autoComplete: "postal-code",
+    title: "Please enter a valid UK postcode",
+    error: "Please enter a valid UK postcode, e.g. LU1 3HH."
+  },
+  {
+    id: "sia_number",
+    label: "SIA licence number (optional)",
+    type: "text",
+    required: false,
+    maxLength: 30,
+    autoComplete: "off",
+    error: "Please enter a valid SIA licence number."
+  }
+];
+
 function ApplyPage({ searchParams }) {
   const sent = searchParams?.sent;
-  return /* @__PURE__ */ jsx("main", { className: "flex-1 bg-secondary px-4 py-14 dark:bg-base sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "mx-auto max-w-2xl", children: [
-    /* @__PURE__ */ jsx(Link, { href: "/recruitment", className: "text-sm text-primary hover:text-accent", children: "\u2190 Recruitment" }),
-    /* @__PURE__ */ jsxs(Reveal, { children: [
-      /* @__PURE__ */ jsx("h1", { className: "mt-4 text-3xl font-bold tracking-tight text-base dark:text-secondary sm:text-4xl", children: "Application form" }),
-      /* @__PURE__ */ jsx("p", { className: "mt-3 leading-relaxed text-base/75 dark:text-sage", children: "Share your core details for manual shortlisting. We review applications and contact suitable candidates when roles are available." })
-    ] }),
-    /* @__PURE__ */ jsx(Reveal, { delay: 0.06, children: /* @__PURE__ */ jsxs(
-      ValidatedForm,
-      {
-        className: "brand-card brand-card-interactive mt-10 space-y-5 p-6 sm:p-8",
-        action: "/api/forms/application",
-        method: "post",
-        children: [
-          sent === "1" ? /* @__PURE__ */ jsx("p", { className: "rounded-md border border-emerald-500/40 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-300", children: "Application submitted successfully. We will contact suitable candidates." }) : null,
-          sent === "0" ? /* @__PURE__ */ jsx("p", { className: "rounded-md border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-300", children: "We could not submit your application right now. Please try again shortly." }) : null,
-          [
-            ["full_name", "Full name", "text", true],
-            ["email", "Email address", "email", true],
-            ["phone", "Phone number", "tel", true],
-            ["postcode", "Home postcode", "text", true],
-            ["sia_number", "SIA licence number (if you have one)", "text", false]
-          ].map(([id, label, type, req]) => /* @__PURE__ */ jsxs("div", { children: [
-            /* @__PURE__ */ jsx(
-              "label",
-              {
-                htmlFor: id,
-                className: "block text-sm font-medium text-base dark:text-secondary",
-                children: label
-              }
-            ),
-            /* @__PURE__ */ jsx(
-              "input",
-              {
-                id,
-                name: id,
-                type,
-                required: req,
-                minLength: id === "full_name" ? 2 : id === "postcode" ? 3 : void 0,
-                maxLength: id === "full_name" ? 100 : id === "postcode" ? 12 : id === "sia_number" ? 30 : void 0,
-                autoComplete: id === "full_name" ? "name" : id === "email" ? "email" : id === "phone" ? "tel" : "off",
-                pattern: id === "phone" ? "^\\+?[0-9()\\-\\s]{7,20}$" : void 0,
-                title: id === "phone" ? "Please enter a valid UK phone number" : id === "postcode" ? "Please enter a valid UK postcode" : void 0,
-                className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 dark:bg-base dark:text-secondary"
-              }
-            ),
-            /* @__PURE__ */ jsx("p", { className: "field-error", children: id === "email" ? "Please enter a valid email address, e.g. name@email.co.uk." : id === "phone" ? "Please enter a valid UK phone number." : id === "postcode" ? "Please enter a valid UK postcode, e.g. RG1 1AA." : `Please enter a valid ${label.toLowerCase()}.` })
-          ] }, id)),
-          /* @__PURE__ */ jsxs("div", { children: [
-            /* @__PURE__ */ jsx(
-              "label",
-              {
-                htmlFor: "right_to_work",
-                className: "block text-sm font-medium text-base dark:text-secondary",
-                children: "Do you have the right to work in the UK?"
-              }
-            ),
-            /* @__PURE__ */ jsx(
-              "select",
-              {
-                id: "right_to_work",
-                name: "right_to_work",
-                required: true,
-                defaultValue: "",
-                className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 dark:bg-base dark:text-secondary",
-                children: [
-                  /* @__PURE__ */ jsx("option", { value: "", disabled: true, children: "Select an option" }),
-                  /* @__PURE__ */ jsx("option", { value: "yes", children: "Yes" }),
-                  /* @__PURE__ */ jsx("option", { value: "no", children: "No" })
-                ]
-              }
-            ),
-            /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please select if you have the right to work in the UK." })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "grid gap-5 sm:grid-cols-2", children: [
-            /* @__PURE__ */ jsxs("div", { children: [
-              /* @__PURE__ */ jsx("label", { htmlFor: "experience_years", className: "block text-sm font-medium text-base dark:text-secondary", children: "Security experience" }),
-              /* @__PURE__ */ jsx(
-                "select",
-                {
-                  id: "experience_years",
-                  name: "experience_years",
-                  required: true,
-                  defaultValue: "",
-                  className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 dark:bg-base dark:text-secondary",
-                  children: [
-                    /* @__PURE__ */ jsx("option", { value: "", disabled: true, children: "Select" }),
-                    /* @__PURE__ */ jsx("option", { value: "none", children: "No direct experience" }),
-                    /* @__PURE__ */ jsx("option", { value: "0-1", children: "Up to 1 year" }),
-                    /* @__PURE__ */ jsx("option", { value: "1-3", children: "1 to 3 years" }),
-                    /* @__PURE__ */ jsx("option", { value: "3-5", children: "3 to 5 years" }),
-                    /* @__PURE__ */ jsx("option", { value: "5+", children: "5+ years" })
-                  ]
-                }
-              ),
-              /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please select your security experience." })
-            ] }),
-            /* @__PURE__ */ jsxs("div", { children: [
-              /* @__PURE__ */ jsx("label", { htmlFor: "availability", className: "block text-sm font-medium text-base dark:text-secondary", children: "Availability" }),
-              /* @__PURE__ */ jsx(
-                "select",
-                {
-                  id: "availability",
-                  name: "availability",
-                  required: true,
-                  defaultValue: "",
-                  className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 dark:bg-base dark:text-secondary",
-                  children: [
-                    /* @__PURE__ */ jsx("option", { value: "", disabled: true, children: "Select" }),
-                    /* @__PURE__ */ jsx("option", { value: "days", children: "Days" }),
-                    /* @__PURE__ */ jsx("option", { value: "nights", children: "Nights" }),
-                    /* @__PURE__ */ jsx("option", { value: "weekends", children: "Weekends" }),
-                    /* @__PURE__ */ jsx("option", { value: "flexible", children: "Flexible" })
-                  ]
-                }
-              ),
-              /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please select your availability." })
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { children: [
-            /* @__PURE__ */ jsx("label", { htmlFor: "preferred_regions", className: "block text-sm font-medium text-base dark:text-secondary", children: "Preferred work area(s)" }),
-            /* @__PURE__ */ jsx("input", { id: "preferred_regions", name: "preferred_regions", type: "text", required: true, minLength: 2, maxLength: 120, placeholder: "e.g. South East, London, Reading, Oxford", className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 dark:bg-base dark:text-secondary" }),
-            /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please enter your preferred work areas." })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { children: [
-            /* @__PURE__ */ jsx("label", { htmlFor: "notes", className: "block text-sm font-medium text-base dark:text-secondary", children: "Relevant notes" }),
-            /* @__PURE__ */ jsx("textarea", { id: "notes", name: "notes", rows: 4, required: true, minLength: 10, maxLength: 1800, placeholder: "Any additional details (licences, transport, notice period, preferred role)", className: "mt-2 w-full rounded-lg border border-sage/50 bg-secondary px-3 py-2.5 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 dark:bg-base dark:text-secondary" }),
-            /* @__PURE__ */ jsx("p", { className: "field-error", children: "Please add at least 10 characters in relevant notes." })
-          ] }),
-          /* @__PURE__ */ jsx(LoadingSubmitButton, { idleLabel: "Submit application", loadingLabel: "Sending...", className: "w-full rounded-md bg-primary py-3 text-sm font-semibold text-base hover:bg-accent disabled:cursor-not-allowed disabled:opacity-75 sm:w-auto sm:px-10" })
-        ]
-      }
-    ) })
-  ] }) });
+  const successMessage =
+    "Application submitted successfully. We will contact suitable candidates.";
+  const errorMessage = `We could not submit your application right now. Please try again shortly or call our desk on ${siteContact.phone.display}.`;
+  const initialStatus =
+    sent === "1"
+      ? { type: "success", message: successMessage }
+      : sent === "0"
+        ? { type: "error", message: errorMessage }
+        : null;
+
+  return (
+    <main id="main-content" tabIndex={-1} className="flex-1 bg-secondary px-4 py-14 focus:outline-none dark:bg-base sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-2xl">
+        <Link href="/recruitment" className="inline-flex min-h-[44px] items-center py-1.5 text-sm text-primary-text hover:text-[#5c3d06] sm:min-h-[24px] sm:py-1 dark:text-primary dark:hover:text-accent">
+          ← Recruitment
+        </Link>
+        <Reveal>
+          <h1 className="mt-4 text-3xl font-bold tracking-tight text-base dark:text-secondary sm:text-4xl">
+            Application form
+          </h1>
+          <p className="mt-3 leading-relaxed text-base/75 dark:text-sage">
+            Share your core details for manual shortlisting. We review applications and contact suitable
+            candidates when roles are available.
+          </p>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <ValidatedForm
+            className="brand-card brand-card-interactive mt-10 space-y-5 p-6 sm:p-8"
+            action="/api/forms/application"
+            method="post"
+            initialStatus={initialStatus}
+            successMessage={successMessage}
+            errorMessage={errorMessage}
+          >
+            <FormStatusBanner className="text-sm" />
+            <p className="text-xs text-base/70 dark:text-sage">
+              All fields are required unless marked optional.
+            </p>
+            {textFields.map(({ error, id, label, ...fieldProps }) => (
+              <div key={id}>
+                <label
+                  htmlFor={id}
+                  className="block text-sm font-medium text-base dark:text-secondary"
+                >
+                  {label}
+                </label>
+                <ValidatedInput id={id} name={id} className={inputClass} {...fieldProps} />
+                <FieldError id={`${id}-error`} name={id}>
+                  {error}
+                </FieldError>
+              </div>
+            ))}
+            <div>
+              <label
+                htmlFor="right_to_work"
+                className="block text-sm font-medium text-base dark:text-secondary"
+              >
+                Do you have the right to work in the UK?
+              </label>
+              <ValidatedSelect
+                id="right_to_work"
+                name="right_to_work"
+                required={true}
+                defaultValue=""
+                className={inputClass}
+              >
+                <option value="" disabled={true}>
+                  Select an option
+                </option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </ValidatedSelect>
+              <FieldError id="right_to_work-error" name="right_to_work">
+                Please select if you have the right to work in the UK.
+              </FieldError>
+            </div>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label
+                  htmlFor="experience_years"
+                  className="block text-sm font-medium text-base dark:text-secondary"
+                >
+                  Security experience
+                </label>
+                <ValidatedSelect
+                  id="experience_years"
+                  name="experience_years"
+                  required={true}
+                  defaultValue=""
+                  className={inputClass}
+                >
+                  <option value="" disabled={true}>
+                    Select
+                  </option>
+                  <option value="none">No direct experience</option>
+                  <option value="0-1">Up to 1 year</option>
+                  <option value="1-3">1 to 3 years</option>
+                  <option value="3-5">3 to 5 years</option>
+                  <option value="5+">5+ years</option>
+                </ValidatedSelect>
+                <FieldError id="experience_years-error" name="experience_years">
+                  Please select your security experience.
+                </FieldError>
+              </div>
+              <div>
+                <label
+                  htmlFor="availability"
+                  className="block text-sm font-medium text-base dark:text-secondary"
+                >
+                  Availability
+                </label>
+                <ValidatedSelect
+                  id="availability"
+                  name="availability"
+                  required={true}
+                  defaultValue=""
+                  className={inputClass}
+                >
+                  <option value="" disabled={true}>
+                    Select
+                  </option>
+                  <option value="days">Days</option>
+                  <option value="nights">Nights</option>
+                  <option value="weekends">Weekends</option>
+                  <option value="flexible">Flexible</option>
+                </ValidatedSelect>
+                <FieldError id="availability-error" name="availability">
+                  Please select your availability.
+                </FieldError>
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="preferred_regions"
+                className="block text-sm font-medium text-base dark:text-secondary"
+              >
+                Preferred work area(s)
+              </label>
+              <ValidatedInput
+                id="preferred_regions"
+                name="preferred_regions"
+                type="text"
+                required={true}
+                minLength={2}
+                maxLength={120}
+                placeholder="e.g. Luton, Bedfordshire, Hertfordshire, London"
+                className={inputClass}
+              />
+              <FieldError id="preferred_regions-error" name="preferred_regions">
+                Please enter your preferred work areas.
+              </FieldError>
+            </div>
+            <div>
+              <label
+                htmlFor="notes"
+                className="block text-sm font-medium text-base dark:text-secondary"
+              >
+                Relevant notes
+              </label>
+              <ValidatedTextarea
+                id="notes"
+                name="notes"
+                rows={4}
+                required={true}
+                minLength={10}
+                maxLength={1800}
+                placeholder="Any additional details (licences, transport, notice period, preferred role)"
+                className={inputClass}
+              />
+              <FieldError id="notes-error" name="notes">
+                Please add at least 10 characters in relevant notes.
+              </FieldError>
+            </div>
+            <LoadingSubmitButton
+              idleLabel="Submit application"
+              loadingLabel="Sending..."
+              className="w-full rounded-md bg-primary py-3 text-sm font-semibold text-base hover:bg-accent disabled:cursor-not-allowed disabled:opacity-75 sm:w-auto sm:px-10"
+            />
+          </ValidatedForm>
+        </Reveal>
+      </div>
+    </main>
+  );
 }
-export {
-  ApplyPage as default,
-  metadata
-};
+
+export { ApplyPage as default, metadata };

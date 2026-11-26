@@ -16,12 +16,12 @@ function BlogPostPage({ params }) {
   const p = getPostBySlug(params.slug);
   if (!p) notFound();
   const hasLinks = Array.isArray(p.links) && p.links.length > 0;
-  return /* @__PURE__ */ jsx("main", { className: "min-w-0 flex-1 overflow-x-hidden bg-secondary dark:bg-base", children: /* @__PURE__ */ jsxs("article", { className: "page-container py-14 page-align", children: [
+  return /* @__PURE__ */ jsx("main", { id: "main-content", tabIndex: -1, className: "min-w-0 flex-1 overflow-x-hidden bg-secondary focus:outline-none dark:bg-base", children: /* @__PURE__ */ jsxs("article", { className: "page-container py-14 page-align", children: [
     /* @__PURE__ */ jsx(
       Link,
       {
         href: "/blog",
-        className: "text-sm text-primary hover:text-accent dark:text-accent",
+        className: "inline-flex min-h-[44px] items-center py-1.5 text-sm text-primary-text hover:text-[#5c3d06] sm:min-h-[24px] sm:py-1 dark:text-accent dark:hover:text-accent",
         children: "\u2190 All articles"
       }
     ),
@@ -30,7 +30,7 @@ function BlogPostPage({ params }) {
         Image,
         {
           src: p.coverImage,
-          alt: "",
+          alt: p.title,
           fill: true,
           className: "object-cover",
           sizes: "(max-width: 768px) 100vw, 1280px",
@@ -44,7 +44,7 @@ function BlogPostPage({ params }) {
         "time",
         {
           dateTime: p.date,
-          className: "mt-6 block text-xs font-medium uppercase tracking-wider text-primary dark:text-accent",
+          className: "mt-6 block text-xs font-medium uppercase tracking-wider text-primary-text dark:text-accent",
           children: p.date
         }
       ),
@@ -68,7 +68,7 @@ function BlogPostPage({ params }) {
           Link,
           {
             href: link.href,
-            className: "font-medium text-primary underline-offset-4 hover:underline",
+            className: "inline-flex min-h-[44px] items-center py-1 font-medium text-primary-text underline-offset-4 hover:underline sm:min-h-[24px] sm:py-0.5 dark:text-primary",
             target: external ? "_blank" : void 0,
             rel: external ? "noopener noreferrer" : void 0,
             children: link.label
