@@ -5,9 +5,11 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useReducedMotionPreference } from "@/components/motion/scroll-reveal";
 import { homeImages } from "@/lib/homeImages";
+import { publicLiabilityCoverText } from "@/lib/siteContact";
 
 function WelcomeSection() {
   const reduced = useReducedMotionPreference();
+  const publicLiability = publicLiabilityCoverText();
 
   return (
     <section className="relative overflow-hidden border-y border-sage/25 bg-base text-secondary dark:border-sage/30 dark:bg-[#0f0f0f]">
@@ -48,8 +50,8 @@ function WelcomeSection() {
               We operate with an emphasis on discipline, verified attendance, and transparent
               reporting. Every assignment begins with tailored Assignment Instructions, ensuring our
               officers are briefed on your specific site risks, health and safety obligations, and
-              emergency escalation paths. Backed by proactive mobile supervision and £5,000,000 in
-              commercial liability cover, we deliver protection you can audit.
+              emergency escalation paths. Backed by proactive mobile supervision
+              {publicLiability ? ` and ${publicLiability}` : ""}, we deliver protection you can audit.
             </p>
           </div>
           <div className="mt-8 flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">

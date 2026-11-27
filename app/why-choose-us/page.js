@@ -13,6 +13,7 @@ import {
 import { Reveal } from "@/components/motion/scroll-reveal";
 import { withCanonical } from "@/lib/pageMetadata";
 import { breadcrumbList, SITE } from "@/lib/schema";
+import { publicLiabilityCoverText, SIA_DEPLOY_STATEMENT } from "@/lib/siteContact";
 
 const metadata = withCanonical({
   title: "Why Choose Us",
@@ -69,8 +70,9 @@ function WhyChooseUsPage() {
               {[
                 "Direct UK Right to Work verification across all deployed security officers",
                 "Employment history, references, and criminal disclosure checks before deployment",
+                SIA_DEPLOY_STATEMENT,
                 "Electronic NFC/RFID checkpoint patrol tags providing timestamped audit trails",
-                "£5,000,000 Public and Employers' Liability Insurance specifically tailored for security risks",
+                ...(publicLiabilityCoverText() ? [publicLiabilityCoverText()] : []),
                 "Unannounced daytime and nocturnal site audits conducted by mobile field supervisors",
                 "Dedicated 24/7 operations control desk for lone-worker welfare and rapid emergency escalation"
               ].map((line) => (

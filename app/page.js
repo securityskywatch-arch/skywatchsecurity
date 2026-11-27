@@ -12,6 +12,7 @@ import { blogPosts } from "@/lib/blog";
 import { reviews } from "@/lib/reviews";
 import { withCanonical } from "@/lib/pageMetadata";
 import { getServiceBySlug } from "@/lib/services";
+import { publicLiabilityCoverText } from "@/lib/siteContact";
 
 const featuredSlugs = [
   "manned-security-guards",
@@ -158,7 +159,7 @@ function HomePage({ searchParams }) {
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               {[
                 "Right to Work Checks",
-                "£5,000,000 Liability Cover",
+                ...(publicLiabilityCoverText() ? [publicLiabilityCoverText()] : []),
                 "Written Assignment Instructions",
                 "UK GDPR Controls",
                 "24/7 Operations Desk"

@@ -16,10 +16,12 @@ import {
 } from "lucide-react";
 import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
 import { getServiceImage } from "@/lib/serviceImages";
+import { publicLiabilityCoverText } from "@/lib/siteContact";
 
 function ServiceDetailLayout({ service, content }) {
   const { Icon } = service;
   const serviceImage = getServiceImage(service.slug);
+  const publicLiability = publicLiabilityCoverText();
 
   return (
     <Fragment>
@@ -71,6 +73,16 @@ function ServiceDetailLayout({ service, content }) {
               <p className="mt-4 text-base leading-relaxed text-sage sm:text-lg">
                 {content.heroSubtitle}
               </p>
+              {content.siaDeployStatement ? (
+                <p className="mt-4 text-base leading-relaxed text-sage sm:text-lg">
+                  {content.siaDeployStatement}
+                </p>
+              ) : null}
+              {content.workingMethods?.map((line) => (
+                <p key={line} className="mt-4 text-base leading-relaxed text-sage sm:text-lg">
+                  {line}.
+                </p>
+              ))}
               {content.relatedGuide || content.relatedService ? (
                 <ul className="mt-4 space-y-1 text-sm leading-relaxed text-sage">
                   {content.relatedGuide ? (
@@ -151,10 +163,12 @@ function ServiceDetailLayout({ service, content }) {
                       <Check className="h-4 w-4 text-accent shrink-0" aria-hidden="true" />
                       <span>Right to work and employment history checks</span>
                     </div>
-                    <div className="flex items-center gap-2.5 text-xs text-sage">
-                      <Check className="h-4 w-4 text-accent shrink-0" aria-hidden="true" />
-                      <span>£5,000,000 Commercial Liability Cover</span>
-                    </div>
+                    {publicLiability ? (
+                      <div className="flex items-center gap-2.5 text-xs text-sage">
+                        <Check className="h-4 w-4 text-accent shrink-0" aria-hidden="true" />
+                        <span>{publicLiability}</span>
+                      </div>
+                    ) : null}
                   </div>
 
                   <div className="relative pt-4 border-t border-sage/20 flex items-center justify-between">
@@ -181,7 +195,7 @@ function ServiceDetailLayout({ service, content }) {
       <section className="border-b border-sage/20 bg-secondary/80 py-5 dark:bg-base/50">
         <div className="page-container flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-center text-sm font-medium text-base/80 dark:text-sage sm:text-left">
-            £5,000,000 Liability Cover · 24/7 Operations Desk
+            {publicLiability ? `${publicLiability} · ` : null}24/7 Operations Desk
           </p>
           <Link
             href="/standards"

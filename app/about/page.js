@@ -13,6 +13,13 @@ import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-
 import { serviceNavItems } from "@/lib/navigation";
 import { withCanonical } from "@/lib/pageMetadata";
 import { aboutFaqPage, breadcrumbList, SITE } from "@/lib/schema";
+import {
+  BS_7499_STATIC_GUARDING,
+  BS_7858_SCREENING,
+  BS_7984_KEY_HOLDING,
+  publicLiabilityCoverText,
+  SIA_DEPLOY_STATEMENT
+} from "@/lib/siteContact";
 
 const metadata = withCanonical({
   title: "About Us | Luton Commercial Security",
@@ -38,10 +45,12 @@ const pillars = [
   }
 ];
 
+const publicLiability = publicLiabilityCoverText();
+
 const stats = [
   { value: "24/7", label: "Operations Desk & Control" },
   { value: "15", label: "Commercial Security Services" },
-  { value: "£5m", label: "Commercial Liability Insurance" }
+  ...(publicLiability ? [{ value: publicLiability, label: "Public liability insurance" }] : [])
 ];
 
 const aboutFaqs = [
@@ -107,7 +116,7 @@ function AboutPage() {
               Bedfordshire, Hertfordshire, and Greater London.
             </p>
           </Reveal>
-          <div className="mt-12 grid gap-4 sm:grid-cols-3">
+          <div className={`mt-12 grid gap-4 ${stats.length > 2 ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
             {stats.map((s) => (
               <Reveal key={s.label} delay={0.05}>
                 <div className="brand-card-dark px-5 py-4">
@@ -140,9 +149,9 @@ function AboutPage() {
                 trees so officers operate with clear operational purpose from shift one.
               </p>
               <p>
-                With £5,000,000 commercial liability coverage, lone-worker welfare monitoring,
-                and mobile supervision across Luton, Bedfordshire, Hertfordshire, and Greater London,
-                stakeholders can review attendance and incident reports.
+                {publicLiability
+                  ? `With ${publicLiability}, lone-worker welfare monitoring, and mobile supervision across Luton, Bedfordshire, Hertfordshire, and Greater London, stakeholders can review attendance and incident reports.`
+                  : "Lone-worker welfare monitoring and mobile supervision across Luton, Bedfordshire, Hertfordshire, and Greater London mean stakeholders can review attendance and incident reports."}
               </p>
             </div>
             <div className="mt-8 flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:flex-wrap md:justify-start">
@@ -175,6 +184,22 @@ function AboutPage() {
                 <li className="flex gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                   UK Right to Work checks before deployment
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  {BS_7858_SCREENING}.
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  {BS_7984_KEY_HOLDING}.
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  {BS_7499_STATIC_GUARDING}.
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  {SIA_DEPLOY_STATEMENT}
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />

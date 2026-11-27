@@ -1,18 +1,20 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import Link from "next/link";
 import {
-  BadgeCheck,
   BookOpen,
   Eye,
   FileWarning,
   Headphones,
-  Radio,
-  ShieldCheck,
   Shirt,
   Smartphone
 } from "lucide-react";
 import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
 import { withCanonical } from "@/lib/pageMetadata";
+import {
+  BS_7499_STATIC_GUARDING,
+  BS_7858_SCREENING,
+  BS_7984_KEY_HOLDING
+} from "@/lib/siteContact";
 
 const metadata = withCanonical({
   title: "Operating Standards on Site",
@@ -88,6 +90,21 @@ function StandardsPage() {
           ))}
         </div>
       </StaggerSection>
+
+      <section className="border-t border-sage/20 px-4 py-14 sm:px-6 lg:px-8">
+        <Reveal>
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-xl font-bold text-base dark:text-secondary">
+              Working methods
+            </h2>
+            <ul className="mt-4 space-y-2 text-sm leading-relaxed text-base/80 dark:text-sage">
+              <li>{BS_7858_SCREENING}.</li>
+              <li>{BS_7984_KEY_HOLDING}.</li>
+              <li>{BS_7499_STATIC_GUARDING}.</li>
+            </ul>
+          </div>
+        </Reveal>
+      </section>
 
       <section className="border-t border-sage/20 px-4 py-14 sm:px-6 lg:px-8">
         <Reveal>

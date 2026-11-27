@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useReducedMotionPreference } from "@/components/motion/scroll-reveal";
 import { homeImages } from "@/lib/homeImages";
+import { publicLiabilityCoverText } from "@/lib/siteContact";
 
 const points = [
   {
@@ -40,11 +41,15 @@ const points = [
     title: "24/7 Operations Desk",
     text: "Round-the-clock operational support, lone-worker safety check-ins, and rapid emergency escalation."
   },
-  {
-    Icon: BadgeCheck,
-    title: "£5,000,000 Liability Cover",
-    text: "Substantial Public and Employers' Liability Insurance protecting your premises, workforce, and commercial interests."
-  }
+  ...(publicLiabilityCoverText()
+    ? [
+        {
+          Icon: BadgeCheck,
+          title: publicLiabilityCoverText(),
+          text: `${publicLiabilityCoverText()}.`
+        }
+      ]
+    : [])
 ];
 
 const container = {

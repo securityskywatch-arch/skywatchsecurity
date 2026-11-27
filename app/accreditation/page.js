@@ -13,11 +13,20 @@ import {
 import { Reveal, StaggerItem, StaggerSection } from "@/components/motion/scroll-reveal";
 import { withCanonical } from "@/lib/pageMetadata";
 import { aboutFaqPage, breadcrumbList, SITE } from "@/lib/schema";
+import {
+  BS_7499_STATIC_GUARDING,
+  BS_7858_SCREENING,
+  BS_7984_KEY_HOLDING,
+  publicLiabilityCoverText
+} from "@/lib/siteContact";
+
+const publicLiability = publicLiabilityCoverText();
 
 const metadata = withCanonical({
   title: "Compliance and Operating Practices",
-  description:
-    "SkyWatch Security Ltd: 24/7 operations desk, pre-deployment checks, £5,000,000 liability cover, health and safety surveys, and UK GDPR handling."
+  description: publicLiability
+    ? `SkyWatch Security Ltd: 24/7 operations desk, pre-deployment checks, ${publicLiability}, health and safety surveys, and UK GDPR handling.`
+    : "SkyWatch Security Ltd: 24/7 operations desk, pre-deployment checks, health and safety surveys, and UK GDPR handling."
 }, "/accreditation");
 
 const items = [
@@ -31,11 +40,15 @@ const items = [
     title: "Pre-Deployment Checks",
     body: "Before an officer is deployed we check UK Right to Work, employment history, references, and criminal disclosure."
   },
-  {
-    Icon: Shield,
-    title: "£5,000,000 Commercial Liability Cover",
-    body: "We carry comprehensive Public Liability (£5,000,000) and Employers' Liability (£5,000,000) Insurance designed specifically for UK private security operations."
-  },
+  ...(publicLiability
+    ? [
+        {
+          Icon: Shield,
+          title: publicLiability,
+          body: publicLiability + "."
+        }
+      ]
+    : []),
   {
     Icon: HardHat,
     title: "Health and Safety on Assignment",
@@ -53,11 +66,30 @@ const items = [
   }
 ];
 
-const insuranceFaqs = [
+const insuranceFaqs = publicLiability
+  ? [
+      {
+        q: "What public liability cover do you carry?",
+        a: `${publicLiability}.`
+      }
+    ]
+  : [];
+
+const highlightStats = [
   {
-    q: "What public and employers' liability cover do you carry?",
-    a: "We carry comprehensive Public Liability (£5,000,000) and Employers' Liability (£5,000,000) Insurance designed specifically for UK private security operations."
-  }
+    value: "24/7",
+    label: "Operations Desk",
+    hint: "Phone coordination for welfare checks and alarm dispatch"
+  },
+  ...(publicLiability
+    ? [
+        {
+          value: publicLiability,
+          label: "Public liability insurance",
+          hint: publicLiability
+        }
+      ]
+    : [])
 ];
 
 function AccreditationPage() {
@@ -70,7 +102,9 @@ function AccreditationPage() {
   return (
     <main id="main-content" tabIndex={-1} className="min-w-0 flex-1 overflow-x-hidden bg-secondary focus:outline-none dark:bg-base">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      {faqLd ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      ) : null}
       <section className="border-b border-sage/30 bg-base py-12 text-secondary lg:py-16">
         <div className="page-container page-align">
           <nav aria-label="Breadcrumb" className="text-sm text-sage">
@@ -93,24 +127,18 @@ function AccreditationPage() {
             How we run commercial security across Luton, Bedfordshire, Hertfordshire, and Greater London.
             Contact is by phone, WhatsApp, email, and the online forms.
           </p>
+          <ul className="mx-auto mt-4 max-w-3xl space-y-1 text-base text-sage md:mx-0">
+            <li>{BS_7858_SCREENING}.</li>
+            <li>{BS_7984_KEY_HOLDING}.</li>
+            <li>{BS_7499_STATIC_GUARDING}.</li>
+          </ul>
         </div>
       </section>
 
       <section className="page-container page-align py-8">
         <Reveal>
-          <div className="brand-card brand-card-interactive grid gap-4 p-6 text-left sm:grid-cols-2 sm:p-8">
-            {[
-              {
-                value: "24/7",
-                label: "Operations Desk",
-                hint: "Phone coordination for welfare checks and alarm dispatch"
-              },
-              {
-                value: "£5,000,000",
-                label: "Liability Indemnity",
-                hint: "Public and employers' liability insurance"
-              }
-            ].map(({ value, label, hint }) => (
+          <div className={`brand-card brand-card-interactive grid gap-4 p-6 text-left sm:p-8 ${highlightStats.length > 1 ? "sm:grid-cols-2" : ""}`}>
+            {highlightStats.map(({ value, label, hint }) => (
               <div
                 key={label}
                 className="rounded-lg border border-primary/25 bg-primary/[0.06] p-4 dark:border-primary/30 dark:bg-primary/[0.12]"
@@ -142,31 +170,33 @@ function AccreditationPage() {
         </div>
       </StaggerSection>
 
-      <section className="page-container page-align pb-4">
-        <Reveal>
-          <h2 className="text-2xl font-bold text-base dark:text-secondary sm:text-3xl">
-            Insurance cover
-          </h2>
-          <div className="mt-6 space-y-3">
-            {insuranceFaqs.map((faq) => (
-              <details
-                key={faq.q}
-                className="group rounded-xl border border-sage/40 bg-base/5 open:border-primary/40 dark:border-sage/30 dark:bg-secondary/5"
-              >
-                <summary className="cursor-pointer list-none px-5 py-4 font-semibold text-base dark:text-secondary [&::-webkit-details-marker]:hidden">
-                  <span className="flex items-center justify-between gap-4">
-                    {faq.q}
-                    <ChevronRight className="h-5 w-5 shrink-0 text-primary transition group-open:rotate-90" aria-hidden="true" />
-                  </span>
-                </summary>
-                <div className="border-t border-sage/25 px-5 pb-4 pt-3 text-sm leading-relaxed text-base/80 dark:text-sage">
-                  {faq.a}
-                </div>
-              </details>
-            ))}
-          </div>
-        </Reveal>
-      </section>
+      {insuranceFaqs.length > 0 ? (
+        <section className="page-container page-align pb-4">
+          <Reveal>
+            <h2 className="text-2xl font-bold text-base dark:text-secondary sm:text-3xl">
+              Insurance cover
+            </h2>
+            <div className="mt-6 space-y-3">
+              {insuranceFaqs.map((faq) => (
+                <details
+                  key={faq.q}
+                  className="group rounded-xl border border-sage/40 bg-base/5 open:border-primary/40 dark:border-sage/30 dark:bg-secondary/5"
+                >
+                  <summary className="cursor-pointer list-none px-5 py-4 font-semibold text-base dark:text-secondary [&::-webkit-details-marker]:hidden">
+                    <span className="flex items-center justify-between gap-4">
+                      {faq.q}
+                      <ChevronRight className="h-5 w-5 shrink-0 text-primary transition group-open:rotate-90" aria-hidden="true" />
+                    </span>
+                  </summary>
+                  <div className="border-t border-sage/25 px-5 pb-4 pt-3 text-sm leading-relaxed text-base/80 dark:text-sage">
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </Reveal>
+        </section>
+      ) : null}
 
       <section className="page-container pb-14 page-align">
         <Reveal>
